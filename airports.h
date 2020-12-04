@@ -13,6 +13,7 @@ class Airports {
  public:
   Airports(string file);
   void bfs();
+  void getDistance(string airport1, string airport2);
   void getStronglyConnected(string airline);
 
  private:
