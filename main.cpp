@@ -3,6 +3,7 @@
 
 int main() {
   Airports airports;
+  std::cout << std::endl;
   std::string command;
   bool done = false;
   while(!done) {
