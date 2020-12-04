@@ -3,7 +3,8 @@
 #include <iostream>
 #include <stdlib.h>
 
-Airports::Airports(string filename) : g_(true){
+Airports::Airports() : g_(true){
+    std::string filename;
     std::ifstream file(filename);
     if(file.fail()){
         std::cout << "Error opening file. Quitting..." << std::endl;
@@ -20,9 +21,9 @@ Airports::Airports(string filename) : g_(true){
 void Airports::bfs(){
 
 }
-void Airports::getDistance(string airport1, string airport2){
+void Airports::getDistance(){
     
 }
-void Airports::getStronglyConnected(string airline){
+void Airports::getStronglyConnected(){
 
 }
