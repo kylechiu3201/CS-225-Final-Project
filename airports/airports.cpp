@@ -42,10 +42,23 @@ Airports::Airports() : g_(true){
         g_.insertVertex(airport_); //insert airports as vertexes
     }
     file.close();
+
+    std::string fileair;
+    std::cout << "Enter airline data file name:" << std::endl; //read in route data set
+    std::cin >> fileair;
+    std::ifstream file_a(fileair);
+    while(std::getline(file_a,str)){
+        std::stringstream ss(str);  // takes the line of data and puts them into fields
+        string data;
+    }
     /*std::string fileroute;
     std::cout << "Enter route data file name:" << std::endl; //read in route data set
     std::cin >> fileroute;
-    std::ifstream file_r(fileroute);*/
+    std::ifstream file_r(fileroute);
+    while(std::getline(file_r,str)){
+
+    }*/
+
 }
 void Airports::bfs(){
 
