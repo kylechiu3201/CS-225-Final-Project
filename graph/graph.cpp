@@ -190,6 +190,8 @@ bool Graph::insertEdge(Vertex source, Vertex destination)
     }
         //source vertex exists
     adjacency_list[source][destination] = Edge(source, destination);
+    std::string temp = destination.get_IATA() == "" ? destination.get_ICAO() : destination.get_IATA();
+    adjacency_list[source][destination].insertAirline(temp);
     if(!directed)
     {
         if(adjacency_list.find(destination)== adjacency_list.end())
