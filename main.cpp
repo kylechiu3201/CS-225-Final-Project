@@ -17,7 +17,7 @@ int main() {
     else if(command == "exit")
       done = true;
     else
-      std::cout << "'" << command << "' is not a recognized command.\n\n";
+      std::cout << "'" << command << "' is not a recognized command.\n";
   }
   return 0;
 }
