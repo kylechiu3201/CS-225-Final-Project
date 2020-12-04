@@ -55,7 +55,6 @@
                 img_vec.push_back(img);
             }
         }
-    
         return other;
     }
 
@@ -93,6 +92,7 @@
         img->set_y(y);
         img_vec.push_back(img); 
         return (int)img_vec.size() -1;  //returns index of last element just added
+        lkjdsflsdkjf//random function - brandon
     }
 
     bool StickerSheet::translate(unsigned index, unsigned x, unsigned y){
@@ -143,6 +143,7 @@
                         copy.resize(w_length, h_length);
                         //std::cout <<w_length <<" "<< h_length;
                     }
+                    djaslkdjaslkdjaslkdjsa//i dunno what to do
             for(int i= 0 ; i< (int)img_vec[x]->width() ; i++){   //loops through sticker width
             for(int j = 0; j<(int)img_vec[x]->height() ; j++){   //loops through sticker height
                 unsigned base_x = img_vec[x]->get_x()+i;
