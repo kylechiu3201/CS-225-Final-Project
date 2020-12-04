@@ -202,28 +202,28 @@ public:
      */
     Edge setEdgeWeight(Vertex source, Vertex destination, int weight);
 
-    // /**
-    //  * Creates a name for snapshots of the graph.
-    //  * @param title - the name to save the snapshots as
-    //  */
-    // void initSnapshot(string title);
+    /**
+     * Creates a name for snapshots of the graph.
+     * @param title - the name to save the snapshots as
+     */
+    void initSnapshot(string title);
 
-    // /**
-    //  * Saves a snapshot of the graph to file.
-    //  * initSnapshot() must be run first.
-    //  */
-    // void snapshot();
+    /**
+     * Saves a snapshot of the graph to file.
+     * initSnapshot() must be run first.
+     */
+    void snapshot();
 
-    // /**
-    //  * Prints the graph to stdout.
-    //  */
-    // void print() const;
+    /**
+     * Prints the graph to stdout.
+     */
+    void print() const;
 
-    // /**
-    //  * Saves the graph as a PNG image.
-    //  * @param title - the filename of the PNG image
-    //  */
-    // void savePNG(string title) const;
+    /**
+     * Saves the graph as a PNG image.
+     * @param title - the filename of the PNG image
+     */
+    void savePNG(string title) const;
 
     bool isDirected() const;
 
