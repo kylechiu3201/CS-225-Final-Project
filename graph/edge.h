@@ -105,9 +105,30 @@ class Edge
             return false;
         return true;
     }
+    
+    void insertAirline(Airline airline) {
+      std::string IATA = airline.get_IATA();
+      std::string ICAO = airline.get_ICAO();
+      if(IATA != "")
+        airlines_.insert(IATA);
+      if(ICAO != "")
+        airlines_.insert(ICAO);
+    }
 
     void insertAirline(string airline) {
-      airlines_.insert(airline);
+      if(airline != "")
+        airlines_.insert(airline);
+    }
+
+    bool hasAirline(Airline airline) {
+      std::string IATA = airline.get_IATA();
+      std::string ICAO = airline.get_ICAO();
+      int ans = 0;
+      if(IATA != "")
+        ans += airlines_.count(IATA);
+      if(ICAO != "")
+        ans += airlines_.count(ICAO);
+      return ans;
     }
 
     bool hasAirline(string airline) {
