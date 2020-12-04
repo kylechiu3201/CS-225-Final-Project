@@ -7,6 +7,10 @@ using std::string;
 
 Airports::Airports() : g_(true){
     std::string filename;
+    std::string input;
+    std::cout << "Enter airport data file name:" << std::endl; //read in airport data set
+    std::cin >> input;
+    filename = "data/"+input;
     std::ifstream file(filename);
     if(file.fail()){
         std::cout << "Error opening file. Quitting..." << std::endl;
@@ -37,9 +41,13 @@ Airports::Airports() : g_(true){
         getline(ss, data, ',');
         std::stringstream(data) >> longitude;
         Airport airport_(port, name, city, country, IATA, ICAO, latitude, longitude);
-        //insert vertex function
-        g_.insertVertex(airport_);
+        g_.insertVertex(airport_); //insert airports as vertexes
     }
+    file.close();
+    /*std::string fileroute;
+    std::cout << "Enter route data file name:" << std::endl; //read in route data set
+    std::cin >> fileroute;
+    std::ifstream file_r(fileroute);*/
 }
 void Airports::bfs(){
 
