@@ -35,7 +35,7 @@
 #include <vector>
 
 #include "edge.h"
-#include "random.h"
+#include "airport.h"
 
 using std::cerr;
 using std::cout;
@@ -44,11 +44,12 @@ using std::vector;
 using std::set;
 using std::string;
 using std::to_string;
-using std::vector;
 using std::pair;
 using std::make_pair;
 using std::unordered_map;
 
+
+typedef Airport::Airport Vertex;
 
 /**
  * Represents a graph; used by the GraphTools class.
@@ -229,17 +230,16 @@ public:
     void clear();
 
 
-    const static Vertex InvalidVertex;
+    static Vertex InvalidVertex;
     const static Edge InvalidEdge;
     const static int InvalidWeight;
-    const static string InvalidLabel;
+    const static int InvalidLabel;
 
 private:
     mutable unordered_map<Vertex, unordered_map<Vertex, Edge>> adjacency_list;
 
     bool weighted;
     bool directed;
-    Random random;
     int picNum;
     string picName;
 
