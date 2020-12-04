@@ -208,8 +208,12 @@ bool Graph::insertEdge(Vertex source, Vertex destination, Airline airline)
     && adjacency_list[source].find(destination)!= adjacency_list[source].end())
     {
         //edge already exit
-        std::string temp = airline.get_IATA() == "" ? airline.get_ICAO() : airline.get_IATA();
-        adjacency_list[source][destination].insertAirline(temp);
+        std::string IATA = airline.get_IATA();
+        std::string ICAO = airline.get_ICAO();
+        if(IATA != "")
+          adjacency_list[source][destination].insertAirline(IATA);
+        if(ICAO != "")
+          adjacency_list[source][destination].insertAirline(ICAO);
         return false;
     }
 
@@ -219,8 +223,12 @@ bool Graph::insertEdge(Vertex source, Vertex destination, Airline airline)
     }
         //source vertex exists
     adjacency_list[source][destination] = Edge(source, destination);
-    std::string temp = airline.get_IATA() == "" ? airline.get_ICAO() : airline.get_IATA();
-    adjacency_list[source][destination].insertAirline(temp);
+    std::string IATA = airline.get_IATA();
+    std::string ICAO = airline.get_ICAO();
+    if(IATA != "")
+      adjacency_list[source][destination].insertAirline(IATA);
+    if(ICAO != "")
+      adjacency_list[source][destination].insertAirline(ICAO);
     if(!directed)
     {
         if(adjacency_list.find(destination)== adjacency_list.end())
@@ -228,6 +236,10 @@ bool Graph::insertEdge(Vertex source, Vertex destination, Airline airline)
             adjacency_list[destination] = map<Vertex, Edge>();
         }
         adjacency_list[destination][source] = Edge(source, destination);
+        if(IATA != "")
+          adjacency_list[destination][source].insertAirline(IATA);
+        if(ICAO != "")
+          adjacency_list[destination][source].insertAirline(ICAO);
     }
     
     return true;
