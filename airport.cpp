@@ -13,26 +13,15 @@ Airport::Airport() {
   longitude_ = 0;
 }
 
-Airport::Airport(string data) {
-  std::stringstream ss(
-      data);  // takes the line of data and puts them into fields
-  string str;
-  getline(ss, str, ',');
-  port_ID = std::stoi(str);
-  getline(ss, str, ',');
-  name_ = str;
-  getline(ss, str, ',');
-  city_ = str;
-  getline(ss, str, ',');
-  country_ = str;
-  getline(ss, str, ',');
-  IATA_ = str;
-  getline(ss, str, ',');
-  ICAO_ = str;
-  getline(ss, str, ',');
-  std::stringstream(str) >> latitude_;
-  getline(ss, str, ',');
-  std::stringstream(str) >> longitude_;
+Airport::Airport(int port, string name, string city, string country, string IATA, string ICAO, double latitude, double longitude) {
+  port_ID = port;
+  name_ = name;
+  city_ = city;
+  country_ = country;
+  IATA_ = IATA;
+  ICAO_ = ICAO;
+  latitude_ = latitude;
+  longitude_ = longitude;
 }
 
 int Airport::get_port_ID() const { return port_ID; }

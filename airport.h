@@ -6,7 +6,7 @@ using std::string;
 class Airport{
     public:
     Airport();
-    Airport(string data);
+    Airport(int port, string name, string city, string country, string IATA, string ICAO, double latitude, double longitude);
     int get_port_ID() const;
     string get_name() const;
     string get_city() const;
