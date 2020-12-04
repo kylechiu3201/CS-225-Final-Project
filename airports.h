@@ -11,7 +11,7 @@ using std::string;
 
 class Airports {
  public:
-  Airports(string file);
+  Airports(string filename);
   void bfs();
   void getDistance(string airport1, string airport2);
   void getStronglyConnected(string airline);
