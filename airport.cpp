@@ -49,3 +49,20 @@ string Airport::get_ICAO() { return ICAO_; }
 double Airport::get_latitude() { return latitude_; }
 
 double Airport::get_longitude() { return longitude_; }
+
+bool Airport::operator<(const Airport & a){
+  if(port_ID < a.port_ID){
+    return true;
+  }
+  return false;
+}
+
+
+bool Airport::operator>(const Airport & a){
+  if(port_ID == a.port_ID){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
