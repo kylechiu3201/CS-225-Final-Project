@@ -49,7 +49,7 @@ using std::make_pair;
 using std::map;
 
 
-typedef Airport::Airport Vertex;
+typedef Airport Vertex;
 
 /**
  * Represents a graph; used by the GraphTools class.
@@ -71,7 +71,7 @@ public:
      *  not
      * @param directed - specifies whether the graph is directed
      */
-    /* Graph(bool weighted, bool directed); */
+    Graph(bool weighted, bool directed); 
 
     /**
      * Constructor to create a random, connected graph.
@@ -87,7 +87,7 @@ public:
      * @param source - vertex to get neighbors from
      * @return a vector of vertices
      */
-    vector<Vertex> getAdjacent(Vertex source) const;
+    //vector<Vertex> getAdjacent(Vertex source) const;
 
     /**
      * Returns one vertex in the graph. This function can be used
@@ -202,28 +202,28 @@ public:
      */
     Edge setEdgeWeight(Vertex source, Vertex destination, int weight);
 
-    /**
-     * Creates a name for snapshots of the graph.
-     * @param title - the name to save the snapshots as
-     */
-    void initSnapshot(string title);
+    // /**
+    //  * Creates a name for snapshots of the graph.
+    //  * @param title - the name to save the snapshots as
+    //  */
+    // void initSnapshot(string title);
 
-    /**
-     * Saves a snapshot of the graph to file.
-     * initSnapshot() must be run first.
-     */
-    void snapshot();
+    // /**
+    //  * Saves a snapshot of the graph to file.
+    //  * initSnapshot() must be run first.
+    //  */
+    // void snapshot();
 
-    /**
-     * Prints the graph to stdout.
-     */
-    void print() const;
+    // /**
+    //  * Prints the graph to stdout.
+    //  */
+    // void print() const;
 
-    /**
-     * Saves the graph as a PNG image.
-     * @param title - the filename of the PNG image
-     */
-    void savePNG(string title) const;
+    // /**
+    //  * Saves the graph as a PNG image.
+    //  * @param title - the filename of the PNG image
+    //  */
+    // void savePNG(string title) const;
 
     bool isDirected() const;
 
@@ -233,7 +233,7 @@ public:
     static Vertex InvalidVertex;
     const static Edge InvalidEdge;
     const static int InvalidWeight;
-    const static int InvalidLabel;
+    const static string InvalidLabel;
 
 private:
     mutable map<Vertex, map<Vertex, Edge>> adjacency_list;

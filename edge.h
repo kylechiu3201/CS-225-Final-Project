@@ -8,8 +8,9 @@
 #include <string>
 #include <limits.h>
 #include "airport.h"
+#include <unordered_set>
 
-
+using std::string;
 typedef Airport Vertex;
 
 /**
@@ -30,7 +31,7 @@ class Edge
      * @param v - the other vertex it is connected to
      */
     Edge(Vertex u, Vertex v)
-        : source(u), dest(v), label(-1), weight(-1)
+        : source(u), dest(v), label(""), weight(-1)
     { /* nothing */
     }
 
@@ -40,7 +41,7 @@ class Edge
      * @param v - the other vertex it is connected to
      * @param lbl - the edge label
      */
-    Edge(Vertex u, Vertex v, int lbl)
+    Edge(Vertex u, Vertex v, string lbl)
         : source(u), dest(v), label(lbl), weight(-1)
     { /* nothing */
     }
@@ -52,7 +53,7 @@ class Edge
      * @param w - the weight of the edge
      * @param lbl - the edge label
      */
-    Edge(Vertex u, Vertex v, int w, int lbl)
+    Edge(Vertex u, Vertex v, int w, string lbl)
         : source(u), dest(v), label(lbl), weight(w)
     { /* nothing */
     }
@@ -78,7 +79,7 @@ class Edge
     /**
      * Gets edge label.
      */
-    int getLabel() const
+    string getLabel() const
     {
         return label;
     }
@@ -97,14 +98,18 @@ class Edge
      */
     bool operator==(Edge& other) const
     {
-        if (this->source.get_port_ID() != other.source.get_port_ID())
+        if (source.get_port_ID() != other.source.get_port_ID())
             return false;
-        if (this->dest.get_port_ID() != other.dest.get_port_ID())
+        if (dest.get_port_ID() != other.dest.get_port_ID())
             return false;
         return true;
     }
 private:
-    int label; /**< The edge label **/
+    string label; /**< The edge label **/
     int weight; /**< The edge weight (if in a weighed graph) **/
+
+
+    //unordered_set to store airlines
+    
 
 };

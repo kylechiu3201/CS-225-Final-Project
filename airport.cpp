@@ -34,7 +34,7 @@ Airport::Airport(string data) {
   longitude_ = std::stoi(str);
 }
 
-int Airport::get_port_ID() { return port_ID; }
+int Airport::get_port_ID() const { return port_ID; }
 
 string Airport::get_name() { return name_; }
 
