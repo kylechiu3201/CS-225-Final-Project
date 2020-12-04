@@ -96,6 +96,7 @@ Airports::Airports() : g_(true){
         getline(ss, data, ',');
         dest = data;
         g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
+        g_.setEdgeWeight(port_map[source], port_map[dest], Airport::get_distance(port_map[source],port_map[dest]));
     }
     file_r.close();
 
@@ -104,9 +105,10 @@ void Airports::bfs(){
 
 }
 
-void Airports::getDistance(){
-    
+void Airports::shortest_path(Airport a, Airport b){
+
 }
+
 void Airports::getStronglyConnected(){
 
 }

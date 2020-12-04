@@ -229,20 +229,23 @@ bool Graph::insertEdge(Vertex source, Vertex destination, Airline airline)
       adjacency_list[source][destination].insertAirline(IATA);
     if(ICAO != "")
       adjacency_list[source][destination].insertAirline(ICAO);
-    if(!directed)
-    {
-        if(adjacency_list.find(destination)== adjacency_list.end())
-        {
-            adjacency_list[destination] = map<Vertex, Edge>();
-        }
-        adjacency_list[destination][source] = Edge(source, destination);
-        if(IATA != "")
-          adjacency_list[destination][source].insertAirline(IATA);
-        if(ICAO != "")
-          adjacency_list[destination][source].insertAirline(ICAO);
-    }
     
-    return true;
+
+    //our graph always directed 
+    // if(!directed)
+    // {
+    //     if(adjacency_list.find(destination)== adjacency_list.end())
+    //     {
+    //         adjacency_list[destination] = map<Vertex, Edge>();
+    //     }
+    //     adjacency_list[destination][source] = Edge(source, destination);
+    //     if(IATA != "")
+    //       adjacency_list[destination][source].insertAirline(IATA);
+    //     if(ICAO != "")
+    //       adjacency_list[destination][source].insertAirline(ICAO);
+    // }
+    
+    // return true;
 }
 
 Edge Graph::removeEdge(Vertex source, Vertex destination)

@@ -1,6 +1,7 @@
 #include "airport.h"
 
 #include <sstream>
+#include <cmath>
 
 Airport::Airport() {
   port_ID = 0;
@@ -36,9 +37,20 @@ string Airport::get_IATA() const { return IATA_; }
 
 string Airport::get_ICAO() const { return ICAO_; }
 
-double Airport::get_latitude() const { return latitude_; }
+long double Airport::get_latitude() const { return latitude_; }
 
-double Airport::get_longitude() const { return longitude_; }
+long double Airport::get_longitude() const { return longitude_; }
+
+double Airport::get_distance(const Airport & a, const Airport & b){
+  long double long_d = b.longitude_ - a.longitude_;
+  long double lat_d = b.latitude_ - a.latitude_;
+
+  long double dist = pow(sin(lat_d / 2), 2) +  
+                          cos(a.latitude_) * cos(b.latitude_) *  
+                          pow(sin(long_d / 2), 2); 
+  dist = asin(sqrt(dist)) *2 * 6371;
+  return dist;
+}
 
 bool Airport::operator<(const Airport& a) const {
   if (port_ID < a.port_ID) {

@@ -15,8 +15,8 @@ class Airports {
  public:
   Airports();
   void bfs();
-  void getDistance();
   void getStronglyConnected();
+  void shortest_path();
 
  private:
   Graph g_;
