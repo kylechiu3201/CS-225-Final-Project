@@ -11,7 +11,7 @@ const Edge Graph::InvalidEdge = Edge(Graph::InvalidVertex, Graph::InvalidVertex,
 
 Graph::Graph(bool weighted)
 {  
-
+  this->weighted = weighted;
 }
 
 Graph::Graph(bool weighted, bool directed) : weighted(weighted),directed(directed) {
