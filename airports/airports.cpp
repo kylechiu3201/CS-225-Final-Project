@@ -18,7 +18,7 @@ Airports::Airports() : g_(true, true){
     std::string str, name, city, country, IATA, ICAO;
     int port;
     double latitude, longitude;
-
+    bool first = false;
     while(std::getline(file,str)){
         std::stringstream ss(str);  // takes the line of data and puts them into fields
         string data;
@@ -39,6 +39,10 @@ Airports::Airports() : g_(true, true){
         getline(ss, data, ',');
         std::stringstream(data) >> longitude;
         Airport airport_(port, name, city, country, IATA, ICAO, latitude, longitude);
+        if(first==false){
+            startingPort_ = airport_;
+            first = true;
+        }
         g_.insertVertex(airport_); //insert airports as vertexes
         if(IATA.compare("") != 0 && IATA.compare("\\N") != 0){
             port_map.insert({IATA,airport_});
