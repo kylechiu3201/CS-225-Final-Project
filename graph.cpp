@@ -371,7 +371,7 @@ void Graph::savePNG(string title) const
     int xpos2 = 100;
     int xpos, ypos;
     for (auto it : allv) {
-        string current = it->get_name();
+        string current = it.get_name();
         neatoFile 
             << "\t\"" 
             << current
