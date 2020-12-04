@@ -30,9 +30,9 @@ Airport::Airport(string data) {
   getline(ss, str, ',');
   ICAO_ = str;
   getline(ss, str, ',');
-  latitude_ = std::stoi(str);
+  latitude_ = std::stod(str);
   getline(ss, str, ',');
-  longitude_ = std::stoi(str);
+  longitude_ = std::stod(str);
 }
 
 int Airport::get_port_ID() const { return port_ID; }
