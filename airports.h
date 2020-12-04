@@ -11,10 +11,10 @@ using std::string;
 
 class Airports {
  public:
-  Airports(string filename);
+  Airports();
   void bfs();
-  void getDistance(string airport1, string airport2);
-  void getStronglyConnected(string airline);
+  void getDistance();
+  void getStronglyConnected();
 
  private:
   Graph g_;
