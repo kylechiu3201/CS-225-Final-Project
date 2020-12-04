@@ -106,6 +106,10 @@ class Edge
         return true;
     }
 
+    void insertAirline(string airline) {
+      airlines_.insert(airline);
+    }
+
     bool hasAirline(string airline) {
       return airlines_.count(airline);
     }
