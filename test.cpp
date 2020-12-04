@@ -101,6 +101,7 @@
             Image * img = img_vec[index];
             img->set_x(x);
             img->set_y(y);
+            std::cout << lasdflakdf; // Kyle
             return true;
         }
         return false;
@@ -141,6 +142,7 @@
                     }
                    if(flag ==1){
                         copy.resize(w_length, h_length);
+                        std::cout << testingtesting; // Kyle
                         //std::cout <<w_length <<" "<< h_length;
                     }
                     djaslkdjaslkdjaslkdjsa//i dunno what to do
@@ -150,10 +152,18 @@
                 unsigned base_y = img_vec[x]->get_y()+j;
                     //check if within width boundaries
                     HSLAPixel & b_pixel = copy.getPixel(base_x,base_y);
+                    std::cout << testingtesting; // Kyle
+                    std::cout << testing; // Kyle
+                    std::cout << pleasework; // Kyle
                     HSLAPixel & s_pixel = img_vec[x]->getPixel(i,j);
                     if(s_pixel.a != 0){
+<<<<<<< Updated upstream
                         b_pixel.h = 1; //change
                         b_pixel.s = 1; //change
+=======
+                        b_pixel.h = 5;
+                        b_pixel.s = s_pixel.s;
+>>>>>>> Stashed changes
                         b_pixel.l = s_pixel.l;
                         b_pixel.a = s_pixel.a;
                     }
