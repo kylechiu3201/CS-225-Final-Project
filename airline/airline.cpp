@@ -1,5 +1,8 @@
 #include "airline.h"
 
+Airline::Airline(){
+    
+}
 Airline::Airline(int ID, std::string name, std::string IATA, std::string ICAO,
                  std::string country) {
   ID_ = ID;

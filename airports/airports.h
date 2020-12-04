@@ -22,4 +22,5 @@ class Airports {
   Graph g_;
   Airport startingPort_;
   std::unordered_map<std::string, Airline> air_map;
+  std::unordered_map<std::string, Airport> port_map;
 };
