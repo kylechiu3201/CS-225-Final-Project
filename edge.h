@@ -8,7 +8,8 @@
 #include <string>
 #include <limits.h>
 #include "airport.h"
-#include <unordered_set>
+#include "airline.h"
+#include <set>
 
 using std::string;
 typedef Airport Vertex;
@@ -108,8 +109,7 @@ private:
     string label; /**< The edge label **/
     int weight; /**< The edge weight (if in a weighed graph) **/
 
-
     //unordered_set to store airlines
-    
+    std::set<Airline> airlines_;
 
 };
