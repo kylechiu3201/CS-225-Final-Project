@@ -41,7 +41,7 @@ airport.o : airport.cpp airport.h
 	$(CXX) $(CXXFLAGS) airport.cpp
 
 airports.o : airports.cpp airports.h airport.h graph.h edge.h
-	$(CXX) $(CXXFLAGS) airport.cpp
+	$(CXX) $(CXXFLAGS) airports.cpp
 
 graph.o : graph.cpp graph.h edge.h airport.h
 	$(CXX) $(CXXFLAGS) graph.cpp
