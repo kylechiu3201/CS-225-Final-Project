@@ -97,6 +97,7 @@ Airports::Airports() : g_(true){
         dest = data;
         g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
     }
+    file_r.close();
 
 }
 void Airports::bfs(){
