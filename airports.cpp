@@ -14,6 +14,7 @@ Airports::Airports(string filename) : g_(true){
     while(std::getline(file,str)){
         Airport port(str);
         //insert vertex function
+        g_.insertVertex(port);
     }
 }
 void Airports::bfs(){

@@ -8,13 +8,13 @@ class Airport{
     Airport();
     Airport(string data);
     int get_port_ID() const;
-    string get_name();
-    string get_city();
-    string get_country();
-    string get_IATA();
-    string get_ICAO();
-    double get_latitude();
-    double get_longitude();
+    string get_name() const;
+    string get_city() const;
+    string get_country() const;
+    string get_IATA() const ;
+    string get_ICAO() const;
+    double get_latitude() const;
+    double get_longitude() const;
     bool operator<(const Airport & a) const;
     bool operator>(const Airport & a) const;
  private:

@@ -30,26 +30,26 @@ Airport::Airport(string data) {
   getline(ss, str, ',');
   ICAO_ = str;
   getline(ss, str, ',');
-  latitude_ = std::stoi(str);
+  std::stringstream(str) >> latitude_;
   getline(ss, str, ',');
-  longitude_ = std::stoi(str);
+  std::stringstream(str) >> longitude_;
 }
 
 int Airport::get_port_ID() const { return port_ID; }
 
-string Airport::get_name() { return name_; }
+string Airport::get_name() const { return name_; }
 
-string Airport::get_city() { return city_; }
+string Airport::get_city() const { return city_; }
 
-string Airport::get_country() { return country_; }
+string Airport::get_country() const { return country_; }
 
-string Airport::get_IATA() { return IATA_; }
+string Airport::get_IATA() const { return IATA_; }
 
-string Airport::get_ICAO() { return ICAO_; }
+string Airport::get_ICAO() const { return ICAO_; }
 
-double Airport::get_latitude() { return latitude_; }
+double Airport::get_latitude() const { return latitude_; }
 
-double Airport::get_longitude() { return longitude_; }
+double Airport::get_longitude() const { return longitude_; }
 
 bool Airport::operator<(const Airport& a) const {
   if (port_ID < a.port_ID) {
