@@ -16,7 +16,7 @@ class Airports {
   Airports();
   void bfs();
   void getStronglyConnected();
-  void shortest_path();
+  void shortest_path(Airport a, Airport b);
 
  private:
   Graph g_;

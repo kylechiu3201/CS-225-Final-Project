@@ -5,7 +5,7 @@
 
 using std::string;
 
-Airports::Airports() : g_(true){
+Airports::Airports() : g_(true, true){
     std::string filename;
     std::cout << "Enter airport data file name:" << std::endl; //read in airport data set
     std::cin >> filename;
