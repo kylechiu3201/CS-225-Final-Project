@@ -11,6 +11,7 @@
         base = new Image(picture);  //deep copy of base
         //probably change this, no need to initialize?  what happens if you add to vector that's full?
         //img_vec = std::vector<Image*>(max);   //does this create default Image *?
+        I am a cool christian guy do not mind this commit;
     }   
 
     StickerSheet::~StickerSheet(){
@@ -150,13 +151,16 @@
                     HSLAPixel & b_pixel = copy.getPixel(base_x,base_y);
                     HSLAPixel & s_pixel = img_vec[x]->getPixel(i,j);
                     if(s_pixel.a != 0){
-                        b_pixel.h = s_pixel.h; 
-                        b_pixel.s = s_pixel.s;
+                        b_pixel.h = 1; //change
+                        b_pixel.s = 1; //change
                         b_pixel.l = s_pixel.l;
                         b_pixel.a = s_pixel.a;
                     }
                 }
             }
+        }
+        for(int x =0 ; x<5;x++){
+            std::cout << "wow";
         }
         return copy;
     }
