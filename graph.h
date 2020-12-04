@@ -21,7 +21,7 @@
 #pragma once
 
 #include <list>
-#include <unordered_map>
+#include <map>
 #include <utility>
 #include <algorithm>
 #include <string>
@@ -46,7 +46,7 @@ using std::string;
 using std::to_string;
 using std::pair;
 using std::make_pair;
-using std::unordered_map;
+using std::map;
 
 
 typedef Airport::Airport Vertex;
@@ -71,7 +71,7 @@ public:
      *  not
      * @param directed - specifies whether the graph is directed
      */
-    Graph(bool weighted, bool directed);
+    /* Graph(bool weighted, bool directed); */
 
     /**
      * Constructor to create a random, connected graph.
@@ -236,7 +236,7 @@ public:
     const static int InvalidLabel;
 
 private:
-    mutable unordered_map<Vertex, unordered_map<Vertex, Edge>> adjacency_list;
+    mutable map<Vertex, map<Vertex, Edge>> adjacency_list;
 
     bool weighted;
     bool directed;
