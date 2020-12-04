@@ -7,10 +7,8 @@ using std::string;
 
 Airports::Airports() : g_(true){
     std::string filename;
-    std::string input;
     std::cout << "Enter airport data file name:" << std::endl; //read in airport data set
-    std::cin >> input;
-    filename = "data/"+input;
+    std::cin >> filename;
     std::ifstream file(filename);
     if(file.fail()){
         std::cout << "Error opening file. Quitting..." << std::endl;
