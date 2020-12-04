@@ -1,4 +1,4 @@
-EXENAME = airports
+EXENAME = final_project
 OBJS = main.o airline.o airport.o airports.o graph.o
 
 CXX = clang++
@@ -34,20 +34,20 @@ all : $(EXENAME)
 $(EXENAME) : output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
-main.o : main.cpp airports.h
+main.o : main.cpp airports/airports.h
 	$(CXX) $(CXXFLAGS) main.cpp
 
-airline.o : airline.cpp airline.h
-	$(CXX) $(CXXFLAGS) airline.cpp
+airline.o : airline/airline.cpp airline/airline.h
+	$(CXX) $(CXXFLAGS) airline/airline.cpp
 
-airport.o : airport.cpp airport.h
-	$(CXX) $(CXXFLAGS) airport.cpp
+airport.o : airport/airport.cpp airport/airport.h
+	$(CXX) $(CXXFLAGS) airport/airport.cpp
 
-airports.o : airports.cpp airports.h airport.h graph.h edge.h
-	$(CXX) $(CXXFLAGS) airports.cpp
+airports.o : airports/airports.cpp airports/airports.h airport/airport.h graph/graph.h graph/edge.h
+	$(CXX) $(CXXFLAGS) airports/airports.cpp
 
-graph.o : graph.cpp graph.h edge.h airline.h airport.h
-	$(CXX) $(CXXFLAGS) graph.cpp
+graph.o : graph/graph.cpp graph/graph.h graph/edge.h airline/airline.h airport/airport.h
+	$(CXX) $(CXXFLAGS) graph/graph.cpp
 	
 clean :
 	-rm -f *.o $(EXENAME) airports

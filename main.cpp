@@ -1,5 +1,5 @@
 #include <iostream>
-#include "airports.h"
+#include "airports/airports.h"
 
 int main() {
   Airports airports;

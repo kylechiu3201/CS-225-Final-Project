@@ -7,8 +7,8 @@
 
 #include <string>
 #include <limits.h>
-#include "airport.h"
-#include "airline.h"
+#include "../airport/airport.h"
+#include "../airline/airline.h"
 #include <set>
 
 using std::string;

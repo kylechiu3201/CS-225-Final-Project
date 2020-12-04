@@ -35,7 +35,7 @@
 #include <vector>
 
 #include "edge.h"
-#include "airport.h"
+#include "../airport/airport.h"
 
 using std::cerr;
 using std::cout;

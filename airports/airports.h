@@ -3,9 +3,9 @@
 #include <string>
 #include <vector>
 
-#include "airport.h"
-#include "edge.h"
-#include "graph.h"
+#include "../airport/airport.h"
+#include "../graph/edge.h"
+#include "../graph/graph.h"
 
 using std::string;
 
