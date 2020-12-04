@@ -1,5 +1,5 @@
 EXENAME = airports
-OBJS = main.o airport.o airports.o graph.o
+OBJS = main.o airline.o airport.o airports.o graph.o
 
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libstdc++ -c -g -O0 -Wall -Wextra -pedantic
@@ -37,13 +37,16 @@ $(EXENAME) : output_msg $(OBJS)
 main.o : main.cpp airports.h
 	$(CXX) $(CXXFLAGS) main.cpp
 
+airline.o : airline.cpp airline.h
+	$(CXX) $(CXXFLAGS) airline.cpp
+
 airport.o : airport.cpp airport.h
 	$(CXX) $(CXXFLAGS) airport.cpp
 
 airports.o : airports.cpp airports.h airport.h graph.h edge.h
 	$(CXX) $(CXXFLAGS) airports.cpp
 
-graph.o : graph.cpp graph.h edge.h airport.h
+graph.o : graph.cpp graph.h edge.h airline.h airport.h
 	$(CXX) $(CXXFLAGS) graph.cpp
 	
 clean :
