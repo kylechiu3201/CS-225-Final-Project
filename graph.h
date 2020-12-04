@@ -87,7 +87,7 @@ public:
      * @param source - vertex to get neighbors from
      * @return a vector of vertices
      */
-    //vector<Vertex> getAdjacent(Vertex source) const;
+    vector<Vertex> getAdjacent(Vertex source) const;
 
     /**
      * Returns one vertex in the graph. This function can be used
