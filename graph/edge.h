@@ -105,11 +105,15 @@ class Edge
             return false;
         return true;
     }
+
+    bool hasAirline(string airline) {
+      return airlines_.count(airline);
+    }
+
 private:
     string label; /**< The edge label **/
     int weight; /**< The edge weight (if in a weighed graph) **/
 
     //unordered_set to store airlines
     std::unordered_set<string> airlines_;
-
 };
