@@ -9,7 +9,6 @@ class Airline {
   std::string get_IATA();
   std::string get_ICAO();
   std::string get_country();
-  
 
  private:
   int ID_;
@@ -17,5 +16,4 @@ class Airline {
   std::string IATA_;
   std::string ICAO_;
   std::string country_;
-  
 };
