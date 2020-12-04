@@ -40,6 +40,12 @@ Airports::Airports() : g_(true){
         std::stringstream(data) >> longitude;
         Airport airport_(port, name, city, country, IATA, ICAO, latitude, longitude);
         g_.insertVertex(airport_); //insert airports as vertexes
+        if(IATA.compare("") != 0 && IATA.compare("\\N") != 0){
+            port_map.insert({IATA,airport_});
+        }
+        if(ICAO.compare("") != 0 && ICAO.compare("\\N") != 0){
+            port_map.insert({ICAO,airport_});
+        }
     }
     file.close();
 
@@ -58,9 +64,9 @@ Airports::Airports() : g_(true){
         name = data;
         getline(ss, data, ',');
         getline(ss, data, ',');
-        IATA = data;
+        IATA = data.substr(1,data.size()-2);
         getline(ss, data, ',');
-        ICAO = data;
+        ICAO = data.substr(1,data.size()-2);
         getline(ss, data, ',');
         getline(ss, data, ',');
         country = data;
@@ -74,13 +80,23 @@ Airports::Airports() : g_(true){
         }
     }
     file_a.close();
-    /*std::string fileroute;
+    std::string fileroute;
     std::cout << "Enter route data file name:" << std::endl; //read in route data set
     std::cin >> fileroute;
     std::ifstream file_r(fileroute);
     while(std::getline(file_r,str)){
-
-    }*/
+        std::stringstream ss(str);  // takes the line of data and puts them into fields
+        string data, air, source, dest;
+        getline(ss, data, ',');
+        air = data;
+        getline(ss, data, ',');
+        getline(ss, data, ',');
+        source = data;
+        getline(ss, data, ',');
+        getline(ss, data, ',');
+        dest = data;
+        g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
+    }
 
 }
 void Airports::bfs(){
