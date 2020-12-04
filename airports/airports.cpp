@@ -23,7 +23,7 @@ Airports::Airports() : g_(true){
         std::stringstream ss(str);  // takes the line of data and puts them into fields
         string data;
         getline(ss, data, ',');
-        port = std::stoi(str);
+        port = std::stoi(data);
         getline(ss, data, ',');
         name = data;
         getline(ss, data, ',');
@@ -47,10 +47,33 @@ Airports::Airports() : g_(true){
     std::cout << "Enter airline data file name:" << std::endl; //read in route data set
     std::cin >> fileair;
     std::ifstream file_a(fileair);
+    int ID;
+
     while(std::getline(file_a,str)){
         std::stringstream ss(str);  // takes the line of data and puts them into fields
         string data;
+        getline(ss, data, ',');
+        ID = std::stoi(data);
+        getline(ss, data, ',');
+        name = data;
+        getline(ss, data, ',');
+        getline(ss, data, ',');
+        IATA = data;
+        getline(ss, data, ',');
+        ICAO = data;
+        getline(ss, data, ',');
+        getline(ss, data, ',');
+        country = data;
+
+        Airline airline_(ID,name,IATA,ICAO,country);
+        if(IATA.compare("") != 0 && IATA.compare("\\N") != 0){
+            air_map.insert({IATA,airline_});
+        }
+        if(ICAO.compare("") != 0 && ICAO.compare("\\N") != 0){
+            air_map.insert({ICAO,airline_});
+        }
     }
+    file_a.close();
     /*std::string fileroute;
     std::cout << "Enter route data file name:" << std::endl; //read in route data set
     std::cin >> fileroute;
