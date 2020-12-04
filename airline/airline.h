@@ -3,7 +3,8 @@
 
 class Airline {
  public:
-  Airline(std::string data);
+  Airline(int ID, std::string name, std::string IATA, std::string ICAO,
+          std::string country);
   int get_ID();
   std::string get_name();
   std::string get_IATA();
