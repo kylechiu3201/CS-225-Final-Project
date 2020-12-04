@@ -1,23 +1,21 @@
 #pragma once
-#include <vector>
 #include <algorithm>
 #include <string>
-#include "graph.h"
-#include "edge.h"
+#include <vector>
+
 #include "airport.h"
+#include "edge.h"
+#include "graph.h"
 
 using std::string;
 
-class Airports{
-    public:
-    Airports(string file)
+class Airports {
+ public:
+  Airports(string file);
+  void bfs();
+  void getStronglyConnected(string airline);
 
-    private:
-    Graph g_;
-    Airport startingPort_;
-
-
-
-
-
+ private:
+  Graph g_;
+  Airport startingPort_;
 }

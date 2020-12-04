@@ -4,16 +4,6 @@
 using std::string;
 
 class Airport {
- private:
-  int port_ID;
-  string name_;
-  string city_;
-  string country_;
-  string IATA_;
-  string ICAO_;
-  double latitude_;
-  double longitude_;
-
  public:
   Airport();
   Airport(string data);
@@ -25,4 +15,14 @@ class Airport {
   string get_ICAO();
   double get_latitude();
   double get_longitude();
+
+ private:
+  int port_ID;
+  string name_;
+  string city_;
+  string country_;
+  string IATA_;
+  string ICAO_;
+  double latitude_;
+  double longitude_;
 };
