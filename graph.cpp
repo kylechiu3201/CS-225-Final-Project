@@ -1,5 +1,5 @@
 #include "graph.h"
-#include <unordered_map>
+#include <map>
 #include "edge.h"
 
 
@@ -9,7 +9,7 @@
 // const int Graph:: InvalidLabel = -1;
 // const Edge Graph::InvalidEdge = Edge(Graph::InvalidVertex, Graph::InvalidVertex, Graph::InvalidWeight, Graph::InvalidLabel);
 
-Graph::Graph(bool weighted) : weighted(weighted), directed(false)
+Graph::Graph(bool weighted)
 {  
 
 }
