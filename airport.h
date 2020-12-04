@@ -15,8 +15,8 @@ class Airport{
     string get_ICAO();
     double get_latitude();
     double get_longitude();
-    bool operator<(const Airport & a);
-    bool operator>(const Airport & a);
+    bool operator<(const Airport & a) const;
+    bool operator>(const Airport & a) const;
  private:
   int port_ID;
   string name_;

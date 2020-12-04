@@ -1,4 +1,5 @@
 #include "airport.h"
+
 #include <sstream>
 
 Airport::Airport() {
@@ -50,19 +51,17 @@ double Airport::get_latitude() { return latitude_; }
 
 double Airport::get_longitude() { return longitude_; }
 
-bool Airport::operator<(const Airport & a){
-  if(port_ID < a.port_ID){
+bool Airport::operator<(const Airport& a) const {
+  if (port_ID < a.port_ID) {
     return true;
   }
   return false;
 }
 
-
-bool Airport::operator>(const Airport & a){
-  if(port_ID == a.port_ID){
+bool Airport::operator>(const Airport& a) const {
+  if (port_ID == a.port_ID) {
     return true;
-  }
-  else{
+  } else {
     return false;
   }
 }
