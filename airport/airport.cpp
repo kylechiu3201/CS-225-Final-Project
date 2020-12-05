@@ -4,7 +4,7 @@
 #include <cmath>
 
 Airport::Airport() {
-  port_ID = 0;
+  port_ID = -1;
   name_ = "";
   city_ = "";
   country_ = "";
@@ -14,7 +14,7 @@ Airport::Airport() {
   longitude_ = 0;
 }
 
-Airport::Airport(int port, string name, string city, string country, string IATA, string ICAO, double latitude, double longitude) {
+Airport::Airport(int port, string name, string city, string country, string IATA, string ICAO, long double latitude, long double longitude) {
   port_ID = port;
   name_ = name;
   city_ = city;
