@@ -4,3 +4,8 @@ We started the project today. We spent some time planning the classes/implementa
 We are currently working on processing the data in the graphs and starting to figure out how to approach the algorithms assigned to each person.
 The creation of the graph along with its edges should theoretically work,
 although we haven't tested it yet.
+
+
+12/7/2020
+
+Started writing individual algorithms. Anthony finished the implementation of Djkistras algorithm but hasn't tested it yet.
