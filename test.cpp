@@ -2,7 +2,7 @@
 #include "airports/airports.h"
 
 int main() {
-  Airports airports;
+  Airports airports("data/airports.dat", "data/airlines.dat", "data/routes.dat");
   std::string command;
   bool done = false;
   while(!done) {
