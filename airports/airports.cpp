@@ -1,11 +1,27 @@
 #include "airports.h"
 #include <sstream>
 #include <iostream>
+#include <queue>
+#include <utility> 
+#include <algorithm>
+#include <map>
+#include <unordered_map>
 #include <stdlib.h>
+#include <functional>
+#include <unordered_set>
 
 using std::string;
+using std::pair;
+using std::unordered_map;
+using std::priority_queue;
+using std::vector;
+using std::unordered_set;
+
+# define INF 0x3f3f3f3f
+
 
 Airports::Airports() : g_(true, true){
+    //num_airports = 0;
     std::string filename;
     std::cout << "Enter airport data file name:" << std::endl; //read in airport data set
     std::cin >> filename;
@@ -50,6 +66,8 @@ Airports::Airports() : g_(true, true){
         if(ICAO.compare("") != 0 && ICAO.compare("\\N") != 0){
             port_map.insert({ICAO,airport_});
         }
+        id_map[airport_.get_port_ID()] = airport_;
+        //num_airports++;
     }
     file.close();
 
@@ -109,8 +127,67 @@ void Airports::bfs(){
 
 }
 
-void Airports::shortest_path(Airport a, Airport b){
 
+void Airports::path_helper(int b, vector<string> & vec){
+    if(d_graph.parents[b]=-1){
+        return;
+    }
+    vec.insert(vec.begin(),id_map[d_graph.parents[b]].get_name());  
+    path_helper(d_graph.parents[b], vec);
+}
+
+vector<std::string> Airports::shortest_path(Airport b){   //currently returns name of each airport 
+    int dest = b.get_port_ID();
+    vector<string> shortest;
+    path_helper(dest, shortest);
+    shortest.push_back(b.get_name());
+    return shortest;
+}
+
+int Airports::shortest_dist(Airport b){
+    return d_graph.distances[b.get_port_ID()];
+}
+
+Airports::djikstras_graph Airports::create_djikstras(Airport a){
+    //cin somewhere and set starting airport
+    //also figure out what to return::: shortest distance between two airports + path to get there?
+    int start_id = a.get_port_ID();
+    priority_queue<pair<int,int>, vector<pair<int,int>>,std::greater<pair<int,int>>> pq; //first int is distance, second int is vertex/port_id
+    unordered_map<int,int> parent; //first is port_id, second is parent port_id
+    unordered_map<int,int> distance; //first is port_id, second is distance
+    unordered_set<int> visited;
+
+    vector<Vertex> vertices = g_.getVertices();
+    for(auto v : vertices){
+        distance[v.get_port_ID()] = INF;
+        parent[v.get_port_ID()] = -1;  //port id = -1 for default
+    }
+    distance[start_id] = 0;
+    //handle starting airport
+    pair<int,int> airport_id = std::make_pair(start_id, 0);
+    pq.push(airport_id);
+
+    while(!pq.empty()){
+        int u = pq.top().second; //current airport id
+        pq.pop();
+        visited.insert(u);
+        
+        d_graph.graph.insertVertex(id_map[u]);
+        vector<Vertex> vert = g_.getAdjacent(id_map[u]);
+        for(int x =0 ; x<(int)vert.size();x++){
+            int v = vert[x].get_port_ID(); //child airport_id 
+           int weight =  g_.getEdgeWeight(id_map[u], vert[x]);
+
+            //if vertex we are going to hasn't been processed yet  && 
+           if(visited.find(v)==visited.end() && distance[v] > distance[u] + weight){
+               distance[v] = distance[u] + weight;
+               pq.push(std::make_pair(distance[v], v));
+               parent[v] = u;
+           }
+        }
+    }
+    d_graph.distances = distance;
+    d_graph.parents = parent;
 }
 
 void Airports::getStronglyConnected(){

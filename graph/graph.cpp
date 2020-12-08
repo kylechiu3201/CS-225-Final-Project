@@ -245,7 +245,7 @@ bool Graph::insertEdge(Vertex source, Vertex destination, Airline airline)
     //       adjacency_list[destination][source].insertAirline(ICAO);
     // }
     
-    // return true;
+    return true;
 }
 
 Edge Graph::removeEdge(Vertex source, Vertex destination)
