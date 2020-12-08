@@ -31,6 +31,9 @@ class Airports {
   int shortest_dist(Airport b);
   void create_dijkstras(Airport a);
 
+  vector<Vertex> getVertices();
+  vector<Edge> getEdges();
+
  private:
   Graph g_;
   Airport startingPort_;

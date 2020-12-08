@@ -90,9 +90,11 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
     name = data;
     getline(ss, data, ',');
     getline(ss, data, ',');
-    IATA = data.substr(1, data.size() - 2);
+    /* IATA = data.substr(1, data.size() - 2); */
+    IATA = data;
     getline(ss, data, ',');
-    ICAO = data.substr(1, data.size() - 2);
+    /* ICAO = data.substr(1, data.size() - 2); */
+    ICAO = data;
     getline(ss, data, ',');
     getline(ss, data, ',');
     country = data;
@@ -117,13 +119,16 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
         str);  // takes the line of data and puts them into fields
     string data, air, source, dest;
     getline(ss, data, ',');
-    air = data;
+    /* air = data; */
+    air = "\"" + data + "\"";
     getline(ss, data, ',');
     getline(ss, data, ',');
-    source = data;
+    /* source = data; */
+    source = "\"" + data + "\"";
     getline(ss, data, ',');
     getline(ss, data, ',');
-    dest = data;
+    /* dest = data; */
+    dest = "\"" + data + "\"";
     g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
     g_.setEdgeWeight(port_map[source], port_map[dest],
                      Airport::get_distance(port_map[source], port_map[dest]));
@@ -256,4 +261,12 @@ void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
       s.pop();
     }
   }
+}
+
+vector<Vertex> Airports::getVertices() {
+  return g_.getVertices();
+}
+
+vector<Edge> Airports::getEdges() {
+  return g_.getEdges();
 }
