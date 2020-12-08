@@ -2,7 +2,25 @@
 #include "airports/airports.h"
 
 int main() {
-  Airports airports;
+  //gets airport data
+  std::string filename;
+  std::cout << "Enter airport data file name:"
+            << std::endl;  // read in airport data set
+  std::cin >> filename;
+
+  //gets airline data
+  std::string fileair;
+  std::cout << "Enter airline data file name:"
+            << std::endl;  // read in route data set
+  std::cin >> fileair;
+
+  //gets route data
+  std::string fileroute;
+  std::cout << "Enter route data file name:"
+            << std::endl;  // read in route data set
+  std::cin >> fileroute;
+
+  Airports airports(filename, fileair, fileroute);
   std::string command;
   bool done = false;
   while(!done) {

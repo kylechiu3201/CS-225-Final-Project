@@ -14,7 +14,6 @@ using std::string;
 using std::unordered_map;
 class Airports {
  public:
-  Airports();
   Airports(std::string filename, std::string fileair, std::string fileroute);
 
   struct dijkstras_graph {
