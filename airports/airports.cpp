@@ -135,7 +135,7 @@ Airports::Airports() : g_(true, true) {
 void Airports::bfs() {}
 
 void Airports::path_helper(int b, vector<string>& vec) {
-  if (d_graph.parents[b] = -1) {
+  if (d_graph.parents[b] == -1) {
     return;
   }
   vec.insert(vec.begin(), id_map[d_graph.parents[b]].get_name());
