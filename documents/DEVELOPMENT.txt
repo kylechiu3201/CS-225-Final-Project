@@ -8,4 +8,7 @@ although we haven't tested it yet.
 
 12/7/2020
 
-Started writing individual algorithms. Anthony finished the implementation of Djkistras algorithm but hasn't tested it yet. Kyle also finished the implemenetation for strongly connected components using Tarjan's algorithm.
+Started writing individual algorithms. Anthony finished the implementation of
+Djkistras algorithm but hasn't tested it yet. Kyle also finished the
+implemenetation for strongly connected components using Tarjan's algorithm. We
+also added a test.cpp for testing purposes.
