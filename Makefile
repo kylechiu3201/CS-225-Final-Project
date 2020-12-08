@@ -50,7 +50,7 @@ graph.o : graph/graph.cpp graph/graph.h graph/edge.h airline/airline.h airport/a
 	$(CXX) $(CXXFLAGS) graph/graph.cpp
 	
 clean :
-	-rm -f *.o $(EXENAME) airports
+	-rm -f *.o $(EXENAME)
 
 
 
