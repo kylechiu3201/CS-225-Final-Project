@@ -16,8 +16,8 @@ class Airports {
  public:
   Airports();
 
-  struct djikstras_graph {
-    djikstras_graph() : graph(true, true){};
+  struct dijkstras_graph {
+    dijkstras_graph() : graph(true, true){};
     unordered_map<int, int> distances;
     unordered_map<int, int> parents;
     Graph graph;
@@ -26,10 +26,10 @@ class Airports {
   void bfs();
   std::vector<Vertex> getStronglyConnected();
 
-  void path_helper(int b, vector<string>& vec);
+  
   vector<std::string> shortest_path(Airport b);
   int shortest_dist(Airport b);
-  djikstras_graph create_djikstras(Airport a);
+  void create_dijkstras(Airport a);
 
  private:
   Graph g_;
@@ -39,7 +39,8 @@ class Airports {
   std::unordered_map<std::string, Airport> port_map;
   std::unordered_map<int, Airport> id_map;
 
-  djikstras_graph d_graph;
+  dijkstras_graph d_graph;
+  void path_helper(int b, vector<string>& vec);
 
   void tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                     std::map<Vertex, int>& low, std::stack<Vertex>& s,

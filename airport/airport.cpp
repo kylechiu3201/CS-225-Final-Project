@@ -62,7 +62,7 @@ bool Airport::operator<(const Airport& a) const {
 }
 
 bool Airport::operator>(const Airport& a) const {
-  if (port_ID == a.port_ID) {
+  if (port_ID > a.port_ID) {
     return true;
   } else {
     return false;

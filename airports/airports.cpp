@@ -155,7 +155,7 @@ int Airports::shortest_dist(Airport b) {
   return d_graph.distances[b.get_port_ID()];
 }
 
-Airports::djikstras_graph Airports::create_djikstras(Airport a) {
+void Airports::create_dijkstras(Airport a) {
   // cin somewhere and set starting airport
   // also figure out what to return::: shortest distance between two airports +
   // path to get there?
