@@ -1,5 +1,7 @@
 EXENAME = final_project
+TEST = test
 OBJS = main.o airline.o airport.o airports.o graph.o
+OBJS_TEST = test.o airline.o airport.o airports.o graph.o
 
 CXX = clang++
 CXXFLAGS = $(CS225) -std=c++1y -stdlib=libstdc++ -c -g -O0 -Wall -Wextra -pedantic
@@ -34,6 +36,9 @@ all : $(EXENAME)
 $(EXENAME) : output_msg $(OBJS)
 	$(LD) $(OBJS) $(LDFLAGS) -o $(EXENAME)
 
+$(TEST) : output_msg $(OBJS_TEST)
+	$(LD) $(OBJS_TEST) $(LDFLAGS) -o $(TEST)
+
 main.o : main.cpp airports/airports.h
 	$(CXX) $(CXXFLAGS) main.cpp
 
@@ -48,9 +53,14 @@ airports.o : airports/airports.cpp airports/airports.h airport/airport.h graph/g
 
 graph.o : graph/graph.cpp graph/graph.h graph/edge.h airline/airline.h airport/airport.h
 	$(CXX) $(CXXFLAGS) graph/graph.cpp
+
+test.o : test.cpp airports/airports.h
+	$(CXX) $(CXXFLAGS) test.cpp
 	
 clean :
-	-rm -f *.o $(EXENAME)
+	-rm -f *.o $(EXENAME) $(TEST)
+
+
 
 
 
