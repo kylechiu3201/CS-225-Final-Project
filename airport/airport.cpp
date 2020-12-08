@@ -1,7 +1,7 @@
 #include "airport.h"
 
-#include <sstream>
 #include <cmath>
+#include <sstream>
 
 Airport::Airport() {
   port_ID = -1;
@@ -14,7 +14,9 @@ Airport::Airport() {
   longitude_ = 0;
 }
 
-Airport::Airport(int port, string name, string city, string country, string IATA, string ICAO, long double latitude, long double longitude) {
+Airport::Airport(int port, string name, string city, string country,
+                 string IATA, string ICAO, long double latitude,
+                 long double longitude) {
   port_ID = port;
   name_ = name;
   city_ = city;
@@ -41,14 +43,14 @@ long double Airport::get_latitude() const { return latitude_; }
 
 long double Airport::get_longitude() const { return longitude_; }
 
-double Airport::get_distance(const Airport & a, const Airport & b){
+double Airport::get_distance(const Airport& a, const Airport& b) {
   long double long_d = b.longitude_ - a.longitude_;
   long double lat_d = b.latitude_ - a.latitude_;
 
-  long double dist = pow(sin(lat_d / 2), 2) +  
-                          cos(a.latitude_) * cos(b.latitude_) *  
-                          pow(sin(long_d / 2), 2); 
-  dist = asin(sqrt(dist)) *2 * 6371;
+  long double dist = pow(sin(lat_d / 2), 2) + cos(a.latitude_) *
+                                                  cos(b.latitude_) *
+                                                  pow(sin(long_d / 2), 2);
+  dist = asin(sqrt(dist)) * 2 * 6371;
   return dist;
 }
 
@@ -65,4 +67,12 @@ bool Airport::operator>(const Airport& a) const {
   } else {
     return false;
   }
+}
+
+bool Airport::operator==(const Airport& a) const {
+  return port_ID == a.port_ID;
+}
+
+bool Airport::operator!=(const Airport& a) const {
+  return port_ID != a.port_ID;
 }
