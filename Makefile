@@ -54,7 +54,7 @@ airports.o : airports/airports.cpp airports/airports.h airport/airport.h graph/g
 graph.o : graph/graph.cpp graph/graph.h graph/edge.h airline/airline.h airport/airport.h
 	$(CXX) $(CXXFLAGS) graph/graph.cpp
 
-test.o : test.cpp airports/airports.h
+test.o : test.cpp catch/catch.hpp airports/airports.h
 	$(CXX) $(CXXFLAGS) test.cpp
 	
 clean :
