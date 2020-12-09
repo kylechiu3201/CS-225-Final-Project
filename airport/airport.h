@@ -26,10 +26,12 @@ friend istream& operator >>(istream& in, const Airport& obj);
   long double get_latitude() const;
   long double get_longitude() const;
   static long double get_distance(const Airport& a, const Airport& b, char units);
+  string get_label() const;
 
 
   void set_lat(long double latitude);
   void set_long(long double longitude);
+  void set_label(string l);
 
 
   bool operator<(const Airport& a) const;
@@ -46,4 +48,5 @@ friend istream& operator >>(istream& in, const Airport& obj);
   string ICAO_;
   long double latitude_;
   long double longitude_;
+  string label;
 };

@@ -15,6 +15,7 @@ Airport::Airport() {
   ICAO_ = "\\N";
   latitude_ = 0;
   longitude_ = 0;
+  label = "";
 }
 
 Airport::Airport(int port, string name, string city, string country,
@@ -33,6 +34,7 @@ Airport::Airport(int port, string name, string city, string country,
   ICAO_.erase(remove(ICAO_.begin(),ICAO_.end(), '\"' ),ICAO_.end());
   latitude_ = latitude;
   longitude_ = longitude;
+  label = "";
 }
 
 int Airport::get_port_ID() const { return port_ID; }
@@ -51,12 +53,18 @@ long double Airport::get_latitude() const { return latitude_; }
 
 long double Airport::get_longitude() const { return longitude_; }
 
+string Airport::get_label() const { return label; }
+
 void Airport::set_lat(long double latitude){
   latitude_ = latitude;
 }
 
 void Airport::set_long(long double longitude){
   longitude_ = longitude;
+}
+
+void Airport::set_label(string l){
+  label = l;
 }
 
 

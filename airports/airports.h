@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include <queue>
 
 #include "../airline/airline.h"
 #include "../airport/airport.h"
@@ -24,7 +25,9 @@ class Airports {
     Graph graph;
   };
 
+  void bfs(Vertex v, vector<Vertex> & path);
   void bfs();
+
   std::vector<Vertex> getStronglyConnected(std::string airline);
 
   vector<std::string> shortest_path(Airport b);
@@ -51,6 +54,8 @@ class Airports {
   std::map<Airline, std::set<std::pair<Vertex, Vertex>>> linetoedges;
   std::vector<Airline> airlines;
   /* std::map<std::pair<Vertex, Vertex>, std::set<Airline>> airlineEdges; */
+  std::map<Vertex, Vertex> vertices;
+  vector<Edge> edges;
 
   dijkstras_graph d_graph;
   void path_helper(int b, vector<string>& vec);
