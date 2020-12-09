@@ -2,6 +2,9 @@
 
 #include <cmath>
 #include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <string>
 
 Airport::Airport() {
   port_ID = -1;
@@ -19,10 +22,15 @@ Airport::Airport(int port, string name, string city, string country,
                  long double longitude) {
   port_ID = port;
   name_ = name;
+  name_.erase(remove(name_.begin(), name_.end(), '\"' ),name_.end());
   city_ = city;
+  city_.erase(remove(city_.begin(),city_.end(), '\"' ),city_.end());
   country_ = country;
+  country_.erase(remove(country_.begin(),country_.end(), '\"' ),country_.end());
   IATA_ = IATA;
+  IATA_.erase(remove(IATA_.begin(),IATA_.end(), '\"' ),IATA_.end());
   ICAO_ = ICAO;
+  ICAO_.erase(remove(ICAO_.begin(),ICAO_.end(), '\"' ),ICAO_.end());
   latitude_ = latitude;
   longitude_ = longitude;
 }
@@ -43,14 +51,38 @@ long double Airport::get_latitude() const { return latitude_; }
 
 long double Airport::get_longitude() const { return longitude_; }
 
-double Airport::get_distance(const Airport& a, const Airport& b) {
-  long double long_d = b.longitude_ - a.longitude_;
-  long double lat_d = b.latitude_ - a.latitude_;
+void Airport::set_lat(long double latitude){
+  latitude_ = latitude;
+}
 
-  long double dist = pow(sin(lat_d / 2), 2) + cos(a.latitude_) *
-                                                  cos(b.latitude_) *
-                                                  pow(sin(long_d / 2), 2);
-  dist = asin(sqrt(dist)) * 2 * 6371;
+void Airport::set_long(long double longitude){
+  longitude_ = longitude;
+}
+
+
+long double toRad(const long double degree){
+  long double conversion= (M_PI) /180;
+  return conversion*degree;
+}
+
+long double Airport::get_distance(const Airport& a, const Airport& b, char units) {
+  
+  if(b.longitude_ ==a.longitude_ && b.latitude_ ==a.latitude_){
+    return 0;
+  }
+
+  //long double long_d = toRad(b.longitude_) - toRad(a.longitude_);
+  //long double lat_d = toRad(b.latitude_) - toRad(a.latitude_);
+
+  long double dist = sin(toRad(a.latitude_)) * sin(toRad(b.latitude_))
+              +cos(toRad(a.latitude_)) * cos(toRad(b.latitude_)) * cos(toRad(a.longitude_-b.longitude_));
+  dist = acos(dist);
+  dist = dist * 180 / M_PI;
+  dist = dist * 60 *1.1515;
+  if(units=='K'){
+    dist *= 1.609344;
+  }
+  dist=round(dist* 1000.0 ) / 1000.0;
   return dist;
 }
 

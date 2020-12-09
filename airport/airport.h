@@ -25,7 +25,11 @@ friend istream& operator >>(istream& in, const Airport& obj);
   string get_ICAO() const;
   long double get_latitude() const;
   long double get_longitude() const;
-  static double get_distance(const Airport& a, const Airport& b);
+  static long double get_distance(const Airport& a, const Airport& b, char units);
+
+
+  void set_lat(long double latitude);
+  void set_long(long double longitude);
 
 
   bool operator<(const Airport& a) const;
