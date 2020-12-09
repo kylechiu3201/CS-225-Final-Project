@@ -10,9 +10,14 @@ int main() {
     // if(command == "getDist")
     //   airports.shortest_path();
     if(command == "airlinesNeeded") {
-      auto scc = airports.getStronglyConnected("\"DA\"");
+      std::cout << "Which airline?\n";
+      std::string line;
+      std::cin >> line;
+      line = "\"" + line + "\"";
+      auto scc = airports.getStronglyConnected(line);
       for(auto i : scc)
         std::cout << i.get_port_ID() << " ";
+      std::cout << std::endl;
     }
     else if(command == "bfs")
       airports.bfs();

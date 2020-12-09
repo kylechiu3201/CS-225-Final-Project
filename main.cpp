@@ -28,8 +28,16 @@ int main() {
     std::cin >> command;
     // if(command == "getDist")
     //   airports.shortest_path();
-    if(command == "airlinesNeeded")
-      airports.getStronglyConnected();
+    if(command == "airlinesNeeded") {
+      std::cout << "Which airline?\n";
+      std::string line;
+      std::cin >> line;
+      line = "\"" + line + "\"";
+      auto scc = airports.getStronglyConnected(line);
+      for(auto i : scc)
+        std::cout << i.get_port_ID() << " ";
+      std::cout << std::endl;
+    }
     else if(command == "bfs")
       airports.bfs();
     else if(command == "exit")

@@ -133,13 +133,6 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
     g_.setEdgeWeight(port_map[source], port_map[dest],
                      Airport::get_distance(port_map[source], port_map[dest], 'K'));
     
-    /* airlineEdges[{port_map[source], port_map[dest]}].insert(air_map[air]); */
-    /* linetoedges[air_map[air]].insert({port_map[source], port_map[dest]}); */
-    /* airlineGraph_[air_map[air]].insertVertex(port_map[source]); */
-    /* airlineGraph_[air_map[air]].insertVertex(port_map[dest]); */
-    /* airlineGraph_[air_map[air]].insertEdge(port_map[source], port_map[dest], air_map[air]); */
-    /* airlineGraph_[air_map[air]].setEdgeWeight(port_map[source], port_map[dest], */
-    /*                  Airport::get_distance(port_map[source], port_map[dest])); */
     lineGraph[air_map[air]].insertVertex(port_map[source]);
     lineGraph[air_map[air]].insertVertex(port_map[dest]);
     lineGraph[air_map[air]].insertEdge(port_map[source], port_map[dest], air_map[air]);
@@ -242,10 +235,6 @@ std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
   return stronglyConnected;
 }
 
-/* void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover, */
-/*                             std::map<Vertex, int>& low, std::stack<Vertex>& s, */
-/*                             std::map<Vertex, bool>& stackHasNode, */
-/*                             std::vector<Vertex>& stronglyConnected, std::map<Vertex, vector<Vertex>>& edges) { */
 void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                             std::map<Vertex, int>& low, std::stack<Vertex>& s,
                             std::map<Vertex, bool>& stackHasNode,
@@ -256,13 +245,10 @@ void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
   low[v] = time;
   s.push(v);
   stackHasNode[v] = true;
-  //adjacent must be all vertices adjacent to v
   auto adjacent = g.getAdjacent(v);
-  /* auto adjacent = edges[v]; */
 
   for (auto adj : adjacent) {
     if (discover[adj] == -1) {
-      /* tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, edges); */
       tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, g);
       low[v] = std::min(low[v], low[adj]);
     } else if (stackHasNode[adj] == true)
