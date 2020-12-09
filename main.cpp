@@ -29,18 +29,17 @@ int main() {
     // if(command == "getDist")
     //   airports.shortest_path();
     if(command == "allNeeded") {
+      std::cout << std::endl;
       auto airlines = airports.airlinesAdded();
       for(auto i : airlines) {
-        std::cout << i.first.get_name() << ":   ";
-        for(unsigned j = 0; j < i.second.size(); ++j) {
-          std::string name = i.second[j].get_IATA();
+        std::cout << i.first.get_name() << ":   \n";
+        for(auto j : i.second) {
+          std::string name = j.get_IATA();
           if(name == "" || name == "\"\"" || name == "\\N")
-            name = i.second[j].get_ICAO();
+            name = j.get_ICAO();
           if(name == "" || name == "\"\"" || name == "\\N")
             continue;
-          std::cout << i.second[j] << std::endl;
-          if(j != i.second.size()-1)
-            std::cout << ", ";
+          std::cout << j << std::endl;
         }
         std::cout << std::endl << std::endl << std::endl;
       }
@@ -53,15 +52,14 @@ int main() {
       if(ans.empty())
         std::cout << "No airports needed to add.";
       else {
-        for(unsigned i = 0; i < ans.size(); ++i) {
-          std::string name = ans[i].get_IATA();
+        std::cout << std::endl;
+        for(auto i : ans) {
+          std::string name = i.get_IATA();
           if(name == "" || name == "\"\"" || name == "\\N")
-            name = ans[i].get_ICAO();
+            name = i.get_ICAO();
           if(name == "" || name == "\"\"" || name == "\\N")
             continue;
-          std::cout << ans[i] << std::endl;
-          if(i != ans.size()-1)
-            std::cout << ", ";
+          std::cout << i << std::endl;
         }
       }
     }
