@@ -131,7 +131,7 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
     dest = "\"" + data + "\"";
     g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
     g_.setEdgeWeight(port_map[source], port_map[dest],
-                     Airport::get_distance(port_map[source], port_map[dest]));
+                     Airport::get_distance(port_map[source], port_map[dest], 'K'));
   }
   file_r.close();
 }
@@ -269,4 +269,14 @@ vector<Vertex> Airports::getVertices() {
 
 vector<Edge> Airports::getEdges() {
   return g_.getEdges();
+}
+
+
+unordered_map<int, Airport> Airports::get_id_map(){
+  return id_map;
+}
+
+
+Graph & Airports::get_graph(){
+  return g_;
 }

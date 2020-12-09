@@ -31,8 +31,12 @@ class Airports {
   int shortest_dist(Airport b);
   void create_dijkstras(Airport a);
 
+
+  Graph & get_graph();
   vector<Vertex> getVertices();
   vector<Edge> getEdges();
+
+  unordered_map<int, Airport> get_id_map();
 
  private:
   Graph g_;
