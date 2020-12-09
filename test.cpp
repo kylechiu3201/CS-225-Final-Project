@@ -1,5 +1,13 @@
+#define CATCH_CONFIG_MAIN
+
 #include <iostream>
+#include <fstream>
+
+#include "graph/graph.h"
+#include "graph/edge.h"
 #include "airports/airports.h"
+#include "airport/airport.h"
+#include "catch/catch.hpp"
 
 void printGraph(Airports airports) {
   //Vertices are fine
@@ -14,10 +22,22 @@ void printGraph(Airports airports) {
     std::cout << e.source.get_port_ID() << " to " << e.dest.get_port_ID() << std::endl;
 }
 
-int main() {
+
+void to_text(Airports airports){
+  std::ofstream file("small_file.txt", std::ofstream::out);
+  file << airports.get_id_map().size() << "\n";
+}
+
+
+TEST_CASE("Graph is created from small subset of data", "[weight=1][part=1]") {
   Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat");
+
+  
+  REQUIRE(airports.getVertices().size()==11);
+}
+  //Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat");
   /* Airports airports("data/airports.dat", "data/airlines.dat", "data/routes.dat"); */
-  printGraph(airports);
+  //printGraph(airports);
   /* std::string command; */
   /* bool done = false; */
   /* while(!done) { */
@@ -34,5 +54,4 @@ int main() {
   /*   else */
   /*     std::cout << "'" << command << "' is not a recognized command.\n"; */
   /* } */
-  return 0;
-}
+

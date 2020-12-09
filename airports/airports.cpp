@@ -270,3 +270,8 @@ vector<Vertex> Airports::getVertices() {
 vector<Edge> Airports::getEdges() {
   return g_.getEdges();
 }
+
+
+unordered_map<int, Airport> Airports::get_id_map(){
+  return id_map;
+}

@@ -34,6 +34,8 @@ class Airports {
   vector<Vertex> getVertices();
   vector<Edge> getEdges();
 
+  unordered_map<int, Airport> get_id_map();
+
  private:
   Graph g_;
   Airport startingPort_;

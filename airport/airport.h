@@ -1,9 +1,18 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 using std::string;
+using std::ostream;
+using std::istream;
 
 class Airport {
+
+friend ostream& operator <<(ostream& out, const Airport& obj);
+friend istream& operator >>(istream& in, const Airport& obj);
+
+
+
  public:
   Airport();
   Airport(int port, string name, string city, string country, string IATA,
@@ -17,6 +26,8 @@ class Airport {
   long double get_latitude() const;
   long double get_longitude() const;
   static double get_distance(const Airport& a, const Airport& b);
+
+
   bool operator<(const Airport& a) const;
   bool operator>(const Airport& a) const;
   bool operator==(const Airport& a) const;

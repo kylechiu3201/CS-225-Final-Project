@@ -76,3 +76,21 @@ bool Airport::operator==(const Airport& a) const {
 bool Airport::operator!=(const Airport& a) const {
   return port_ID != a.port_ID;
 }
+
+
+ostream& operator <<(ostream& out, const Airport& obj){
+  out << obj.name_ << "," << obj.city_ << "," << obj.country_ << "," << obj.IATA_ << "," << obj.ICAO_ << "," << obj.latitude_ << "," << obj.longitude_;
+  return out;
+}
+
+
+
+
+int port_ID;
+  string name_;
+  string city_;
+  string country_;
+  string IATA_;
+  string ICAO_;
+  long double latitude_;
+  long double longitude_;
