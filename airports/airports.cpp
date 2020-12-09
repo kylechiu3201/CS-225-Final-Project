@@ -189,8 +189,8 @@ void Airports::bfs() {
         }
     }
 
-    for(unsigned x = 0; x < path.size(); x++){
-        std::cout << path[x].get_name() << std::endl;
+    for(unsigned x = 0; x < path.size()-1; x++){
+        std::cout << path[x].get_name() << " -> " << path[x+1].get_name() << std::endl;
     }
 }
 
