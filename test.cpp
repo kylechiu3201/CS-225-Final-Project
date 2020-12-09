@@ -12,20 +12,6 @@
 
 using std::vector;
 
-void printGraph(Airports airports) {
-  //Vertices are fine
-  std::cout << "Vertices: " << std::endl;
-  auto vertices = airports.getVertices();
-  auto edges = airports.getEdges();
-  for(auto v : vertices)
-    /* std::cout << v.get_port_ID() << std::endl; */
-    std::cout << v.get_ICAO() << std::endl;
-  std::cout << std::endl << std::endl << std::endl;
-  for(auto e : edges)
-    std::cout << e.source.get_port_ID() << " to " << e.dest.get_port_ID() << std::endl;
-}
-
-
 void to_text(Airports airports){
   std::ofstream file("small_file.txt", std::ofstream::out);
   file << airports.get_id_map().size() << "\n";
@@ -33,6 +19,12 @@ void to_text(Airports airports){
 
 bool check_tol(double ans, double tol, double calc){
   return calc >= ans-tol && calc <= ans+tol;
+}
+
+TEST_CASE("Graph is created from small subset of data", "[weight=1][part=1]") {
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat");
+
+  REQUIRE(airports.getVertices().size()==11);
 }
 
 TEST_CASE("test lat/long distance calculation"){
@@ -54,10 +46,8 @@ TEST_CASE("test lat/long distance calculation"){
   REQUIRE(2.004 ==Airport::get_distance(port1, port2, 'K'));
 }
 
-
 TEST_CASE("Correct fields for all vertices", "[weight=1][part=1]") {
   Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat");
-
   vector<Vertex> vec = airports.getVertices();
 
 
@@ -77,23 +67,3 @@ TEST_CASE("Correct fields for all vertices", "[weight=1][part=1]") {
   //REQUIRE((airports.get_graph().getEdgeWeight(vec[0],vec[1]) >= ans-tol) && (airports.get_graph().getEdgeWeight(vec[0],vec[1])<=ans+tol));
   REQUIRE(check_tol(ans, tol, airports.get_graph().getEdgeWeight(vec[0],vec[1])));
 }
-  //Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat");
-  /* Airports airports("data/airports.dat", "data/airlines.dat", "data/routes.dat"); */
-  //printGraph(airports);
-  /* std::string command; */
-  /* bool done = false; */
-  /* while(!done) { */
-  /*   std::cout << "\nChoose a command: getDist, airlinesNeeded, bfs, exit\n"; */
-  /*   std::cin >> command; */
-  /*   // if(command == "getDist") */
-  /*   //   airports.shortest_path(); */
-  /*   if(command == "airlinesNeeded") */
-  /*     airports.getStronglyConnected(); */
-  /*   else if(command == "bfs") */
-  /*     airports.bfs(); */
-  /*   else if(command == "exit") */
-  /*     done = true; */
-  /*   else */
-  /*     std::cout << "'" << command << "' is not a recognized command.\n"; */
-  /* } */
-
