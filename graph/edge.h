@@ -6,6 +6,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 #include <limits.h>
 #include "../airport/airport.h"
 #include "../airline/airline.h"
@@ -133,6 +134,10 @@ class Edge
 
     bool hasAirline(string airline) {
       return airlines_.count(airline);
+    }
+
+    std::unordered_set<string> getSet() {
+      return airlines_;
     }
 
 private:

@@ -7,10 +7,13 @@ class Airline {
   Airline(int ID, std::string name, std::string IATA, std::string ICAO,
           std::string country);
   int get_ID();
-  std::string get_name();
-  std::string get_IATA();
-  std::string get_ICAO();
-  std::string get_country();
+  std::string get_name() const;
+  std::string get_IATA() const;
+  std::string get_ICAO() const;
+  std::string get_country() const;
+  bool operator>(const Airline& a) const;
+  bool operator<(const Airline& a) const;
+  bool operator==(const Airline& a) const;
 
  private:
   int ID_;

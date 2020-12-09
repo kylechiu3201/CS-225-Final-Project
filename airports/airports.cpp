@@ -100,11 +100,11 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
     country = data;
 
     Airline airline_(ID, name, IATA, ICAO, country);
-    if (IATA.compare("") != 0 && IATA.compare("\\N") != 0) {
-      air_map.insert({IATA, airline_});
+    if (IATA.compare("") != 0 && IATA.compare("\\N") != 0 && IATA != "\"\"") {
+      air_map[IATA] = airline_;
     }
-    if (ICAO.compare("") != 0 && ICAO.compare("\\N") != 0) {
-      air_map.insert({ICAO, airline_});
+    if (ICAO.compare("") != 0 && ICAO.compare("\\N") != 0 && ICAO != "\"\"") {
+      air_map[ICAO] = airline_;
     }
   }
   file_a.close();
@@ -132,6 +132,18 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
     g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
     g_.setEdgeWeight(port_map[source], port_map[dest],
                      Airport::get_distance(port_map[source], port_map[dest], 'K'));
+    
+    /* airlineEdges[{port_map[source], port_map[dest]}].insert(air_map[air]); */
+    /* linetoedges[air_map[air]].insert({port_map[source], port_map[dest]}); */
+    /* airlineGraph_[air_map[air]].insertVertex(port_map[source]); */
+    /* airlineGraph_[air_map[air]].insertVertex(port_map[dest]); */
+    /* airlineGraph_[air_map[air]].insertEdge(port_map[source], port_map[dest], air_map[air]); */
+    /* airlineGraph_[air_map[air]].setEdgeWeight(port_map[source], port_map[dest], */
+    /*                  Airport::get_distance(port_map[source], port_map[dest])); */
+    lineGraph[air_map[air]].insertVertex(port_map[source]);
+    lineGraph[air_map[air]].insertVertex(port_map[dest]);
+    lineGraph[air_map[air]].insertEdge(port_map[source], port_map[dest], air_map[air]);
+    lineGraph[air_map[air]].setEdgeWeight(port_map[source], port_map[dest], Airport::get_distance(port_map[source], port_map[dest], 'K'));
   }
   file_r.close();
 }
@@ -205,8 +217,12 @@ void Airports::create_dijkstras(Airport a) {
   d_graph.parents = parent;
 }
 
-std::vector<Vertex> Airports::getStronglyConnected() {
-  auto vertices = g_.getVertices();
+std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
+  Airline choice = air_map[airline];
+  Graph g = lineGraph[choice];
+
+  vector<Vertex> vertices = g.getVertices();
+
   std::map<Vertex, int> discover;
   std::map<Vertex, int> low;
   std::map<Vertex, bool> stackHasNode;
@@ -221,26 +237,33 @@ std::vector<Vertex> Airports::getStronglyConnected() {
 
   for (auto v : vertices)
     if (discover[v] == -1)
-      tarjanHelper(v, discover, low, s, stackHasNode, stronglyConnected);
+      tarjanHelper(v, discover, low, s, stackHasNode, stronglyConnected, g);
 
   return stronglyConnected;
 }
 
+/* void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover, */
+/*                             std::map<Vertex, int>& low, std::stack<Vertex>& s, */
+/*                             std::map<Vertex, bool>& stackHasNode, */
+/*                             std::vector<Vertex>& stronglyConnected, std::map<Vertex, vector<Vertex>>& edges) { */
 void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                             std::map<Vertex, int>& low, std::stack<Vertex>& s,
                             std::map<Vertex, bool>& stackHasNode,
-                            std::vector<Vertex>& stronglyConnected) {
+                            std::vector<Vertex>& stronglyConnected, Graph g) {
   static int time = 0;
   ++time;
   discover[v] = time;
   low[v] = time;
   s.push(v);
   stackHasNode[v] = true;
-  auto adjacent = g_.getAdjacent(v);
+  //adjacent must be all vertices adjacent to v
+  auto adjacent = g.getAdjacent(v);
+  /* auto adjacent = edges[v]; */
 
   for (auto adj : adjacent) {
     if (discover[adj] == -1) {
-      tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected);
+      /* tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, edges); */
+      tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, g);
       low[v] = std::min(low[v], low[adj]);
     } else if (stackHasNode[adj] == true)
       low[v] = std::min(low[v], discover[adj]);
@@ -271,11 +294,9 @@ vector<Edge> Airports::getEdges() {
   return g_.getEdges();
 }
 
-
 unordered_map<int, Airport> Airports::get_id_map(){
   return id_map;
 }
-
 
 Graph & Airports::get_graph(){
   return g_;

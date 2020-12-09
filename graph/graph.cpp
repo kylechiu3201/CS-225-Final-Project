@@ -10,6 +10,11 @@ const double Graph::InvalidWeight = INT_MIN;
 const string Graph:: InvalidLabel = "INVALID LABEL";
 const Edge Graph::InvalidEdge = Edge(Graph::InvalidVertex, Graph::InvalidVertex, Graph::InvalidWeight, Graph::InvalidLabel);
 
+Graph::Graph() {
+  this->weighted = true;
+  this->directed = true;
+}
+
 Graph::Graph(bool weighted)
 {  
   this->weighted = weighted;
@@ -327,6 +332,25 @@ void Graph::clear()
     adjacency_list.clear();
 }
 
+map<Vertex, map<Vertex, Edge>> Graph::getList() {
+  return adjacency_list;
+}
+
+void Graph::printGraph() {
+  std::cout << "Vertices: " << std::endl;
+  auto vertices = getVertices();
+  auto edges = getEdges();
+  for(auto v : vertices)
+    /* std::cout << v.get_port_ID() << std::endl; */
+    std::cout << v.get_ICAO() << std::endl;
+  std::cout << std::endl << std::endl << std::endl;
+  for(auto e : edges) {
+    std::cout << e.source.get_port_ID() << " to " << e.dest.get_port_ID() << " ";
+    for(auto a : e.getSet())
+      std::cout << a << " ";
+    std::cout << std::endl;
+  }
+}
 
 /**
  * Prints a graph error and quits the program.

@@ -12,14 +12,32 @@ Airline::Airline(int ID, std::string name, std::string IATA, std::string ICAO,
 
 int Airline::get_ID() { return ID_; }
 
-std::string Airline::get_name() { return name_; }
+std::string Airline::get_name() const { return name_; }
 
-std::string Airline::get_IATA() { return IATA_; }
+std::string Airline::get_IATA() const { return IATA_; }
 
-std::string Airline::get_ICAO() { return ICAO_; }
+std::string Airline::get_ICAO() const { return ICAO_; }
 
-std::string Airline::get_country() { return country_; }
+std::string Airline::get_country() const { return country_; }
 
-bool Airline::operator>(const Airline& a) const { return ID_ > a.ID_; }
+/* bool Airline::operator>(const Airline& a) const { return ID_ > a.ID_; } */
 
-bool Airline::operator<(const Airline& a) const { return ID_ < a.ID_; }
+bool Airline::operator>(const Airline& a) const {
+  if(IATA_ != "" && a.IATA_ != "")
+    return IATA_ > a.IATA_;
+  return ICAO_ > a.ICAO_;
+}
+
+bool Airline::operator==(const Airline& a) const {
+  if(IATA_ != "" && a.IATA_ != "")
+    return IATA_ == a.IATA_;
+  return ICAO_ == a.ICAO_;
+}
+
+/* bool Airline::operator<(const Airline& a) const { return ID_ < a.ID_; } */
+
+bool Airline::operator<(const Airline& a) const {
+  if(IATA_ != "" && a.IATA_ != "")
+    return IATA_ < a.IATA_;
+  return ICAO_ < a.ICAO_;
+}

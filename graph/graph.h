@@ -58,6 +58,7 @@ typedef Airport Vertex;
 class Graph
 {
 public:
+    Graph();
     /**
      * Constructor to create an empty graph.
      * @param weighted - specifies whether the graph is a weighted graph or
@@ -230,11 +231,13 @@ public:
 
     void clear();
 
+    void printGraph();
 
     static Vertex InvalidVertex;
     const static Edge InvalidEdge;
     const static double InvalidWeight;
     const static string InvalidLabel;
+    map<Vertex, map<Vertex, Edge>> getList();
 
 private:
     mutable map<Vertex, map<Vertex, Edge>> adjacency_list;
