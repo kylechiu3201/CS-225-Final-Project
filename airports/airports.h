@@ -37,6 +37,7 @@ class Airports {
   vector<Edge> getEdges();
 
   unordered_map<int, Airport> get_id_map();
+  std::map<Airline, vector<Vertex>> airlinesAdded();
 
 
  private:
@@ -48,6 +49,7 @@ class Airports {
   std::map<Airline, Graph> lineGraph;
   std::unordered_map<std::string, Airline> air_map;
   std::map<Airline, std::set<std::pair<Vertex, Vertex>>> linetoedges;
+  std::vector<Airline> airlines;
   /* std::map<std::pair<Vertex, Vertex>, std::set<Airline>> airlineEdges; */
 
   dijkstras_graph d_graph;
@@ -60,5 +62,5 @@ class Airports {
   void tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                     std::map<Vertex, int>& low, std::stack<Vertex>& s,
                     std::map<Vertex, bool>& stackHasNode,
-                    std::vector<Vertex>& stronglyConnected, Graph g);
+                    std::set<Vertex>& stronglyConnected, Graph g);
 };

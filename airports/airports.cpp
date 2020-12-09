@@ -26,7 +26,7 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
   // num_airports = 0;
   std::ifstream file(filename);
   if (file.fail()) {
-    std::cout << "Error opening file. Quitting..." << std::endl;
+    std::cout << "Error opening file '" << filename << "'. Quitting..." << std::endl;
     exit(EXIT_FAILURE);
     return;
   }
@@ -74,7 +74,7 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
 
   std::ifstream file_a(fileair);
   if (file_a.fail()) {
-    std::cout << "Error opening file. Quitting..." << std::endl;
+    std::cout << "Error opening file '" << fileair << "'. Quitting..." << std::endl;
     exit(EXIT_FAILURE);
     return;
   }
@@ -100,6 +100,7 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
     country = data;
 
     Airline airline_(ID, name, IATA, ICAO, country);
+    airlines.push_back(airline_);
     if (IATA.compare("") != 0 && IATA.compare("\\N") != 0 && IATA != "\"\"") {
       air_map[IATA] = airline_;
     }
@@ -110,7 +111,7 @@ Airports::Airports(std::string filename, std::string fileair, std::string filero
   file_a.close();
   std::ifstream file_r(fileroute);
   if (file_r.fail()) {
-    std::cout << "Error opening file. Quitting..." << std::endl;
+    std::cout << "Error opening file '" << fileroute << "'. Quitting..." << std::endl;
     exit(EXIT_FAILURE);
     return;
   }
@@ -220,7 +221,7 @@ std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
   std::map<Vertex, int> low;
   std::map<Vertex, bool> stackHasNode;
   std::stack<Vertex> s;
-  std::vector<Vertex> stronglyConnected;
+  std::set<Vertex> stronglyConnected;
 
   for (auto v : vertices) {
     discover[v] = -1;
@@ -232,13 +233,22 @@ std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
     if (discover[v] == -1)
       tarjanHelper(v, discover, low, s, stackHasNode, stronglyConnected, g);
 
-  return stronglyConnected;
+  for(auto i : g.getVertices()) {
+    for(auto j : g.getAdjacent(i)) {
+      auto it = stronglyConnected.find(j);
+      if(it != stronglyConnected.end())
+        stronglyConnected.erase(it);
+    }
+  }
+  vector<Vertex> ans(stronglyConnected.begin(), stronglyConnected.end());
+
+  return ans;
 }
 
 void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                             std::map<Vertex, int>& low, std::stack<Vertex>& s,
                             std::map<Vertex, bool>& stackHasNode,
-                            std::vector<Vertex>& stronglyConnected, Graph g) {
+                            std::set<Vertex>& stronglyConnected, Graph g) {
   static int time = 0;
   ++time;
   discover[v] = time;
@@ -259,17 +269,32 @@ void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
   if (low[v] == discover[v]) {
     while (!s.empty() && s.top() != v) {
       temp = s.top();
-      stronglyConnected.push_back(temp);
+      stronglyConnected.insert(temp);
       stackHasNode[temp] = false;
       s.pop();
     }
     if (!s.empty()) {
       temp = s.top();
-      stronglyConnected.push_back(temp);
+      stronglyConnected.insert(temp);
       stackHasNode[temp] = false;
       s.pop();
     }
   }
+}
+
+std::map<Airline, vector<Vertex>> Airports::airlinesAdded() {
+  std::map<Airline, vector<Vertex>> ans;
+  for(auto i : airlines) {
+    std::string name = i.get_IATA();
+    if(name == "" || name == "\"\"" || name == "\\N")
+      name = i.get_ICAO();
+    if(name == "" || name == "\"\"" || name == "\\N")
+      continue;
+    vector<Vertex> temp = getStronglyConnected(name);
+    if(!temp.empty())
+      ans[i] = temp;
+  }
+  return ans;
 }
 
 vector<Vertex> Airports::getVertices() {
