@@ -23,6 +23,7 @@ int main() {
   std::cout << "Creating graph...\n";
 
   Airports airports(filename, fileair, fileroute);
+
   std::string command;
   bool done = false;
   while (!done) {

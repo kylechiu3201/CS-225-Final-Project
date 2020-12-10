@@ -272,10 +272,10 @@ void Airports::create_dijkstras(Airport a) {
   d_graph.parents = parent;
 }
 
-std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
+// Gets all strongly connected components with an in-degree of zero
+std::vector<std::vector<Vertex>> Airports::getStronglyConnected(std::string airline) {
   Airline choice = air_map[airline];
   Graph g = lineGraph[choice];
-  int* time = new int(0);
 
   vector<Vertex> vertices = g.getVertices();
 
@@ -283,7 +283,7 @@ std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
   std::map<Vertex, int> low;
   std::map<Vertex, bool> stackHasNode;
   std::stack<Vertex> s;
-  std::set<Vertex> stronglyConnected;
+  std::vector<std::vector<Vertex>> stronglyConnected;
 
   for (auto v : vertices) {
     discover[v] = -1;
@@ -293,33 +293,38 @@ std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
 
   for (auto v : vertices)
     if (discover[v] == -1)
-      tarjanHelper(v, discover, low, s, stackHasNode, stronglyConnected, g, time);
+      tarjanHelper(v, discover, low, s, stackHasNode, stronglyConnected, g);
 
-  /* for (auto i : g.getVertices()) { */
-  /*   for (auto j : g.getAdjacent(i)) { */
-  /*     auto it = stronglyConnected.find(j); */
-  /*     if (it != stronglyConnected.end()) stronglyConnected.erase(it); */
-  /*   } */
-  /* } */
-  delete time;
-  vector<Vertex> ans(stronglyConnected.begin(), stronglyConnected.end());
+  for (auto i : g.getVertices()) {
+    for (auto j : g.getAdjacent(i)) {
+      for(auto k : stronglyConnected) {
+        auto it = find(k.begin(), k.end(), j);
+        if(it != k.end())
+          k.erase(it);
+        if(k.empty())
+          stronglyConnected.erase(find(stronglyConnected.begin(), stronglyConnected.end(), k));
+      }
+    }
+  }
 
+  vector<vector<Vertex>> ans(stronglyConnected.begin(), stronglyConnected.end());
   return ans;
 }
 
 void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                             std::map<Vertex, int>& low, std::stack<Vertex>& s,
                             std::map<Vertex, bool>& stackHasNode,
-                            std::set<Vertex>& stronglyConnected, Graph g, int* time) {
-  (*time) += 1;
-  discover[v] = *time;
-  low[v] = *time;
+                            std::vector<std::vector<Vertex>>& stronglyConnected, Graph g) {
+  static int time = 0;
+  ++time;
+  discover[v] = time;
+  low[v] = time;
   s.push(v);
   stackHasNode[v] = true;
 
   for (auto adj : g.getAdjacent(v)) {
     if (discover[adj] == -1) {
-      tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, g, time);
+      tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, g);
       low[v] = std::min(low[v], low[adj]);
     } else if (stackHasNode[adj] == true)
       low[v] = std::min(low[v], discover[adj]);
@@ -327,34 +332,36 @@ void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
 
   Vertex temp;
   if (low[v] == discover[v]) {
+    std::vector<Vertex> component;
     while (!s.empty() && s.top() != v) {
       temp = s.top();
-      stronglyConnected.insert(temp);
+      component.push_back(temp);
       stackHasNode[temp] = false;
       s.pop();
     }
     if (!s.empty()) {
       temp = s.top();
-      stronglyConnected.insert(temp);
+      component.push_back(temp);
       stackHasNode[temp] = false;
       s.pop();
     }
+    stronglyConnected.push_back(component);
   }
 }
 
 std::string Airports::airlinesAdded(std::string airline) {
-  std::map<Airline, vector<Vertex>> ans;
+  std::map<Airline, vector<vector<Vertex>>> ans;
   if (airline == "allAirlines") {
     std::cout << "Finding all needed airports for all airlines..." << std::endl;
     for (auto i : airlines) {
       std::string name = i.get_IATA();
       if (name == "" || name == "\"\"" || name == "\\N") name = i.get_ICAO();
       if (name == "" || name == "\"\"" || name == "\\N") continue;
-      vector<Vertex> temp = getStronglyConnected(name);
+      vector<vector<Vertex>> temp = getStronglyConnected(name);
       if (!temp.empty()) ans[i] = temp;
     }
   } else {
-    vector<Vertex> temp = getStronglyConnected(airline);
+    vector<vector<Vertex>> temp = getStronglyConnected(airline);
     ans[air_map[airline]] = temp;
   }
   return exportStronglyConnected(ans);
@@ -369,7 +376,7 @@ unordered_map<int, Airport> Airports::get_id_map() { return id_map; }
 Graph& Airports::get_graph() { return g_; }
 
 std::string Airports::exportStronglyConnected(
-    map<Airline, vector<Vertex>> scc) {
+    map<Airline, vector<vector<Vertex>>> scc) {
   std::ofstream out;
   std::string filename = "allAirlinesNeeded";
   if (scc.empty()) return "empty";
@@ -392,10 +399,14 @@ std::string Airports::exportStronglyConnected(
     out.open(realFileName, std::ios::out | std::ios::trunc);
   }
   file.close();
-  for (auto i : scc) {
+  for(auto i : scc) {
     out << i.first << std::endl;
-    for (auto j : i.second) out << j << std::endl;
-    out << std::endl;
+    for(auto j : i.second) {
+      for(auto k : j)
+        out << k << std::endl;
+      out << std::endl;
+    }
+    out << std::endl << std::endl << std::endl;
   }
   out.close();
   return realFileName;
