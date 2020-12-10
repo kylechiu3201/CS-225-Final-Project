@@ -275,6 +275,7 @@ void Airports::create_dijkstras(Airport a) {
 std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
   Airline choice = air_map[airline];
   Graph g = lineGraph[choice];
+  int* time = new int(0);
 
   vector<Vertex> vertices = g.getVertices();
 
@@ -292,14 +293,15 @@ std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
 
   for (auto v : vertices)
     if (discover[v] == -1)
-      tarjanHelper(v, discover, low, s, stackHasNode, stronglyConnected, g);
+      tarjanHelper(v, discover, low, s, stackHasNode, stronglyConnected, g, time);
 
-  for (auto i : g.getVertices()) {
-    for (auto j : g.getAdjacent(i)) {
-      auto it = stronglyConnected.find(j);
-      if (it != stronglyConnected.end()) stronglyConnected.erase(it);
-    }
-  }
+  /* for (auto i : g.getVertices()) { */
+  /*   for (auto j : g.getAdjacent(i)) { */
+  /*     auto it = stronglyConnected.find(j); */
+  /*     if (it != stronglyConnected.end()) stronglyConnected.erase(it); */
+  /*   } */
+  /* } */
+  delete time;
   vector<Vertex> ans(stronglyConnected.begin(), stronglyConnected.end());
 
   return ans;
@@ -308,18 +310,16 @@ std::vector<Vertex> Airports::getStronglyConnected(std::string airline) {
 void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                             std::map<Vertex, int>& low, std::stack<Vertex>& s,
                             std::map<Vertex, bool>& stackHasNode,
-                            std::set<Vertex>& stronglyConnected, Graph g) {
-  static int time = 0;
-  ++time;
-  discover[v] = time;
-  low[v] = time;
+                            std::set<Vertex>& stronglyConnected, Graph g, int* time) {
+  (*time) += 1;
+  discover[v] = *time;
+  low[v] = *time;
   s.push(v);
   stackHasNode[v] = true;
-  auto adjacent = g.getAdjacent(v);
 
-  for (auto adj : adjacent) {
+  for (auto adj : g.getAdjacent(v)) {
     if (discover[adj] == -1) {
-      tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, g);
+      tarjanHelper(adj, discover, low, s, stackHasNode, stronglyConnected, g, time);
       low[v] = std::min(low[v], low[adj]);
     } else if (stackHasNode[adj] == true)
       low[v] = std::min(low[v], discover[adj]);
