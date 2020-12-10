@@ -12,3 +12,7 @@ Started writing individual algorithms. Anthony finished the implementation of
 Djkistras algorithm but hasn't tested it yet. Kyle also finished the
 implemenetation for strongly connected components using Tarjan's algorithm. We
 also added a test.cpp for testing purposes.
+
+12/10/2020
+
+We spent today testing the functions and cleaning up code. Anthony finished testing dijkstras algorithm and implemented the functions to use it.
