@@ -66,8 +66,10 @@ Airports::Airports(std::string filename, std::string fileair,
     country = data;
     getline(ss, data, ',');
     IATA = data;
+    
     getline(ss, data, ',');
     ICAO = data;
+    
     getline(ss, data, ',');
     std::stringstream(data) >> latitude;
     getline(ss, data, ',');
@@ -80,10 +82,13 @@ Airports::Airports(std::string filename, std::string fileair,
     }
     g_.insertVertex(airport_);  // insert airports as vertexes
     if (IATA.compare("") != 0 && IATA.compare("\\N") != 0) {
+      //IATA.erase(remove(IATA.begin(), IATA.end(), '\"'), IATA.end());
       port_map.insert({IATA, airport_});
     }
     if (ICAO.compare("") != 0 && ICAO.compare("\\N") != 0) {
+      //ICAO.erase(remove(ICAO.begin(), ICAO.end(), '\"'), ICAO.end());
       port_map.insert({ICAO, airport_});
+      
     }
     id_map[airport_.get_port_ID()] = airport_;
     // num_airports++;
@@ -205,38 +210,66 @@ void Airports::bfs() {
   /* } */
 }
 
-void Airports::path_helper(int b, vector<string>& vec) {
+void Airports::path_helper(int b, vector<Airport>& vec) {
   if (d_graph.parents[b] == -1) {
     return;
   }
-  vec.insert(vec.begin(), id_map[d_graph.parents[b]].get_name());
+  vec.insert(vec.begin(), id_map[d_graph.parents[b]]);
   path_helper(d_graph.parents[b], vec);
 }
 
-vector<std::string> Airports::shortest_path(
-    Airport b) {  // currently returns name of each airport
+vector<Airport> Airports::shortest_path(
+    std::string B) {  // currently returns name of each airport
+  Airport b = port_map[B];
   int dest = b.get_port_ID();
-  vector<string> shortest;
+  vector<Airport> shortest;
   path_helper(dest, shortest);
-  shortest.push_back(b.get_name());
+  shortest.push_back(b); //push destination
   return shortest;
 }
 
-int Airports::shortest_dist(Airport b) {
-  return d_graph.distances[b.get_port_ID()];
+long double Airports::shortest_dist(std::string B) {
+  Airport b = port_map[B];
+  return d_graph.distances[b.get_port_ID()]==INF ? -1 : d_graph.distances[b.get_port_ID()];
 }
 
-void Airports::create_dijkstras(Airport a) {
+void Airports::shortest_to_text(std::string B){
+  std::ofstream file("djikstras.txt", std::ofstream::out | std::ofstream::trunc);
+  vector<Airport> path_vector = shortest_path(B);
+  int dist = shortest_dist(B);
+  if(path_vector.size()==1){
+    file << "Start: " << startingPort_ <<std::endl;
+    file << "End: " << path_vector[0] << std::endl;
+    dist = -1;
+    file << "No Route Available";
+    return;
+  }
+  file << "Start: ";
+  for(int x =0; x<path_vector.size();x++){
+    if(x==path_vector.size()-1){
+      file << "End: " << path_vector[x] << std::endl;
+    }
+    else{
+      file << path_vector[x]  << std::endl;
+    }
+  }
+  file << "Total distance: ";
+  file << dist;
+  file << " km";
+}
+
+void Airports::create_dijkstras(std::string A) {
   // cin somewhere and set starting airport
   // also figure out what to return::: shortest distance between two airports +
   // path to get there?
+  startingPort_ = port_map[A];
+  Airport a = port_map[A];
   int start_id = a.get_port_ID();
-  priority_queue<pair<int, int>, vector<pair<int, int>>,
-                 std::greater<pair<int, int>>>
-      pq;  // first int is distance, second int is vertex/port_id
+  priority_queue<pair<long double, int>, vector<pair<long double, int>>,
+                 std::greater<pair<long double, int>>>pq;  // long double is distance, second int is vertex/port_id
   unordered_map<int, int> parent;  // first is port_id, second is parent port_id
-  unordered_map<int, int> distance;  // first is port_id, second is distance
-  unordered_set<int> visited;
+  unordered_map<int, long double> distance;  // first is port_id, second is distance
+  unordered_set<int> visited;  //port_id
 
   vector<Vertex> vertices = g_.getVertices();
   for (auto v : vertices) {
@@ -245,7 +278,7 @@ void Airports::create_dijkstras(Airport a) {
   }
   distance[start_id] = 0;
   // handle starting airport
-  pair<int, int> airport_id = std::make_pair(start_id, 0);
+  pair<int, int> airport_id = std::make_pair(0, start_id);
   pq.push(airport_id);
 
   while (!pq.empty()) {
@@ -253,11 +286,11 @@ void Airports::create_dijkstras(Airport a) {
     pq.pop();
     visited.insert(u);
 
-    d_graph.graph.insertVertex(id_map[u]);
+    //d_graph.graph.insertVertex(id_map[u]);
     vector<Vertex> vert = g_.getAdjacent(id_map[u]);
     for (int x = 0; x < (int)vert.size(); x++) {
       int v = vert[x].get_port_ID();  // child airport_id
-      int weight = g_.getEdgeWeight(id_map[u], vert[x]);
+      long double weight = g_.getEdgeWeight(id_map[u], vert[x]);
 
       // if vertex we are going to hasn't been processed yet  &&
       if (visited.find(v) == visited.end() &&
@@ -372,6 +405,8 @@ vector<Vertex> Airports::getVertices() { return g_.getVertices(); }
 vector<Edge> Airports::getEdges() { return g_.getEdges(); }
 
 unordered_map<int, Airport> Airports::get_id_map() { return id_map; }
+
+unordered_map<std::string, Airport> Airports::get_port_map() { return port_map; }
 
 Graph& Airports::get_graph() { return g_; }
 
