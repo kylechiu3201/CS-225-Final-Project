@@ -12,6 +12,19 @@
 
 using std::vector;
 
+void printGraph(Airports airports) {
+  //Vertices are fine
+  std::cout << "Vertices: " << std::endl;
+  auto vertices = airports.getVertices();
+  auto edges = airports.getEdges();
+  for(auto v : vertices)
+    /* std::cout << v.get_port_ID() << std::endl; */
+    std::cout << v.get_ICAO() << std::endl;
+  std::cout << std::endl << std::endl << std::endl;
+  for(auto e : edges)
+    std::cout << e.source.get_port_ID() << " to " << e.dest.get_port_ID() << std::endl;
+}
+
 void to_text(Airports airports){
   std::ofstream file("small_file.txt", std::ofstream::out);
   file << airports.get_id_map().size() << "\n";

@@ -1,0 +1,5 @@
+Start: "Chicago Midway International Airport","Chicago","United States","
+"Charlotte Douglas International Airport","Charlotte","United States","
+"Lynden Pindling International Airport","Nassau","Bahamas","
+End: "Deadman's Cay Airport","Dead Man's Cay","Bahamas","
+Total distance: 2436 km
