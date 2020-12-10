@@ -44,8 +44,8 @@ class Airports {
   unordered_map<std::string, Airport> get_port_map();
 
   std::string airlinesAdded(std::string airline);
-  std::vector<Vertex> getStronglyConnected(std::string airline);
-  std::string exportStronglyConnected(map<Airline, vector<Vertex>> scc);
+  std::vector<std::vector<Vertex>> getStronglyConnected(std::string airline);
+  std::string exportStronglyConnected(map<Airline, vector<vector<Vertex>>> scc);
 
  private:
   Graph g_;
@@ -61,7 +61,7 @@ class Airports {
   dijkstras_graph d_graph;
   void path_helper(int b, vector<Airport>& vec);
   void tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
-                    std::map<Vertex, int>& low, std::stack<Vertex>& s,
-                    std::map<Vertex, bool>& stackHasNode,
-                    std::set<Vertex>& stronglyConnected, Graph g, int* time);
+                              std::map<Vertex, int>& low, std::stack<Vertex>& s,
+                              std::map<Vertex, bool>& stackHasNode,
+                              std::vector<std::vector<Vertex>>& stronglyConnected, Graph g);
 };

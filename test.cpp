@@ -13,7 +13,11 @@
 
 using std::vector;
 
-bool check_strong(vector<vector<std::string>> sol, vector<std::string> check) {
+bool check_strong(vector<vector<std::string>> sol, vector<vector<std::string>> check) {
+  for(auto i : sol)
+    std::sort(i.begin(), i.end());
+  for(auto i : check)
+    std::sort(i.begin(), i.end());
   std::sort(sol.begin(), sol.end());
   std::sort(check.begin(), check.end());
   for(unsigned i = 0; i < sol.size(); ++i) {
@@ -22,6 +26,19 @@ bool check_strong(vector<vector<std::string>> sol, vector<std::string> check) {
       return false;
   }
   return true;
+}
+
+void printGraph(Airports airports) {
+  //Vertices are fine
+  std::cout << "Vertices: " << std::endl;
+  auto vertices = airports.getVertices();
+  auto edges = airports.getEdges();
+  for(auto v : vertices)
+    /* std::cout << v.get_port_ID() << std::endl; */
+    std::cout << v.get_ICAO() << std::endl;
+  std::cout << std::endl << std::endl << std::endl;
+  for(auto e : edges)
+    std::cout << e.source.get_port_ID() << " to " << e.dest.get_port_ID() << std::endl;
 }
 
 void to_text(Airports airports){
@@ -133,7 +150,7 @@ TEST_CASE("dijkstras - takes shorter path"){
 TEST_CASE("Correct vertices for vertices of strongly connected graph of an airline with no inbound edges", "[weight=1][part=1]") {
   Airports airports("data/testairports.dat", "data/testairlines.dat", "data/teststronglyroutes.dat");
   /* Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat"); */
-  vector<Vertex> vec = airports.getStronglyConnected("\"EA\"");
+  vector<vector<Vertex>> vec = airports.getStronglyConnected("\"EA\"");
   /* for(auto i : airports.getEdges()) */
   /*   std::cout << i.source.get_IATA() << " to " << i.dest.get_IATA() << std::endl; */
   /* for(auto i : vec) */
@@ -141,9 +158,13 @@ TEST_CASE("Correct vertices for vertices of strongly connected graph of an airli
 
   REQUIRE(vec.size() == 4);
 
-  vector<std::string> check;
-  for(auto i : vec)
-    check.push_back(i.get_IATA());
+  vector<vector<std::string>> check;
+  for(auto i : vec) {
+    vector<std::string> temp;
+    for(auto j : i)
+      temp.push_back(j.get_IATA());
+    check.push_back(temp);
+  }
   vector<vector<std::string>> sol = {{"ONE"}, {"THR", "FOU"}, {"FIV", "SIX"}, {"EIG", "NIN", "TEN"}, {"ELE"}};
 
   REQUIRE(check_strong(sol, check));
