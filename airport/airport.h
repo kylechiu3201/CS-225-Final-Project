@@ -43,5 +43,5 @@ class Airport {
   long double longitude_;
   string label;
   friend ostream& operator<<(ostream& out, const Airport& obj);
-  friend istream& operator>>(istream& in, const Airport& obj);
+  //friend istream& operator>>(istream& in, const Airport& obj);
 };

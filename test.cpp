@@ -98,14 +98,59 @@ TEST_CASE("Correct fields for all vertices", "[weight=1][part=1]") {
       check_tol(ans, tol, airports.get_graph().getEdgeWeight(vec[0], vec[1])));
 }
 
-TEST_CASE(
-    "Correct vertices for vertices of strongly connected graph of an airline "
-    "with no inbound edges",
-    "[weight=1][part=1]") {
-  Airports airports("data/testairports.dat", "data/testairlines.dat",
-                    "data/teststronglyroutes.dat");
-  /* Airports airports("data/testairports.dat", "data/testairlines.dat",
-   * "data/testroutes.dat"); */
+TEST_CASE("dijkstras- no path available"){
+  std::ofstream file("data/dtest.dat", std::ofstream::out | std::ofstream::trunc);
+  file << "UAL,1,ONEE,1,TWO,2,123,,0,jun" << std::endl;
+  file << "SW,2,TWO,2,THR,3,123,,0,jun"<< std::endl; 
+  
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/dtest.dat");
+  airports.create_dijkstras("\"ONE\"");
+  vector<Vertex> path = airports.shortest_path("\"FOUR\"");
+  REQUIRE(path.size()==1); //If path size is 1, then no path exists.
+}
+
+TEST_CASE("dijkstras - graph with forward/back edges"){
+  std::ofstream file("data/dtest.dat", std::ofstream::out | std::ofstream::trunc);
+  file << "UAL,1,ONEE,1,TWO,2,123,,0,jun" << std::endl;
+  file << "UAL,1,TWO,1,ONEE,2,123,,0,jun" << std::endl;
+  file << "SW,2,TWO,2,THR,3,123,,0,jun"<< std::endl; 
+  file << "SW,2,THR,2,TWO,3,123,,0,jun"<< std::endl; 
+  
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/dtest.dat");
+  airports.create_dijkstras("\"ONE\"");
+  vector<Vertex> path = airports.shortest_path("\"THR\"");
+  airports.shortest_to_text("\"THR\"");
+  REQUIRE(path.size()==3);  
+  
+  REQUIRE(path[0].get_name()=="name 1");
+  REQUIRE(path[1].get_name()=="name 2");
+  REQUIRE(path[2].get_name()=="name 3");
+}
+
+TEST_CASE("dijkstras - takes shorter path"){
+  std::ofstream file("data/dtest.dat", std::ofstream::out | std::ofstream::trunc);
+  file << "UAL,1,ONEE,1,TWO,2,123,,0,jun" << std::endl;
+  file << "UAL,1,TWO,1,ONEE,2,123,,0,jun" << std::endl;
+  file << "SW,2,TWO,2,THR,3,123,,0,jun"<< std::endl; 
+  file << "SW,2,THR,2,TWO,3,123,,0,jun"<< std::endl; 
+  file << "EVA,4,THRE,3,FOU,4,123,,0,jun" << std::endl;
+  file << "EVA,4,FOU,3,FIVE,4,123,,0,jun" << std::endl;
+  file << "UAL,1,ONEE,1,FOU,2,123,,0,jun" << std::endl;
+  
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/dtest.dat");
+  airports.create_dijkstras("\"ONE\"");
+  vector<Vertex> path = airports.shortest_path("\"FIVE\"");
+  airports.shortest_to_text("\"FIVE\"");
+  REQUIRE(path.size()==3);  
+  
+  REQUIRE(path[0].get_name()=="name 1");
+  REQUIRE(path[1].get_name()=="name 4");
+  REQUIRE(path[2].get_name()=="name 5");
+}
+
+TEST_CASE("Correct vertices for vertices of strongly connected graph of an airline with no inbound edges", "[weight=1][part=1]") {
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/teststronglyroutes.dat");
+  /* Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat"); */
   vector<vector<Vertex>> vec = airports.getStronglyConnected("\"EA\"");
   /* for(auto i : airports.getEdges()) */
   /*   std::cout << i.source.get_IATA() << " to " << i.dest.get_IATA() <<
