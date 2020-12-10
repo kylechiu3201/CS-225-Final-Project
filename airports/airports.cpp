@@ -159,55 +159,54 @@ Airports::Airports(std::string filename, std::string fileair,
 }
 
 void Airports::bfs(Vertex v, vector<Vertex>& path) {
-  /* std::queue<Vertex> q; */
-  /* vertices[v].set_label("visited"); */
-  /* q.push(v); */
+  std::queue<Vertex> q;
+  vertices[v].set_label("visited");
+  q.push(v);
 
-  /* Vertex vert; */
+  Vertex vert;
 
-  /* while(!q.empty()){ */
-  /*     vert = q.front(); */
-  /*     path.push_back(vert); */
-  /*     vector<Vertex> adj = g_.getAdjacent(vert); */
-  /*     q.pop(); */
+  while(!q.empty()){
+      vert = q.front();
+      path.push_back(vert);
+      vector<Vertex> adj = g_.getAdjacent(vert);
+      q.pop();
 
-  /*     for(unsigned x = 0; x < adj.size(); x++){ */
-  /*         if(vertices[adj[x]].get_label() == "unexplored"){ */
-  /*             g_.setEdgeLabel(vert,vertices[adj[x]],"discovery"); */
-  /*             vertices[vertices[adj[x]]].set_label("visited"); */
-  /*             q.push(vertices[adj[x]]); */
-  /*         } */
-  /*         else if(g_.getEdgeLabel(vert,vertices[adj[x]]) == "unexplored"){ */
-  /*             g_.setEdgeLabel(vert,vertices[adj[x]],"cross"); */
-  /*         } */
-  /*     } */
-  /* } */
+      for(unsigned x = 0; x < adj.size(); x++){
+          if(vertices[adj[x]].get_label() == "unexplored"){
+              g_.setEdgeLabel(vert,vertices[adj[x]],"discovery");
+              vertices[vertices[adj[x]]].set_label("visited");
+              q.push(vertices[adj[x]]);
+          }
+          else if(g_.getEdgeLabel(vert,vertices[adj[x]]) == "unexplored"){
+              g_.setEdgeLabel(vert,vertices[adj[x]],"cross");
+          }
+      }
+  }
 }
 
 void Airports::bfs() {
-  /* vector<Vertex> path; */
-  /* vector<Vertex> verts = g_.getVertices(); */
-  /* for(unsigned x = 0; x < verts.size(); x++){ */
-  /*     vertices.insert({verts[x], verts[x]}); */
-  /*     vertices[verts[x]].set_label("unexplored"); */
-  /* } */
-  /* edges = g_.getEdges(); */
+  vector<Vertex> path; 
+  vector<Vertex> verts = g_.getVertices(); 
+  for(unsigned x = 0; x < verts.size(); x++){ 
+    vertices.insert({verts[x], verts[x]}); 
+    vertices[verts[x]].set_label("unexplored"); 
+  } 
+  edges = g_.getEdges(); 
 
-  /* for(unsigned x = 0; x < edges.size(); x++){ */
-  /*     Vertex sourc = edges[x].source; */
-  /*     Vertex des = edges[x].dest; */
-  /*     g_.setEdgeLabel(sourc, des, "unexplored"); */
-  /* } */
-  /* for(unsigned x = 0; x < verts.size(); x++){ */
-  /*     if(vertices[verts[x]].get_label() == "unexplored"){ */
-  /*         bfs(vertices[verts[x]], path); */
-  /*     } */
-  /* } */
+  for(unsigned x = 0; x < edges.size(); x++){ 
+      Vertex sourc = edges[x].source; 
+      Vertex des = edges[x].dest; 
+      g_.setEdgeLabel(sourc, des, "unexplored");
+  }
+  for(unsigned x = 0; x < verts.size(); x++){
+      if(vertices[verts[x]].get_label() == "unexplored"){
+          bfs(vertices[verts[x]], path);
+      }
+  }
 
-  /* for(unsigned x = 0; x < path.size()-1; x++){ */
-  /*     std::cout << path[x].get_name() << " -> " << path[x+1].get_name() <<
-   * std::endl; */
-  /* } */
+  for(unsigned x = 0; x < path.size()-1; x++){
+    std::cout << path[x].get_name() << " -> " << path[x+1].get_name() << std::endl;
+  }
 }
 
 void Airports::path_helper(int b, vector<Airport>& vec) {
@@ -245,7 +244,7 @@ void Airports::shortest_to_text(std::string B){
     return;
   }
   file << "Start: ";
-  for(int x =0; x<path_vector.size();x++){
+  for(unsigned x =0; x<path_vector.size();x++){
     if(x==path_vector.size()-1){
       file << "End: " << path_vector[x] << std::endl;
     }
