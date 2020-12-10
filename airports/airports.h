@@ -63,5 +63,5 @@ class Airports {
   void tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                     std::map<Vertex, int>& low, std::stack<Vertex>& s,
                     std::map<Vertex, bool>& stackHasNode,
-                    std::set<Vertex>& stronglyConnected, Graph g);
+                    std::set<Vertex>& stronglyConnected, Graph g, int* time);
 };
