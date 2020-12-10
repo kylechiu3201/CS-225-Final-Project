@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 #include <iostream>
+#include <string>
 
 using std::ostream;
 
@@ -24,5 +24,5 @@ class Airline {
   std::string IATA_;
   std::string ICAO_;
   std::string country_;
-  friend ostream& operator <<(ostream& out, const Airline& obj);
+  friend ostream& operator<<(ostream& out, const Airline& obj);
 };

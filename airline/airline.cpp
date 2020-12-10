@@ -23,26 +23,24 @@ std::string Airline::get_country() const { return country_; }
 /* bool Airline::operator>(const Airline& a) const { return ID_ > a.ID_; } */
 
 bool Airline::operator>(const Airline& a) const {
-  if(IATA_ != "" && a.IATA_ != "")
-    return IATA_ > a.IATA_;
+  if (IATA_ != "" && a.IATA_ != "") return IATA_ > a.IATA_;
   return ICAO_ > a.ICAO_;
 }
 
 bool Airline::operator==(const Airline& a) const {
-  if(IATA_ != "" && a.IATA_ != "")
-    return IATA_ == a.IATA_;
+  if (IATA_ != "" && a.IATA_ != "") return IATA_ == a.IATA_;
   return ICAO_ == a.ICAO_;
 }
 
 /* bool Airline::operator<(const Airline& a) const { return ID_ < a.ID_; } */
 
 bool Airline::operator<(const Airline& a) const {
-  if(IATA_ != "" && a.IATA_ != "")
-    return IATA_ < a.IATA_;
+  if (IATA_ != "" && a.IATA_ != "") return IATA_ < a.IATA_;
   return ICAO_ < a.ICAO_;
 }
 
 ostream& operator<<(ostream& out, const Airline& obj) {
-  out << obj.ID_ << "," << obj.name_ << ",\\N," << obj.IATA_ << "," << obj.ICAO_ << ",\\N," << obj.country_ << ",\"Y\"";
+  out << obj.ID_ << "," << obj.name_ << ",\\N," << obj.IATA_ << "," << obj.ICAO_
+      << ",\\N," << obj.country_ << ",\"Y\"";
   return out;
 }
