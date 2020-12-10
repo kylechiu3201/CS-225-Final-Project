@@ -16,3 +16,10 @@ also added a test.cpp for testing purposes.
 12/10/2020
 
 We spent today testing the functions and cleaning up code. Anthony finished testing dijkstras algorithm and implemented the functions to use it.
+Created way for the results to be exported via text files. Kyle added a way to
+get the strongly connected components for either a chosen airline or all
+airlines. It was also at this moment that he realized that the algorithm
+doesn't really work, and after many hours of debugging and trying to see
+what's wrong with the implementation of Tarjan's algorithm inspired by
+GeeksForGeeks, he did not figure out why it wasn't working but it's okay since
+he made a very good effort.
