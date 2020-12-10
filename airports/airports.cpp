@@ -234,14 +234,14 @@ long double Airports::shortest_dist(std::string B) {
 }
 
 void Airports::shortest_to_text(std::string B){
-  std::ofstream file("djikstras.txt", std::ofstream::out | std::ofstream::trunc);
+  std::ofstream file("dijkstras.txt", std::ofstream::out | std::ofstream::trunc);
   vector<Airport> path_vector = shortest_path(B);
   int dist = shortest_dist(B);
   if(path_vector.size()==1){
     file << "Start: " << startingPort_ <<std::endl;
     file << "End: " << path_vector[0] << std::endl;
     dist = -1;
-    file << "No Route Available";
+    file << "No Path Available";
     return;
   }
   file << "Start: ";
@@ -278,7 +278,7 @@ void Airports::create_dijkstras(std::string A) {
   }
   distance[start_id] = 0;
   // handle starting airport
-  pair<int, int> airport_id = std::make_pair(0, start_id);
+  pair<long double, int> airport_id = std::make_pair(0, start_id);
   pq.push(airport_id);
 
   while (!pq.empty()) {

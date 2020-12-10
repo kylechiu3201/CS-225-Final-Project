@@ -102,7 +102,7 @@ bool Airport::operator!=(const Airport& a) const {
 }
 
 ostream& operator<<(ostream& out, const Airport& obj) {
-  out << "\"" << obj.name_ << "\",\"" << obj.city_ << "\",\"" << obj.country_ << "\",\"";
+  out << "\"" << obj.name_ << "\",\"" << obj.city_ << "\",\"" << obj.country_ << "\"";
       //<< obj.IATA_ << "\",\"" << obj.ICAO_ << "\"," << obj.latitude_
       // << "," << obj.longitude_;
   return out;
