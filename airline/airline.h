@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include <iostream>
+
+using std::ostream;
 
 class Airline {
  public:
@@ -21,4 +24,5 @@ class Airline {
   std::string IATA_;
   std::string ICAO_;
   std::string country_;
+  friend ostream& operator <<(ostream& out, const Airline& obj);
 };

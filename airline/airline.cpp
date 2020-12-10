@@ -41,3 +41,8 @@ bool Airline::operator<(const Airline& a) const {
     return IATA_ < a.IATA_;
   return ICAO_ < a.ICAO_;
 }
+
+ostream& operator<<(ostream& out, const Airline& obj) {
+  out << obj.ID_ << "," << obj.name_ << ",\\N," << obj.IATA_ << "," << obj.ICAO_ << ",\\N," << obj.country_ << ",\"Y\"";
+  return out;
+}
