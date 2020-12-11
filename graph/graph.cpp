@@ -188,8 +188,6 @@ bool Graph::insertEdge(Vertex source, Vertex destination, Airline airline) {
     // edge already exit
     std::string IATA = airline.get_IATA();
     std::string ICAO = airline.get_ICAO();
-    if (IATA != "") adjacency_list[source][destination].insertAirline(IATA);
-    if (ICAO != "") adjacency_list[source][destination].insertAirline(ICAO);
     return false;
   }
 
@@ -200,8 +198,6 @@ bool Graph::insertEdge(Vertex source, Vertex destination, Airline airline) {
   adjacency_list[source][destination] = Edge(source, destination);
   std::string IATA = airline.get_IATA();
   std::string ICAO = airline.get_ICAO();
-  if (IATA != "") adjacency_list[source][destination].insertAirline(IATA);
-  if (ICAO != "") adjacency_list[source][destination].insertAirline(ICAO);
 
   // our graph always directed
   // if(!directed)
@@ -297,8 +293,6 @@ void Graph::printGraph() {
   for (auto e : edges) {
     std::cout << e.source.get_port_ID() << " to " << e.dest.get_port_ID()
               << " ";
-    for (auto a : e.getSet()) std::cout << a << " ";
-    std::cout << std::endl;
   }
 }
 
