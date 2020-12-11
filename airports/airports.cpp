@@ -28,11 +28,11 @@ Airports::Airports(std::string filename, std::string fileair,
     : g_(true, true) {
   // num_airports = 0;
   std::ifstream file(filename);
-  
+
   std::ifstream file_a(fileair);
-  
+
   std::ifstream file_r(fileroute);
-  
+
   std::string str, name, city, country, IATA, ICAO;
   int port;
   double latitude, longitude;
@@ -52,10 +52,10 @@ Airports::Airports(std::string filename, std::string fileair,
     country = data;
     getline(ss, data, ',');
     IATA = data;
-    
+
     getline(ss, data, ',');
     ICAO = data;
-    
+
     getline(ss, data, ',');
     std::stringstream(data) >> latitude;
     getline(ss, data, ',');
@@ -63,13 +63,13 @@ Airports::Airports(std::string filename, std::string fileair,
     Airport airport_(port, name, city, country, IATA, ICAO, latitude,
                      longitude);
     if (IATA.compare("") != 0 && IATA.compare("\\N") != 0 && IATA != "\"\"") {
-      //IATA.erase(remove(IATA.begin(), IATA.end(), '\"'), IATA.end());
+      // IATA.erase(remove(IATA.begin(), IATA.end(), '\"'), IATA.end());
       port_map.insert({IATA, airport_});
       g_.insertVertex(airport_);  // insert airports as vertexes
       empty = false;
     }
     if (ICAO.compare("") != 0 && ICAO.compare("\\N") != 0 && ICAO != "\"\"") {
-      //ICAO.erase(remove(ICAO.begin(), ICAO.end(), '\"'), ICAO.end());
+      // ICAO.erase(remove(ICAO.begin(), ICAO.end(), '\"'), ICAO.end());
       port_map.insert({ICAO, airport_});
       g_.insertVertex(airport_);  // insert airports as vertexes
       empty = false;
@@ -79,12 +79,12 @@ Airports::Airports(std::string filename, std::string fileair,
       port_map.insert({ICAO, airport_});
       g_.insertVertex(airport_);  // insert airports as vertexes
     } */
-                     
+
     if (first) {
       startingPort_ = airport_;
       first = false;
     }
-    
+
     id_map[airport_.get_port_ID()] = airport_;
     // num_airports++;
   }
@@ -121,7 +121,7 @@ Airports::Airports(std::string filename, std::string fileair,
     }
   }
   file_a.close();
-  if(empty){
+  if (empty) {
     return;
   }
   while (std::getline(file_r, str)) {
@@ -140,13 +140,14 @@ Airports::Airports(std::string filename, std::string fileair,
     /* dest = data; */
     dest = "\"" + data + "\"";
 
-    if (source.compare("\"\\N\"") != 0 && source != "\"\"" && dest.compare("\"\\N\"") != 0 && dest != "\"\"" && air.compare("\"\\N\"") != 0 && air != "\"\"") {
+    if (source.compare("\"\\N\"") != 0 && source != "\"\"" &&
+        dest.compare("\"\\N\"") != 0 && dest != "\"\"" &&
+        air.compare("\"\\N\"") != 0 && air != "\"\"") {
       g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
       g_.setEdgeWeight(
-        port_map[source], port_map[dest],
-        Airport::get_distance(port_map[source], port_map[dest], 'K'));
+          port_map[source], port_map[dest],
+          Airport::get_distance(port_map[source], port_map[dest], 'K'));
     }
-    
 
     lineGraph[air_map[air]].insertVertex(port_map[source]);
     lineGraph[air_map[air]].insertVertex(port_map[dest]);
@@ -159,15 +160,15 @@ Airports::Airports(std::string filename, std::string fileair,
   file_r.close();
 }
 
-void Airports::bfs_to_text(vector<vector<Airport>> v){
+void Airports::bfs_to_text(vector<vector<Airport>> v) {
   std::ofstream file("BFS.txt", std::ofstream::out | std::ofstream::trunc);
-  if(v.empty()){
+  if (v.empty()) {
     file << "Empty data set";
     return;
   }
-  for(unsigned x = 0; x < v.size(); x++){
-    file << "BFS " << x+1 << ":" << std::endl;
-    for(unsigned y = 0; y < v[x].size(); y++){
+  for (unsigned x = 0; x < v.size(); x++) {
+    file << "BFS " << x + 1 << ":" << std::endl;
+    for (unsigned y = 0; y < v[x].size(); y++) {
       file << v[x][y] << std::endl;
     }
     file << std::endl;
@@ -179,48 +180,46 @@ void Airports::bfs(Vertex v, vector<Vertex>& path) {
   vertices[v].set_label("visited");
   q.push(v);
 
+  while (!q.empty()) {
+    Vertex vert = q.front();
+    path.push_back(vert);
+    vector<Vertex> adj = g_.getAdjacent(vert);
+    q.pop();
 
-  while(!q.empty()){
-      Vertex vert = q.front();
-      path.push_back(vert);
-      vector<Vertex> adj = g_.getAdjacent(vert);
-      q.pop();
-
-      for(unsigned x = 0; x < adj.size(); x++){
-          if(vertices[adj[x]].get_label() == "unexplored"){
-              g_.setEdgeLabel(vert,vertices[adj[x]],"discovery");
-              vertices[vertices[adj[x]]].set_label("visited");
-              q.push(vertices[adj[x]]);
-          }
-          else if(g_.getEdgeLabel(vert,vertices[adj[x]]) == "unexplored"){
-              g_.setEdgeLabel(vert,vertices[adj[x]],"cross");
-          }
+    for (unsigned x = 0; x < adj.size(); x++) {
+      if (vertices[adj[x]].get_label() == "unexplored") {
+        g_.setEdgeLabel(vert, vertices[adj[x]], "discovery");
+        vertices[vertices[adj[x]]].set_label("visited");
+        q.push(vertices[adj[x]]);
+      } else if (g_.getEdgeLabel(vert, vertices[adj[x]]) == "unexplored") {
+        g_.setEdgeLabel(vert, vertices[adj[x]], "cross");
       }
+    }
   }
 }
 
 vector<vector<Vertex>> Airports::bfs() {
-  vector<vector<Vertex>> b; 
-  vector<Vertex> verts = g_.getVertices(); 
-  for(unsigned x = 0; x < verts.size(); x++){ 
-    vertices.insert({verts[x], verts[x]}); 
-    vertices[verts[x]].set_label("unexplored"); 
-  } 
-  edges = g_.getEdges(); 
-
-  for(unsigned x = 0; x < edges.size(); x++){ 
-      Vertex sourc = edges[x].source; 
-      Vertex des = edges[x].dest; 
-      g_.setEdgeLabel(sourc, des, "unexplored");
+  vector<vector<Vertex>> b;
+  vector<Vertex> verts = g_.getVertices();
+  for (unsigned x = 0; x < verts.size(); x++) {
+    vertices.insert({verts[x], verts[x]});
+    vertices[verts[x]].set_label("unexplored");
   }
-  for(unsigned x = 0; x < verts.size(); x++){
-      if(vertices[verts[x]].get_label() == "unexplored"){
-          vector<Vertex> path;
-          bfs(vertices[verts[x]], path);
-          if(!path.empty()){
-            b.push_back(path);
-          }
+  edges = g_.getEdges();
+
+  for (unsigned x = 0; x < edges.size(); x++) {
+    Vertex sourc = edges[x].source;
+    Vertex des = edges[x].dest;
+    g_.setEdgeLabel(sourc, des, "unexplored");
+  }
+  for (unsigned x = 0; x < verts.size(); x++) {
+    if (vertices[verts[x]].get_label() == "unexplored") {
+      vector<Vertex> path;
+      bfs(vertices[verts[x]], path);
+      if (!path.empty()) {
+        b.push_back(path);
       }
+    }
   }
 
   return b;
@@ -240,33 +239,42 @@ vector<Airport> Airports::shortest_path(
   int dest = b.get_port_ID();
   vector<Airport> shortest;
   path_helper(dest, shortest);
-  shortest.push_back(b); //push destination
+  shortest.push_back(b);  // push destination
   return shortest;
 }
 
 long double Airports::shortest_dist(std::string B) {
   Airport b = port_map[B];
-  return d_graph.distances[b.get_port_ID()]==INF ? -1 : d_graph.distances[b.get_port_ID()];
+  return d_graph.distances[b.get_port_ID()] == INF
+             ? -1
+             : d_graph.distances[b.get_port_ID()];
 }
 
-void Airports::shortest_to_text(std::string B){
-  std::ofstream file("dijkstras.txt", std::ofstream::out | std::ofstream::trunc);
+void Airports::shortest_to_text(std::string B) {
+  std::ofstream file("dijkstras.txt",
+                     std::ofstream::out | std::ofstream::trunc);
   vector<Airport> path_vector = shortest_path(B);
   int dist = shortest_dist(B);
-  if(path_vector.size()==1){ 
-    file << "Start: " << startingPort_.get_name() << "\",\"" << startingPort_.get_city() << "\",\"" << startingPort_.get_country() << "\""<<std::endl;
-    file << "End: " << path_vector[0].get_name() << "\",\"" << path_vector[0].get_city() << "\",\"" << path_vector[0].get_country() << "\""<<std::endl;
+  if (path_vector.size() == 1) {
+    file << "Start: " << startingPort_.get_name() << "\",\""
+         << startingPort_.get_city() << "\",\"" << startingPort_.get_country()
+         << "\"" << std::endl;
+    file << "End: " << path_vector[0].get_name() << "\",\""
+         << path_vector[0].get_city() << "\",\"" << path_vector[0].get_country()
+         << "\"" << std::endl;
     dist = -1;
     file << "No Path Available";
     return;
   }
   file << "Start: ";
-  for(unsigned x =0; x<path_vector.size();x++){
-    if(x==path_vector.size()-1){
-      file << "End: " << path_vector[x].get_name() << "\",\"" << path_vector[x].get_city() << "\",\"" << path_vector[x].get_country() << "\""<<std::endl;
-    }
-    else{
-      file << path_vector[x].get_name() << "\",\"" << path_vector[x].get_city() << "\",\"" << path_vector[x].get_country() << "\""<<std::endl;
+  for (unsigned x = 0; x < path_vector.size(); x++) {
+    if (x == path_vector.size() - 1) {
+      file << "End: " << path_vector[x].get_name() << "\",\""
+           << path_vector[x].get_city() << "\",\""
+           << path_vector[x].get_country() << "\"" << std::endl;
+    } else {
+      file << path_vector[x].get_name() << "\",\"" << path_vector[x].get_city()
+           << "\",\"" << path_vector[x].get_country() << "\"" << std::endl;
     }
   }
   file << "Total distance: ";
@@ -278,16 +286,18 @@ vector<int> Airports::create_dijkstras(std::string A) {
   // cin somewhere and set starting airport
   // also figure out what to return::: shortest distance between two airports +
   // path to get there?
-  //int pop_count = 0;
+  // int pop_count = 0;
   vector<int> pop_vec;
   startingPort_ = port_map[A];
   Airport a = port_map[A];
   int start_id = a.get_port_ID();
   priority_queue<pair<long double, int>, vector<pair<long double, int>>,
-                 std::greater<pair<long double, int>>>pq;  // long double is distance, second int is vertex/port_id
+                 std::greater<pair<long double, int>>>
+      pq;  // long double is distance, second int is vertex/port_id
   unordered_map<int, int> parent;  // first is port_id, second is parent port_id
-  unordered_map<int, long double> distance;  // first is port_id, second is distance
-  unordered_set<int> visited;  //port_id
+  unordered_map<int, long double>
+      distance;                // first is port_id, second is distance
+  unordered_set<int> visited;  // port_id
 
   vector<Vertex> vertices = g_.getVertices();
   for (auto v : vertices) {
@@ -303,9 +313,9 @@ vector<int> Airports::create_dijkstras(std::string A) {
     int u = pq.top().second;  // current airport id
     pq.pop();
     visited.insert(u);
-    //pop_count++;
+    // pop_count++;
     pop_vec.push_back(u);
-    //d_graph.graph.insertVertex(id_map[u]);
+    // d_graph.graph.insertVertex(id_map[u]);
     vector<Vertex> vert = g_.getAdjacent(id_map[u]);
     for (int x = 0; x < (int)vert.size(); x++) {
       int v = vert[x].get_port_ID();  // child airport_id
@@ -320,14 +330,16 @@ vector<int> Airports::create_dijkstras(std::string A) {
       }
     }
   }
-  //pop_vec.push_back(pop_count);
+  // pop_vec.push_back(pop_count);
   d_graph.distances = distance;
   d_graph.parents = parent;
   return pop_vec;
 }
 
 // Gets all strongly connected components with an in-degree of zero
-std::vector<std::vector<Vertex>> Airports::getStronglyConnected(std::string airline) {
+std::vector<std::vector<Vertex>> Airports::getStronglyConnected(
+    std::string airline) {
+  // implements Tarjan's algorithm
   Airline choice = air_map[airline];
   Graph g = lineGraph[choice];
 
@@ -351,24 +363,27 @@ std::vector<std::vector<Vertex>> Airports::getStronglyConnected(std::string airl
 
   for (auto i : g.getVertices()) {
     for (auto j : g.getAdjacent(i)) {
-      for(auto k : stronglyConnected) {
+      for (auto k : stronglyConnected) {
         auto it = find(k.begin(), k.end(), j);
-        if(it != k.end())
-          k.erase(it);
-        if(k.empty())
-          stronglyConnected.erase(find(stronglyConnected.begin(), stronglyConnected.end(), k));
+        if (it != k.end()) k.erase(it);
+        if (k.empty())
+          stronglyConnected.erase(
+              find(stronglyConnected.begin(), stronglyConnected.end(), k));
       }
     }
   }
 
-  vector<vector<Vertex>> ans(stronglyConnected.begin(), stronglyConnected.end());
+  vector<vector<Vertex>> ans(stronglyConnected.begin(),
+                             stronglyConnected.end());
   return ans;
 }
 
+// helper function for Tarjan's algorithm
 void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
                             std::map<Vertex, int>& low, std::stack<Vertex>& s,
                             std::map<Vertex, bool>& stackHasNode,
-                            std::vector<std::vector<Vertex>>& stronglyConnected, Graph g) {
+                            std::vector<std::vector<Vertex>>& stronglyConnected,
+                            Graph g) {
   static int time = 0;
   ++time;
   discover[v] = time;
@@ -405,6 +420,7 @@ void Airports::tarjanHelper(Vertex v, std::map<Vertex, int>& discover,
 
 std::string Airports::airlinesAdded(std::string airline) {
   std::map<Airline, vector<vector<Vertex>>> ans;
+  // if the user wants to add all airlines
   if (airline == "allAirlines") {
     std::cout << "Finding all needed airports for all airlines..." << std::endl;
     for (auto i : airlines) {
@@ -414,6 +430,7 @@ std::string Airports::airlinesAdded(std::string airline) {
       vector<vector<Vertex>> temp = getStronglyConnected(name);
       if (!temp.empty()) ans[i] = temp;
     }
+    // the user wants to add only one airline
   } else {
     vector<vector<Vertex>> temp = getStronglyConnected(airline);
     ans[air_map[airline]] = temp;
@@ -427,12 +444,15 @@ vector<Edge> Airports::getEdges() { return g_.getEdges(); }
 
 unordered_map<int, Airport> Airports::get_id_map() { return id_map; }
 
-unordered_map<std::string, Airport> Airports::get_port_map() { return port_map; }
+unordered_map<std::string, Airport> Airports::get_port_map() {
+  return port_map;
+}
 
 Graph& Airports::get_graph() { return g_; }
 
 std::string Airports::exportStronglyConnected(
     map<Airline, vector<vector<Vertex>>> scc) {
+  // Exports the strongly connected data to a text file
   std::ofstream out;
   std::string filename = "allAirlinesNeeded";
   if (scc.empty()) return "empty";
@@ -442,24 +462,27 @@ std::string Airports::exportStronglyConnected(
   }
   std::string realFileName = filename + ".txt";
   std::ifstream file(filename + ".txt");
+  // if the file doesn't exist
   if (!file.good())
     out.open(filename + ".txt", std::ios::out | std::ios::trunc);
   else {
+    // file exists
+    // increments the number so as to not overwrite data of the same name
     filename += " (";
     int repeats = 1;
     while (file.good()) {
       std::string save = filename + std::to_string(repeats++) + ").txt";
-    //  file = std::ifstream(save);
+      //  file = std::ifstream(save);
       realFileName = save;
     }
     out.open(realFileName, std::ios::out | std::ios::trunc);
   }
   file.close();
-  for(auto i : scc) {
+  // outputs the data to the text file
+  for (auto i : scc) {
     out << i.first << std::endl;
-    for(auto j : i.second) {
-      for(auto k : j)
-        out << k << std::endl;
+    for (auto j : i.second) {
+      for (auto k : j) out << k << std::endl;
       out << std::endl;
     }
     out << std::endl << std::endl << std::endl;
