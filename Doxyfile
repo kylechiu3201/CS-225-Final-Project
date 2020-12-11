@@ -1,0 +1,13 @@
+PROJECT_NAME = "Final Project"
+
+PROJECT_BRIEF = "Final project for Kyle Chiu, Brandon Wong, and Anthony Xu"
+
+INPUT = airline/airline.h airport/airport.h airports/airports.h graph/edge.h graph/graph.h
+
+OUTPUT_DIRECTORY = doxygen
+
+GENERATE_HTML = YES
+
+HTML_OUTPUT = html/
+
+HTML_FILE_EXTENSION = .html
