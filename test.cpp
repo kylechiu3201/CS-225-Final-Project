@@ -41,6 +41,26 @@ bool check_tol(double ans, double tol, double calc) {
   return calc >= ans - tol && calc <= ans + tol;
 }
 
+bool bfs_test(vector<Vertex> path, vector<std::string> sol){
+  REQUIRE(path.size() == sol.size());
+  for(unsigned x = 0; x < path.size(); x++){
+    REQUIRE(path[x].get_name() == sol[x]);
+  }
+  return true;
+}
+
+bool bfs_comp(vector<vector<Vertex>> b, vector<vector<std::string>> sol){
+  REQUIRE(b.size() == sol.size());
+  for(unsigned x = 0; x < b.size(); x++){
+    REQUIRE(b[x].size() == sol[x].size());
+    for(unsigned y = 0; y < b[x].size(); y++){
+      REQUIRE(b[x][y].get_name() == sol[x][y]);
+    }
+  }
+  return true;
+}
+
+
 TEST_CASE("Graph is created from small subset of data", "[weight=1][part=1]") {
   Airports airports("data/testairports.dat", "data/testairlines.dat",
                     "data/testroutes.dat");
@@ -195,4 +215,72 @@ TEST_CASE("Correct vertices for vertices of strongly connected graph of an airli
       {"ONE"}, {"THR", "FOU"}, {"FIV", "SIX"}, {"EIG", "NIN", "TEN"}, {"ELE"}};
 
   REQUIRE(sol == check);
+}
+
+TEST_CASE("BFS - empty data set"){
+  std::ofstream file("data/bfstest.dat", std::ofstream::out | std::ofstream::trunc);
+  
+  Airports airports("data/bfstest.dat", "data/testairlines.dat", "data/testroutes.dat");
+  vector<vector<Vertex>> b = airports.bfs();
+  vector<Vertex> path;
+  for(unsigned x = 0; x < b.size(); x++){
+    for(unsigned y = 0; y < b[x].size(); y++){
+      path.push_back(b[x][y]);
+    }
+  }
+
+  REQUIRE(path.size()==0);  
+}
+
+TEST_CASE("BFS - Traverses the whole graph with the correct path"){
+  std::ofstream file("data/bfstest.dat", std::ofstream::out | std::ofstream::trunc);
+  file << "SW,2,ONEE,1,TWO,2,123,,0,jun" << std::endl;
+  file << "SW,2,ONEE,1,FOUR,4,123,,0,jun" << std::endl;
+  file << "SW,2,FOUR,4,THR,3,123,,0,jun"<< std::endl; 
+  file << "SW,2,FOUR,4,SIX,6,123,,0,jun"<< std::endl; 
+  file << "SW,2,SIX,6,SEVE,7,123,,0,jun"<< std::endl;
+  file << "SW,2,SEVE,7,FIVE,5,123,,0,jun"<< std::endl;
+  file << "SW,2,FIVE,5,EIG,8,123,,0,jun"<< std::endl;
+  file << "SW,2,EIG,8,NINE,9,123,,0,jun"<< std::endl;
+  file << "SW,2,NINE,9,TEN,10,123,,0,jun"<< std::endl;
+  file << "SW,2,TEN,10,ELE,11,123,,0,jun"<< std::endl;
+  
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/bfstest.dat");
+  vector<vector<Vertex>> b = airports.bfs();
+  vector<Vertex> path;
+
+  REQUIRE(b.size()==1); //traversal is connected
+
+  for(unsigned x = 0; x < b.size(); x++){
+    for(unsigned y = 0; y < b[x].size(); y++){
+      path.push_back(b[x][y]);
+    }
+  }
+
+  REQUIRE(path.size()==11); 
+
+  vector<std::string> sol = {"name 1","name 2","name 4","name 3","name 6","name 7","name 5","name 8","name 9","name 10","name 11"};
+
+  REQUIRE(bfs_test(path,sol));
+  
+}
+
+TEST_CASE("BFS - Traverse a graph with multiple components"){
+  std::ofstream file("data/bfstest.dat", std::ofstream::out | std::ofstream::trunc);
+  file << "SW,2,ONEE,1,TWO,2,123,,0,jun" << std::endl;
+  file << "SW,2,TWO,2,THR,3,123,,0,jun"<< std::endl;
+
+  file << "SW,2,FOUR,4,SIX,6,123,,0,jun"<< std::endl;
+  file << "SW,2,SIX,6,SEVE,7,123,,0,jun"<< std::endl; 
+  file << "SW,2,SEVE,7,FIVE,5,123,,0,jun"<< std::endl;
+  file << "SW,2,FIVE,5,EIG,8,123,,0,jun"<< std::endl;
+  
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/bfstest.dat");
+  vector<vector<Vertex>> b = airports.bfs();
+
+  REQUIRE(b.size()==5);
+
+  vector<vector<std::string>> sol = {{"name 1","name 2","name 3"},{"name 4","name 6","name 7","name 5","name 8"},{"name 9"},{"name 10"},{"name 11"}};
+  
+  REQUIRE(bfs_comp(b,sol));
 }

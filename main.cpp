@@ -8,18 +8,42 @@ int main() {
   std::cout << "Enter airport data file name:"
             << std::endl;  // read in airport data set
   std::cin >> filename;
+  std::ifstream file(filename);
+  if (file.fail()) {
+    std::cout << "Error opening file '" << filename << "'. Quitting..."
+              << std::endl;
+    exit(EXIT_FAILURE);
+    return 0;
+  }
+  file.close();
 
   // gets airline data
   std::string fileair;
   std::cout << "Enter airline data file name:"
             << std::endl;  // read in route data set
   std::cin >> fileair;
+  std::ifstream file_a(fileair);
+  if (file_a.fail()) {
+    std::cout << "Error opening file '" << fileair << "'. Quitting..."
+              << std::endl;
+    exit(EXIT_FAILURE);
+    return 0;
+  }
+  file_a.close();
 
   // gets route data
   std::string fileroute;
   std::cout << "Enter route data file name:"
             << std::endl;  // read in route data set
   std::cin >> fileroute;
+  std::ifstream file_r(fileroute);
+  if (file_r.fail()) {
+    std::cout << "Error opening file '" << fileroute << "'. Quitting..."
+              << std::endl;
+    exit(EXIT_FAILURE);
+    return 0;
+  }
+  file_r.close();
   std::cout << "Creating graph...\n";
 
   Airports airports(filename, fileair, fileroute);
@@ -87,8 +111,17 @@ int main() {
 
     }
 
-    else if (command == "bfs")
-      airports.bfs();
+    else if (command == "bfs"){
+      vector<vector<Vertex>> b = airports.bfs();
+      for(unsigned x = 0; x < b.size(); x++){
+    std::cout << "BFS " << x+1 << ":" << std::endl;
+    for(unsigned y = 0; y < b[x].size(); y++){
+      std::cout << b[x][y] << std::endl;
+    }
+    std::cout << std::endl;
+  }
+      airports.bfs_to_text(b);
+    }
 
     else if (command == "exit")
       done = true;

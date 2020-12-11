@@ -28,7 +28,8 @@ class Airports {
   };
 
   void bfs(Vertex v, vector<Vertex>& path);
-  void bfs();
+  vector<vector<Vertex>> bfs();
+  void bfs_to_text(vector<vector<Vertex>> v);
 
 
   vector<Airport> shortest_path(std::string B);

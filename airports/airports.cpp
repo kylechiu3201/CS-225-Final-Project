@@ -28,30 +28,16 @@ Airports::Airports(std::string filename, std::string fileair,
     : g_(true, true) {
   // num_airports = 0;
   std::ifstream file(filename);
-  if (file.fail()) {
-    std::cout << "Error opening file '" << filename << "'. Quitting..."
-              << std::endl;
-    exit(EXIT_FAILURE);
-    return;
-  }
+  
   std::ifstream file_a(fileair);
-  if (file_a.fail()) {
-    std::cout << "Error opening file '" << fileair << "'. Quitting..."
-              << std::endl;
-    exit(EXIT_FAILURE);
-    return;
-  }
+  
   std::ifstream file_r(fileroute);
-  if (file_r.fail()) {
-    std::cout << "Error opening file '" << fileroute << "'. Quitting..."
-              << std::endl;
-    exit(EXIT_FAILURE);
-    return;
-  }
+  
   std::string str, name, city, country, IATA, ICAO;
   int port;
   double latitude, longitude;
-  bool first = false;
+  bool first = true;
+  bool empty = true;
   while (std::getline(file, str)) {
     std::stringstream ss(
         str);  // takes the line of data and puts them into fields
@@ -76,20 +62,29 @@ Airports::Airports(std::string filename, std::string fileair,
     std::stringstream(data) >> longitude;
     Airport airport_(port, name, city, country, IATA, ICAO, latitude,
                      longitude);
-    if (first == false) {
-      startingPort_ = airport_;
-      first = true;
-    }
-    g_.insertVertex(airport_);  // insert airports as vertexes
-    if (IATA.compare("") != 0 && IATA.compare("\\N") != 0) {
+    if (IATA.compare("") != 0 && IATA.compare("\\N") != 0 && IATA != "\"\"") {
       //IATA.erase(remove(IATA.begin(), IATA.end(), '\"'), IATA.end());
       port_map.insert({IATA, airport_});
+      g_.insertVertex(airport_);  // insert airports as vertexes
+      empty = false;
     }
-    if (ICAO.compare("") != 0 && ICAO.compare("\\N") != 0) {
+    if (ICAO.compare("") != 0 && ICAO.compare("\\N") != 0 && ICAO != "\"\"") {
       //ICAO.erase(remove(ICAO.begin(), ICAO.end(), '\"'), ICAO.end());
       port_map.insert({ICAO, airport_});
-      
+      g_.insertVertex(airport_);  // insert airports as vertexes
+      empty = false;
     }
+    /*if (ICAO.compare("") != 0 && ICAO.compare("\\N") != 0 "3\"\"") {
+      //ICAO.erase(remove(ICAO.begin(), ICAO.end(), '\"'), ICAO.end());
+      port_map.insert({ICAO, airport_});
+      g_.insertVertex(airport_);  // insert airports as vertexes
+    } */
+                     
+    if (first) {
+      startingPort_ = airport_;
+      first = false;
+    }
+    
     id_map[airport_.get_port_ID()] = airport_;
     // num_airports++;
   }
@@ -126,7 +121,9 @@ Airports::Airports(std::string filename, std::string fileair,
     }
   }
   file_a.close();
-
+  if(empty){
+    return;
+  }
   while (std::getline(file_r, str)) {
     std::stringstream ss(
         str);  // takes the line of data and puts them into fields
@@ -142,10 +139,14 @@ Airports::Airports(std::string filename, std::string fileair,
     getline(ss, data, ',');
     /* dest = data; */
     dest = "\"" + data + "\"";
-    g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
-    g_.setEdgeWeight(
+
+    if (source.compare("\"\\N\"") != 0 && source != "\"\"" && dest.compare("\"\\N\"") != 0 && dest != "\"\"" && air.compare("\"\\N\"") != 0 && air != "\"\"") {
+      g_.insertEdge(port_map[source], port_map[dest], air_map[air]);
+      g_.setEdgeWeight(
         port_map[source], port_map[dest],
         Airport::get_distance(port_map[source], port_map[dest], 'K'));
+    }
+    
 
     lineGraph[air_map[air]].insertVertex(port_map[source]);
     lineGraph[air_map[air]].insertVertex(port_map[dest]);
@@ -158,15 +159,29 @@ Airports::Airports(std::string filename, std::string fileair,
   file_r.close();
 }
 
+void Airports::bfs_to_text(vector<vector<Airport>> v){
+  std::ofstream file("BFS.txt", std::ofstream::out | std::ofstream::trunc);
+  if(v.empty()){
+    file << "Empty data set";
+    return;
+  }
+  for(unsigned x = 0; x < v.size(); x++){
+    file << "BFS " << x+1 << ":" << std::endl;
+    for(unsigned y = 0; y < v[x].size(); y++){
+      file << v[x][y] << std::endl;
+    }
+    file << std::endl;
+  }
+}
+
 void Airports::bfs(Vertex v, vector<Vertex>& path) {
   std::queue<Vertex> q;
   vertices[v].set_label("visited");
   q.push(v);
 
-  Vertex vert;
 
   while(!q.empty()){
-      vert = q.front();
+      Vertex vert = q.front();
       path.push_back(vert);
       vector<Vertex> adj = g_.getAdjacent(vert);
       q.pop();
@@ -184,8 +199,8 @@ void Airports::bfs(Vertex v, vector<Vertex>& path) {
   }
 }
 
-void Airports::bfs() {
-  vector<Vertex> path; 
+vector<vector<Vertex>> Airports::bfs() {
+  vector<vector<Vertex>> b; 
   vector<Vertex> verts = g_.getVertices(); 
   for(unsigned x = 0; x < verts.size(); x++){ 
     vertices.insert({verts[x], verts[x]}); 
@@ -200,13 +215,15 @@ void Airports::bfs() {
   }
   for(unsigned x = 0; x < verts.size(); x++){
       if(vertices[verts[x]].get_label() == "unexplored"){
+          vector<Vertex> path;
           bfs(vertices[verts[x]], path);
+          if(!path.empty()){
+            b.push_back(path);
+          }
       }
   }
 
-  for(unsigned x = 0; x < path.size()-1; x++){
-    std::cout << path[x].get_name() << " -> " << path[x+1].get_name() << std::endl;
-  }
+  return b;
 }
 
 void Airports::path_helper(int b, vector<Airport>& vec) {
@@ -432,7 +449,7 @@ std::string Airports::exportStronglyConnected(
     int repeats = 1;
     while (file.good()) {
       std::string save = filename + std::to_string(repeats++) + ").txt";
-      file = std::ifstream(save);
+    //  file = std::ifstream(save);
       realFileName = save;
     }
     out.open(realFileName, std::ios::out | std::ios::trunc);

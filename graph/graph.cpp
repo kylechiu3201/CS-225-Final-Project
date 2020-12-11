@@ -50,7 +50,9 @@ Vertex Graph::getStartingVertex() const
 vector<Vertex> Graph::getVertices() const
 {
     vector<Vertex> ret;
-
+    if(adjacency_list.empty()){
+        return ret;
+    }
     for(auto it = adjacency_list.begin(); it != adjacency_list.end(); it++)
     {
         ret.push_back(it->first);
