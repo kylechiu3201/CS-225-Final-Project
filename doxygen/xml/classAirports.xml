@@ -1,0 +1,764 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classAirports" kind="class" language="C++" prot="public">
+    <compoundname>Airports</compoundname>
+    <includes refid="airports_8h" local="no">airports.h</includes>
+    <innerclass refid="structAirports_1_1dijkstras__graph" prot="public">Airports::dijkstras_graph</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAirports_1a8cb051f8453a5d9975cbdad29a6f7646" prot="private" static="no" mutable="no">
+        <type><ref refid="classGraph" kindref="compound">Graph</ref></type>
+        <definition>Graph Airports::g_</definition>
+        <argsstring></argsstring>
+        <name>g_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="165" column="9" bodyfile="airports/airports.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1a240d4b1e8b26445f33b27f0ab55b4f18" prot="private" static="no" mutable="no">
+        <type><ref refid="classAirport" kindref="compound">Airport</ref></type>
+        <definition>Airport Airports::startingPort_</definition>
+        <argsstring></argsstring>
+        <name>startingPort_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="166" column="11" bodyfile="airports/airports.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1ac285098ca8908e06db5903fb7879252e" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="classAirport" kindref="compound">Airport</ref> &gt;</type>
+        <definition>std::unordered_map&lt;std::string, Airport&gt; Airports::port_map</definition>
+        <argsstring></argsstring>
+        <name>port_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="167" column="22" bodyfile="airports/airports.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1a173c965f5d4343975b68bc64a79210d4" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="classAirport" kindref="compound">Airport</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, Airport&gt; Airports::id_map</definition>
+        <argsstring></argsstring>
+        <name>id_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="168" column="22" bodyfile="airports/airports.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1aac8fa42d9014eab180a190ecc2adb3ca" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="classAirline" kindref="compound">Airline</ref>, <ref refid="classGraph" kindref="compound">Graph</ref> &gt;</type>
+        <definition>std::map&lt;Airline, Graph&gt; Airports::lineGraph</definition>
+        <argsstring></argsstring>
+        <name>lineGraph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="169" column="12" bodyfile="airports/airports.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1a40bff9f0767bbc8e33a0ef8a00187130" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="classAirline" kindref="compound">Airline</ref> &gt;</type>
+        <definition>std::unordered_map&lt;std::string, Airline&gt; Airports::air_map</definition>
+        <argsstring></argsstring>
+        <name>air_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="170" column="22" bodyfile="airports/airports.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1aef98d56fa21b32ebe3bef4856153d299" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="classAirline" kindref="compound">Airline</ref>, std::set&lt; std::pair&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, <ref refid="classAirport" kindref="compound">Vertex</ref> &gt; &gt; &gt;</type>
+        <definition>std::map&lt;Airline, std::set&lt;std::pair&lt;Vertex, Vertex&gt; &gt; &gt; Airports::linetoedges</definition>
+        <argsstring></argsstring>
+        <name>linetoedges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="171" column="12" bodyfile="airports/airports.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1a98f6e5fbd637588c8ab2a3f3d164dc99" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classAirline" kindref="compound">Airline</ref> &gt;</type>
+        <definition>std::vector&lt;Airline&gt; Airports::airlines</definition>
+        <argsstring></argsstring>
+        <name>airlines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="172" column="15" bodyfile="airports/airports.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1aa64dfcd329a3d4bd8b244eb7e3695c6d" prot="private" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, <ref refid="classAirport" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>std::map&lt;Vertex, Vertex&gt; Airports::vertices</definition>
+        <argsstring></argsstring>
+        <name>vertices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="173" column="12" bodyfile="airports/airports.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1a58fc501e17c646323533b73236059558" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> &gt;</type>
+        <definition>vector&lt;Edge&gt; Airports::edges</definition>
+        <argsstring></argsstring>
+        <name>edges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="174" column="10" bodyfile="airports/airports.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirports_1a5a64d922637748c499edafc798d191e9" prot="private" static="no" mutable="no">
+        <type><ref refid="structAirports_1_1dijkstras__graph" kindref="compound">dijkstras_graph</ref></type>
+        <definition>dijkstras_graph Airports::d_graph</definition>
+        <argsstring></argsstring>
+        <name>d_graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="175" column="19" bodyfile="airports/airports.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAirports_1acddd4e0844de9718621bcb65c2bbd923" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Airports::Airports</definition>
+        <argsstring>(std::string filename, std::string fileair, std::string fileroute)</argsstring>
+        <name>Airports</name>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>fileair</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>fileroute</declname>
+        </param>
+        <briefdescription>
+<para>Creates an <ref refid="classAirports" kindref="compound">Airports</ref> object with the given parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>filename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path of the file for airport data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileair</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path of the file for airline data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fileroute</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path of the file for route data </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="32" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1ad9aeeb8a73d5c121e66aeec55211e44c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airports::bfs</definition>
+        <argsstring>(Vertex v, vector&lt; Vertex &gt; &amp;path)</argsstring>
+        <name>bfs</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt; &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Helper function for <ref refid="classAirports_1a4c7801db9d9d030694896b7ace7e4d62" kindref="member">bfs()</ref> </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current Vertex </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path of the search </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="40" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a4c7801db9d9d030694896b7ace7e4d62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt; &gt;</type>
+        <definition>vector&lt;vector&lt;Vertex&gt; &gt; Airports::bfs</definition>
+        <argsstring>()</argsstring>
+        <name>bfs</name>
+        <briefdescription>
+<para>Performs a breadth first search on the <ref refid="classAirport" kindref="compound">Airport</ref> graph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The vector of the breadth first search </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="47" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1ab64e235519e96fbfd58ae6045f088b0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airports::bfs_to_text</definition>
+        <argsstring>(vector&lt; vector&lt; Vertex &gt;&gt; v)</argsstring>
+        <name>bfs_to_text</name>
+        <param>
+          <type>vector&lt; vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt;&gt;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+<para>Exports the breadth first search to a text file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The breadth first search vector </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="54" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a6ab5d68cc26c5b201000fc20d8f08679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classAirport" kindref="compound">Airport</ref> &gt;</type>
+        <definition>vector&lt;Airport&gt; Airports::shortest_path</definition>
+        <argsstring>(std::string B)</argsstring>
+        <name>shortest_path</name>
+        <param>
+          <type>std::string</type>
+          <declname>B</declname>
+        </param>
+        <briefdescription>
+<para>Gets the shortest path from one airport to another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the airport</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The vector of the vertices in the path </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="63" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a65496328754ac42865e74d3ae5e75e57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long double</type>
+        <definition>long double Airports::shortest_dist</definition>
+        <argsstring>(std::string B)</argsstring>
+        <name>shortest_dist</name>
+        <param>
+          <type>std::string</type>
+          <declname>B</declname>
+        </param>
+        <briefdescription>
+<para>Gets the shortest distance from one airport to another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the airport</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The distance from one airport to another </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="72" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a598a4a8033e662d576043e0fa1b461ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; int &gt;</type>
+        <definition>vector&lt;int&gt; Airports::create_dijkstras</definition>
+        <argsstring>(std::string A)</argsstring>
+        <name>create_dijkstras</name>
+        <param>
+          <type>std::string</type>
+          <declname>A</declname>
+        </param>
+        <briefdescription>
+<para>Sets up Dijkstra&apos;s algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>A</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the starting airport</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The vector of the airport IDs </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="81" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1aa2e942d705f14dd5d43161977de8a17f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airports::shortest_to_text</definition>
+        <argsstring>(std::string B)</argsstring>
+        <name>shortest_to_text</name>
+        <param>
+          <type>std::string</type>
+          <declname>B</declname>
+        </param>
+        <briefdescription>
+<para>Exports the shortest path data to a text file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>B</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the airport </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="88" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a09e694ebcac791327c5969d744359bb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classGraph" kindref="compound">Graph</ref> &amp;</type>
+        <definition>Graph&amp; Airports::get_graph</definition>
+        <argsstring>()</argsstring>
+        <name>get_graph</name>
+        <briefdescription>
+<para>Gets the current airport graph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The current airport graph </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="95" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a2a336ca779e3c392aab21a9837d5223b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>vector&lt;Vertex&gt; Airports::getVertices</definition>
+        <argsstring>()</argsstring>
+        <name>getVertices</name>
+        <briefdescription>
+<para>Gets all vertices in the airport graph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The vector of all vertices in the airport graph </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="102" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a03f8769b03be0ad9e3d86b7e2e363904" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> &gt;</type>
+        <definition>vector&lt;Edge&gt; Airports::getEdges</definition>
+        <argsstring>()</argsstring>
+        <name>getEdges</name>
+        <briefdescription>
+<para>Gets all edges in the airport graph. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The vector of all edges in the airport graph </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="109" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a048b54cb44483f4829f67d236d0509e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unordered_map&lt; int, <ref refid="classAirport" kindref="compound">Airport</ref> &gt;</type>
+        <definition>unordered_map&lt;int, Airport&gt; Airports::get_id_map</definition>
+        <argsstring>()</argsstring>
+        <name>get_id_map</name>
+        <briefdescription>
+<para>Gets the map from IDs to <ref refid="classAirport" kindref="compound">Airport</ref> objects. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The map from IDs to <ref refid="classAirport" kindref="compound">Airport</ref> objects </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="116" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a7129e22c60acf8b8e79da7eef9959886" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unordered_map&lt; std::string, <ref refid="classAirport" kindref="compound">Airport</ref> &gt;</type>
+        <definition>unordered_map&lt;std::string, Airport&gt; Airports::get_port_map</definition>
+        <argsstring>()</argsstring>
+        <name>get_port_map</name>
+        <briefdescription>
+<para>Gets the map from IATA/ICAO to <ref refid="classAirport" kindref="compound">Airport</ref> objects. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The map from IATA/ICAO to <ref refid="classAirport" kindref="compound">Airport</ref> objects </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="123" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a3aad12a8519830591aaf6cb6311ca4bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Airports::airlinesAdded</definition>
+        <argsstring>(std::string airline)</argsstring>
+        <name>airlinesAdded</name>
+        <param>
+          <type>std::string</type>
+          <declname>airline</declname>
+        </param>
+        <briefdescription>
+<para>Gets a chosen/all airlines for strongly connected components with an in-degree of zero. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>airline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Either the IATA/ICAO of the chosen airline or an string that indicates that the user wants all airlines</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the file with the exported data </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="134" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a1e6394edcd3de2004e3b4b60cbebb434" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;Vertex&gt; &gt; Airports::getStronglyConnected</definition>
+        <argsstring>(std::string airline)</argsstring>
+        <name>getStronglyConnected</name>
+        <param>
+          <type>std::string</type>
+          <declname>airline</declname>
+        </param>
+        <briefdescription>
+<para>Gets the strongly connected components with an in-degree of zero of the given airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>airline</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The IATA/ICAO of the chosen airline</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The vector of the strongly connected components with an in-degree of zero </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="145" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1aa51338d2d41bc643c2e1a6c7dfd34b0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Airports::exportStronglyConnected</definition>
+        <argsstring>(map&lt; Airline, vector&lt; vector&lt; Vertex &gt;&gt;&gt; scc)</argsstring>
+        <name>exportStronglyConnected</name>
+        <param>
+          <type>map&lt; <ref refid="classAirline" kindref="compound">Airline</ref>, vector&lt; vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt;&gt;&gt;</type>
+          <declname>scc</declname>
+        </param>
+        <briefdescription>
+<para>Exports the strongly connected data to a text file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A map of Airlines to its respective vector of strongly connected components</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The name of the file with the exported data </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="155" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classAirports_1a82b6f40fcc79f74bec3bba53a91004b5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airports::path_helper</definition>
+        <argsstring>(int b, vector&lt; Airport &gt; &amp;vec)</argsstring>
+        <name>path_helper</name>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="classAirport" kindref="compound">Airport</ref> &gt; &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+<para>Helper for finding shortest path. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The port ID of the destination </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector of <ref refid="classAirports" kindref="compound">Airports</ref> in the path </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="183" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirports_1a4d31d4657148483ddbb8bd8fb047be7c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airports::tarjanHelper</definition>
+        <argsstring>(Vertex v, std::map&lt; Vertex, int &gt; &amp;discover, std::map&lt; Vertex, int &gt; &amp;low, std::stack&lt; Vertex &gt; &amp;s, std::map&lt; Vertex, bool &gt; &amp;stackHasNode, std::vector&lt; std::vector&lt; Vertex &gt;&gt; &amp;stronglyConnected, Graph g)</argsstring>
+        <name>tarjanHelper</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>std::map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, int &gt; &amp;</type>
+          <declname>discover</declname>
+        </param>
+        <param>
+          <type>std::map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, int &gt; &amp;</type>
+          <declname>low</declname>
+        </param>
+        <param>
+          <type>std::stack&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt; &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>std::map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, bool &gt; &amp;</type>
+          <declname>stackHasNode</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt;&gt; &amp;</type>
+          <declname>stronglyConnected</declname>
+        </param>
+        <param>
+          <type><ref refid="classGraph" kindref="compound">Graph</ref></type>
+          <declname>g</declname>
+        </param>
+        <briefdescription>
+<para>Helper function for Tarjan&apos;s algorithm. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The current Vertex </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>discover</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The discovered map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>low</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The low map </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stack of Vertices </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stackHasNode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The map of if the Vertex is on the stack </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stronglyConnected</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The vector of the strongly connected components </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>g</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The graph to perform Tarjan&apos;s algorithm on </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="196" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classAirports" kindref="compound">Airports</ref> class with graph algorithms for the graph of the airport and route data. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="airports/airports.h" line="23" column="15" bodyfile="airports/airports.h" bodystart="23" bodyend="201"/>
+    <listofallmembers>
+      <member refid="classAirports_1a40bff9f0767bbc8e33a0ef8a00187130" prot="private" virt="non-virtual"><scope>Airports</scope><name>air_map</name></member>
+      <member refid="classAirports_1a98f6e5fbd637588c8ab2a3f3d164dc99" prot="private" virt="non-virtual"><scope>Airports</scope><name>airlines</name></member>
+      <member refid="classAirports_1a3aad12a8519830591aaf6cb6311ca4bc" prot="public" virt="non-virtual"><scope>Airports</scope><name>airlinesAdded</name></member>
+      <member refid="classAirports_1acddd4e0844de9718621bcb65c2bbd923" prot="public" virt="non-virtual"><scope>Airports</scope><name>Airports</name></member>
+      <member refid="classAirports_1ad9aeeb8a73d5c121e66aeec55211e44c" prot="public" virt="non-virtual"><scope>Airports</scope><name>bfs</name></member>
+      <member refid="classAirports_1a4c7801db9d9d030694896b7ace7e4d62" prot="public" virt="non-virtual"><scope>Airports</scope><name>bfs</name></member>
+      <member refid="classAirports_1ab64e235519e96fbfd58ae6045f088b0f" prot="public" virt="non-virtual"><scope>Airports</scope><name>bfs_to_text</name></member>
+      <member refid="classAirports_1a598a4a8033e662d576043e0fa1b461ea" prot="public" virt="non-virtual"><scope>Airports</scope><name>create_dijkstras</name></member>
+      <member refid="classAirports_1a5a64d922637748c499edafc798d191e9" prot="private" virt="non-virtual"><scope>Airports</scope><name>d_graph</name></member>
+      <member refid="classAirports_1a58fc501e17c646323533b73236059558" prot="private" virt="non-virtual"><scope>Airports</scope><name>edges</name></member>
+      <member refid="classAirports_1aa51338d2d41bc643c2e1a6c7dfd34b0d" prot="public" virt="non-virtual"><scope>Airports</scope><name>exportStronglyConnected</name></member>
+      <member refid="classAirports_1a8cb051f8453a5d9975cbdad29a6f7646" prot="private" virt="non-virtual"><scope>Airports</scope><name>g_</name></member>
+      <member refid="classAirports_1a09e694ebcac791327c5969d744359bb0" prot="public" virt="non-virtual"><scope>Airports</scope><name>get_graph</name></member>
+      <member refid="classAirports_1a048b54cb44483f4829f67d236d0509e6" prot="public" virt="non-virtual"><scope>Airports</scope><name>get_id_map</name></member>
+      <member refid="classAirports_1a7129e22c60acf8b8e79da7eef9959886" prot="public" virt="non-virtual"><scope>Airports</scope><name>get_port_map</name></member>
+      <member refid="classAirports_1a03f8769b03be0ad9e3d86b7e2e363904" prot="public" virt="non-virtual"><scope>Airports</scope><name>getEdges</name></member>
+      <member refid="classAirports_1a1e6394edcd3de2004e3b4b60cbebb434" prot="public" virt="non-virtual"><scope>Airports</scope><name>getStronglyConnected</name></member>
+      <member refid="classAirports_1a2a336ca779e3c392aab21a9837d5223b" prot="public" virt="non-virtual"><scope>Airports</scope><name>getVertices</name></member>
+      <member refid="classAirports_1a173c965f5d4343975b68bc64a79210d4" prot="private" virt="non-virtual"><scope>Airports</scope><name>id_map</name></member>
+      <member refid="classAirports_1aac8fa42d9014eab180a190ecc2adb3ca" prot="private" virt="non-virtual"><scope>Airports</scope><name>lineGraph</name></member>
+      <member refid="classAirports_1aef98d56fa21b32ebe3bef4856153d299" prot="private" virt="non-virtual"><scope>Airports</scope><name>linetoedges</name></member>
+      <member refid="classAirports_1a82b6f40fcc79f74bec3bba53a91004b5" prot="private" virt="non-virtual"><scope>Airports</scope><name>path_helper</name></member>
+      <member refid="classAirports_1ac285098ca8908e06db5903fb7879252e" prot="private" virt="non-virtual"><scope>Airports</scope><name>port_map</name></member>
+      <member refid="classAirports_1a65496328754ac42865e74d3ae5e75e57" prot="public" virt="non-virtual"><scope>Airports</scope><name>shortest_dist</name></member>
+      <member refid="classAirports_1a6ab5d68cc26c5b201000fc20d8f08679" prot="public" virt="non-virtual"><scope>Airports</scope><name>shortest_path</name></member>
+      <member refid="classAirports_1aa2e942d705f14dd5d43161977de8a17f" prot="public" virt="non-virtual"><scope>Airports</scope><name>shortest_to_text</name></member>
+      <member refid="classAirports_1a240d4b1e8b26445f33b27f0ab55b4f18" prot="private" virt="non-virtual"><scope>Airports</scope><name>startingPort_</name></member>
+      <member refid="classAirports_1a4d31d4657148483ddbb8bd8fb047be7c" prot="private" virt="non-virtual"><scope>Airports</scope><name>tarjanHelper</name></member>
+      <member refid="classAirports_1aa64dfcd329a3d4bd8b244eb7e3695c6d" prot="private" virt="non-virtual"><scope>Airports</scope><name>vertices</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

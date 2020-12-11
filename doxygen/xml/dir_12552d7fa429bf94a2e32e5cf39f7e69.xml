@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_12552d7fa429bf94a2e32e5cf39f7e69" kind="dir">
+    <compoundname>graph</compoundname>
+    <innerfile refid="edge_8h">edge.h</innerfile>
+    <innerfile refid="graph_8h">graph.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="graph/"/>
+  </compounddef>
+</doxygen>

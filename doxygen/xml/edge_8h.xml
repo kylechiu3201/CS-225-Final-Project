@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="edge_8h" kind="file" language="C++">
+    <compoundname>edge.h</compoundname>
+    <includes local="no">limits.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">string</includes>
+    <includes refid="airline_8h" local="yes">../airline/airline.h</includes>
+    <includes refid="airport_8h" local="yes">../airport/airport.h</includes>
+    <includedby refid="airports_8h" local="yes">airports/airports.h</includedby>
+    <includedby refid="graph_8h" local="yes">graph/graph.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>../airport/airport.h</label>
+        <link refid="airport_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graph/edge.h</label>
+        <link refid="edge_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>limits.h</label>
+      </node>
+      <node id="3">
+        <label>iostream</label>
+      </node>
+      <node id="5">
+        <label>../airline/airline.h</label>
+        <link refid="airline_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>graph/graph.h</label>
+        <link refid="graph_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graph/edge.h</label>
+        <link refid="edge_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>airports/airports.h</label>
+        <link refid="airports_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classEdge" prot="public">Edge</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="edge_8h_1a661c247e26de1658684842b8c7bc8f61" prot="public" static="no">
+        <type><ref refid="classAirport" kindref="compound">Airport</ref></type>
+        <definition>typedef Airport Vertex</definition>
+        <argsstring></argsstring>
+        <name>Vertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="16" column="17" bodyfile="graph/edge.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Definition and (minimal) implementation of an edge class. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="6"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../airline/airline.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../airport/airport.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::string;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classAirport" kindref="compound">Airport</ref><sp/><ref refid="classAirport" kindref="compound">Vertex</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classEdge" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classEdge" kindref="compound">Edge</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26" refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/><ref refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" kindref="member">source</ref>;<sp/></highlight></codeline>
+<codeline lineno="27" refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/><ref refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" kindref="member">dest</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="34" refid="classEdge_1aa14f406ba9fce62efb9eed7e89d1d9d5" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classEdge_1aa14f406ba9fce62efb9eed7e89d1d9d5" kindref="member">Edge</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>u,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>v)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" kindref="member">source</ref>(u),<sp/><ref refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" kindref="member">dest</ref>(v),<sp/>label(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),<sp/>weight(-1)<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>nothing<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classEdge_1a94686ecfbf52d3c38976e5f5ead3e006" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classEdge_1a94686ecfbf52d3c38976e5f5ead3e006" kindref="member">Edge</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>u,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>v,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>lbl)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" kindref="member">source</ref>(u),<sp/><ref refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" kindref="member">dest</ref>(v),<sp/>label(lbl),<sp/>weight(-1)<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>nothing<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classEdge_1abe8c647873a2b98378a7edaf5d23ea26" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classEdge_1abe8c647873a2b98378a7edaf5d23ea26" kindref="member">Edge</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>u,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>v,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>lbl)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" kindref="member">source</ref>(u),<sp/><ref refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" kindref="member">dest</ref>(v),<sp/>label(lbl),<sp/>weight(w)<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>nothing<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classEdge_1a3106b11d60125009dbf7a738ce540fdf" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="classEdge_1a3106b11d60125009dbf7a738ce540fdf" kindref="member">Edge</ref>()<sp/>:<sp/><ref refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" kindref="member">source</ref>(),<sp/><ref refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" kindref="member">dest</ref>(),<sp/>label(),<sp/>weight(-1)<sp/>{<sp/></highlight><highlight class="comment">/*<sp/>nothing<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classEdge_1ab6a06c5da57efed1991960f61e870c8b" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classEdge_1ab6a06c5da57efed1991960f61e870c8b" kindref="member">operator&lt;</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classEdge" kindref="compound">Edge</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>weight<sp/>&lt;<sp/>other.weight;<sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="classEdge_1a7aaf5a50c5768e06015e60e3f0bbbec3" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="classEdge_1a7aaf5a50c5768e06015e60e3f0bbbec3" kindref="member">getLabel</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>label;<sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classEdge_1a1caaffca117bab3ff5b7387623a356f8" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classEdge_1a1caaffca117bab3ff5b7387623a356f8" kindref="member">getWeight</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;weight;<sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classEdge_1a8aac4dd9e059b08f912a55e4088fa997" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classEdge_1a8aac4dd9e059b08f912a55e4088fa997" kindref="member">operator==</ref>(<ref refid="classEdge" kindref="compound">Edge</ref>&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" kindref="member">source</ref>.<ref refid="classAirport_1a716f2c1f73af5ff8db9fca930a134b8a" kindref="member">get_port_ID</ref>()<sp/>!=<sp/>other.<ref refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" kindref="member">source</ref>.<ref refid="classAirport_1a716f2c1f73af5ff8db9fca930a134b8a" kindref="member">get_port_ID</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" kindref="member">dest</ref>.<ref refid="classAirport_1a716f2c1f73af5ff8db9fca930a134b8a" kindref="member">get_port_ID</ref>()<sp/>!=<sp/>other.<ref refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" kindref="member">dest</ref>.<ref refid="classAirport_1a716f2c1f73af5ff8db9fca930a134b8a" kindref="member">get_port_ID</ref>())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>label;<sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weight;<sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="graph/edge.h"/>
+  </compounddef>
+</doxygen>

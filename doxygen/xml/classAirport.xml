@@ -1,0 +1,748 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classAirport" kind="class" language="C++" prot="public">
+    <compoundname>Airport</compoundname>
+    <includes refid="airport_8h" local="no">airport.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAirport_1a4d0173381adf84dbff3bc766420c7e3c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Airport::port_ID</definition>
+        <argsstring></argsstring>
+        <name>port_ID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="168" column="7" bodyfile="airport/airport.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1add85b007e6b5d62d5abefc00cd9fe54b" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Airport::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="169" column="10" bodyfile="airport/airport.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1ad3c7849c28ae86785471ec7e940eaaf4" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Airport::city_</definition>
+        <argsstring></argsstring>
+        <name>city_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="170" column="10" bodyfile="airport/airport.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1ac6d5bb68263ef6857ec74f6aa0f60147" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Airport::country_</definition>
+        <argsstring></argsstring>
+        <name>country_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="171" column="10" bodyfile="airport/airport.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1ace9c2cd40b15de03e1f53769d3525ceb" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Airport::IATA_</definition>
+        <argsstring></argsstring>
+        <name>IATA_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="172" column="10" bodyfile="airport/airport.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1a9592d0c5619dbbe77a1d116e693313b3" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Airport::ICAO_</definition>
+        <argsstring></argsstring>
+        <name>ICAO_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="173" column="10" bodyfile="airport/airport.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1ac8024837a06e22862bf0a1b25162767c" prot="private" static="no" mutable="no">
+        <type>long double</type>
+        <definition>long double Airport::latitude_</definition>
+        <argsstring></argsstring>
+        <name>latitude_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="174" column="15" bodyfile="airport/airport.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1a5ae8c262077239d1b25f82c1f4d2b70c" prot="private" static="no" mutable="no">
+        <type>long double</type>
+        <definition>long double Airport::longitude_</definition>
+        <argsstring></argsstring>
+        <name>longitude_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="175" column="15" bodyfile="airport/airport.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirport_1aeba71a881adb49151d94a4e3f5140fa6" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Airport::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="176" column="10" bodyfile="airport/airport.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAirport_1a2fc0f2402c94225b9deaf76176bb887f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Airport::Airport</definition>
+        <argsstring>()</argsstring>
+        <name>Airport</name>
+        <briefdescription>
+<para>Constructor for default <ref refid="classAirport" kindref="compound">Airport</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="18" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a0bd7ed332d90fee37935549eec68ad79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Airport::Airport</definition>
+        <argsstring>(int port, string name, string city, string country, string IATA, string ICAO, long double latitude, long double longitude)</argsstring>
+        <name>Airport</name>
+        <param>
+          <type>int</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>city</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>country</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>IATA</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>ICAO</declname>
+        </param>
+        <param>
+          <type>long double</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>long double</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classAirport" kindref="compound">Airport</ref> object with given parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>city</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The city of the airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>country</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The country of the airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IATA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The IATA code of the airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ICAO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ICAO code of the airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The latitude coordinate of the airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The longitude coordinate of the airport </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="32" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a716f2c1f73af5ff8db9fca930a134b8a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Airport::get_port_ID</definition>
+        <argsstring>() const</argsstring>
+        <name>get_port_ID</name>
+        <briefdescription>
+<para>Gets the ID of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The ID of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="40" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1aba2a885b9234bc88b099693ab99a4b5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Airport::get_name</definition>
+        <argsstring>() const</argsstring>
+        <name>get_name</name>
+        <briefdescription>
+<para>Gets the name of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="47" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1ad2b9493144e3f909a0f400c658bc9ce1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Airport::get_city</definition>
+        <argsstring>() const</argsstring>
+        <name>get_city</name>
+        <briefdescription>
+<para>Gets the city of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The city of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="54" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a5828a1a9e3fb731634de4aa67aaa4142" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Airport::get_country</definition>
+        <argsstring>() const</argsstring>
+        <name>get_country</name>
+        <briefdescription>
+<para>Gets the country of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The country of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="61" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1ac33fe90defa1fe4a6ecbe85d1f99dcab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Airport::get_IATA</definition>
+        <argsstring>() const</argsstring>
+        <name>get_IATA</name>
+        <briefdescription>
+<para>Gets the IATA code of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The IATA code of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="68" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a2fc94e41895ecbe8baadefcc8705c5cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Airport::get_ICAO</definition>
+        <argsstring>() const</argsstring>
+        <name>get_ICAO</name>
+        <briefdescription>
+<para>Gets the ICAO code of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The ICAO code of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="75" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1ae3905ae188a1541bf5896ff3369b264b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>long double</type>
+        <definition>long double Airport::get_latitude</definition>
+        <argsstring>() const</argsstring>
+        <name>get_latitude</name>
+        <briefdescription>
+<para>Gets the latitude coordinate of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The latitude coordinate of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="82" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a8302cfc337f85b471eb5e52a463cb9d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>long double</type>
+        <definition>long double Airport::get_longitude</definition>
+        <argsstring>() const</argsstring>
+        <name>get_longitude</name>
+        <briefdescription>
+<para>Gets the longitude coordinate of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The longitude coordinate of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="89" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1aaa5fc48bf61a4321fc69ca493a5e0c2d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Airport::get_label</definition>
+        <argsstring>() const</argsstring>
+        <name>get_label</name>
+        <briefdescription>
+<para>Gets the label of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The label of the airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="108" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1ae661f2cf8fd4a7d4e2861e5f5501955e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airport::set_lat</definition>
+        <argsstring>(long double latitude)</argsstring>
+        <name>set_lat</name>
+        <param>
+          <type>long double</type>
+          <declname>latitude</declname>
+        </param>
+        <briefdescription>
+<para>Sets the latitude coordinate of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>latitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The latitude coordinate of the airport </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="115" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a1b9a004a4e9bdd4bac43fd82ac8ccef1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airport::set_long</definition>
+        <argsstring>(long double longitude)</argsstring>
+        <name>set_long</name>
+        <param>
+          <type>long double</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+<para>Sets the longitude coordinate of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>longitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The longitude coordinate of the airport </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="122" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a603cbcce9a09c5f1c55ef546d9d3496d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Airport::set_label</definition>
+        <argsstring>(string l)</argsstring>
+        <name>set_label</name>
+        <param>
+          <type>string</type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Sets the label of the airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The label of the airport </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="129" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1aafe7d46ae6228fd2614054ec0ba391a8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Airport::operator&lt;</definition>
+        <argsstring>(const Airport &amp;a) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classAirport" kindref="compound">Airport</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Compares if the current airport &lt; the chosen airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The chosen airport to compare to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the current airport &lt; the chosen airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="138" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a2181b5de9ec0ed9ec191c315602fd96a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Airport::operator&gt;</definition>
+        <argsstring>(const Airport &amp;a) const</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const <ref refid="classAirport" kindref="compound">Airport</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Compares if the current airport &gt; the chosen airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The chosen airport to compare to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the current airport &gt; the chosen airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="147" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a56e32d1259b6771e91573b7bbb5a7228" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Airport::operator==</definition>
+        <argsstring>(const Airport &amp;a) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classAirport" kindref="compound">Airport</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Compares if the current airport == the chosen airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The chosen airport to compare to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the current airport == the chosen airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="156" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirport_1a1e904d80768de9a62f42ca7b1d099716" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Airport::operator!=</definition>
+        <argsstring>(const Airport &amp;a) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classAirport" kindref="compound">Airport</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Compares if the current airport != the chosen airport. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The chosen airport to compare to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the current airport != the chosen airport </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="165" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classAirport_1ac58e0c645b0b73e41f0ec8a24a98063b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>long double</type>
+        <definition>static long double Airport::get_distance</definition>
+        <argsstring>(const Airport &amp;a, const Airport &amp;b, char units)</argsstring>
+        <name>get_distance</name>
+        <param>
+          <type>const <ref refid="classAirport" kindref="compound">Airport</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classAirport" kindref="compound">Airport</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>units</declname>
+        </param>
+        <briefdescription>
+<para>Gets the distance from one airport to another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The first airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The second airport </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>units</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The units of the distance</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The distance from one airport to another </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="100" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classAirport_1a26948dec7a70ed056855e66054742be1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;out, const Airport &amp;obj)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classAirport" kindref="compound">Airport</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Formats output of <ref refid="classAirport" kindref="compound">Airport</ref> data for easier outputting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream to output to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classAirport" kindref="compound">Airport</ref> object to output</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The outputted stream </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airport/airport.h" line="186" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classAirport" kindref="compound">Airport</ref> class for airport data. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="airport/airport.h" line="13" column="14" bodyfile="airport/airport.h" bodystart="13" bodyend="188"/>
+    <listofallmembers>
+      <member refid="classAirport_1a2fc0f2402c94225b9deaf76176bb887f" prot="public" virt="non-virtual"><scope>Airport</scope><name>Airport</name></member>
+      <member refid="classAirport_1a0bd7ed332d90fee37935549eec68ad79" prot="public" virt="non-virtual"><scope>Airport</scope><name>Airport</name></member>
+      <member refid="classAirport_1ad3c7849c28ae86785471ec7e940eaaf4" prot="private" virt="non-virtual"><scope>Airport</scope><name>city_</name></member>
+      <member refid="classAirport_1ac6d5bb68263ef6857ec74f6aa0f60147" prot="private" virt="non-virtual"><scope>Airport</scope><name>country_</name></member>
+      <member refid="classAirport_1ad2b9493144e3f909a0f400c658bc9ce1" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_city</name></member>
+      <member refid="classAirport_1a5828a1a9e3fb731634de4aa67aaa4142" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_country</name></member>
+      <member refid="classAirport_1ac58e0c645b0b73e41f0ec8a24a98063b" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_distance</name></member>
+      <member refid="classAirport_1ac33fe90defa1fe4a6ecbe85d1f99dcab" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_IATA</name></member>
+      <member refid="classAirport_1a2fc94e41895ecbe8baadefcc8705c5cc" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_ICAO</name></member>
+      <member refid="classAirport_1aaa5fc48bf61a4321fc69ca493a5e0c2d" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_label</name></member>
+      <member refid="classAirport_1ae3905ae188a1541bf5896ff3369b264b" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_latitude</name></member>
+      <member refid="classAirport_1a8302cfc337f85b471eb5e52a463cb9d4" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_longitude</name></member>
+      <member refid="classAirport_1aba2a885b9234bc88b099693ab99a4b5e" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_name</name></member>
+      <member refid="classAirport_1a716f2c1f73af5ff8db9fca930a134b8a" prot="public" virt="non-virtual"><scope>Airport</scope><name>get_port_ID</name></member>
+      <member refid="classAirport_1ace9c2cd40b15de03e1f53769d3525ceb" prot="private" virt="non-virtual"><scope>Airport</scope><name>IATA_</name></member>
+      <member refid="classAirport_1a9592d0c5619dbbe77a1d116e693313b3" prot="private" virt="non-virtual"><scope>Airport</scope><name>ICAO_</name></member>
+      <member refid="classAirport_1aeba71a881adb49151d94a4e3f5140fa6" prot="private" virt="non-virtual"><scope>Airport</scope><name>label</name></member>
+      <member refid="classAirport_1ac8024837a06e22862bf0a1b25162767c" prot="private" virt="non-virtual"><scope>Airport</scope><name>latitude_</name></member>
+      <member refid="classAirport_1a5ae8c262077239d1b25f82c1f4d2b70c" prot="private" virt="non-virtual"><scope>Airport</scope><name>longitude_</name></member>
+      <member refid="classAirport_1add85b007e6b5d62d5abefc00cd9fe54b" prot="private" virt="non-virtual"><scope>Airport</scope><name>name_</name></member>
+      <member refid="classAirport_1a1e904d80768de9a62f42ca7b1d099716" prot="public" virt="non-virtual"><scope>Airport</scope><name>operator!=</name></member>
+      <member refid="classAirport_1aafe7d46ae6228fd2614054ec0ba391a8" prot="public" virt="non-virtual"><scope>Airport</scope><name>operator&lt;</name></member>
+      <member refid="classAirport_1a26948dec7a70ed056855e66054742be1" prot="private" virt="non-virtual"><scope>Airport</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classAirport_1a56e32d1259b6771e91573b7bbb5a7228" prot="public" virt="non-virtual"><scope>Airport</scope><name>operator==</name></member>
+      <member refid="classAirport_1a2181b5de9ec0ed9ec191c315602fd96a" prot="public" virt="non-virtual"><scope>Airport</scope><name>operator&gt;</name></member>
+      <member refid="classAirport_1a4d0173381adf84dbff3bc766420c7e3c" prot="private" virt="non-virtual"><scope>Airport</scope><name>port_ID</name></member>
+      <member refid="classAirport_1a603cbcce9a09c5f1c55ef546d9d3496d" prot="public" virt="non-virtual"><scope>Airport</scope><name>set_label</name></member>
+      <member refid="classAirport_1ae661f2cf8fd4a7d4e2861e5f5501955e" prot="public" virt="non-virtual"><scope>Airport</scope><name>set_lat</name></member>
+      <member refid="classAirport_1a1b9a004a4e9bdd4bac43fd82ac8ccef1" prot="public" virt="non-virtual"><scope>Airport</scope><name>set_long</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

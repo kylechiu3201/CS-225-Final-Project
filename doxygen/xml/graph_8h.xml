@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="graph_8h" kind="file" language="C++">
+    <compoundname>graph.h</compoundname>
+    <includes local="no">algorithm</includes>
+    <includes local="no">climits</includes>
+    <includes local="no">cstdlib</includes>
+    <includes local="no">fstream</includes>
+    <includes local="no">iomanip</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">list</includes>
+    <includes local="no">map</includes>
+    <includes local="no">set</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">string</includes>
+    <includes local="no">utility</includes>
+    <includes local="no">vector</includes>
+    <includes refid="airport_8h" local="yes">../airport/airport.h</includes>
+    <includes refid="edge_8h" local="yes">edge.h</includes>
+    <includedby refid="airports_8h" local="yes">airports/airports.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>list</label>
+      </node>
+      <node id="6">
+        <label>iomanip</label>
+      </node>
+      <node id="1">
+        <label>graph/graph.h</label>
+        <link refid="graph_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>../airport/airport.h</label>
+        <link refid="airport_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="16">
+        <label>edge.h</label>
+        <link refid="edge_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>fstream</label>
+      </node>
+      <node id="17">
+        <label>limits.h</label>
+      </node>
+      <node id="14">
+        <label>vector</label>
+      </node>
+      <node id="13">
+        <label>utility</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="4">
+        <label>cstdlib</label>
+      </node>
+      <node id="7">
+        <label>iostream</label>
+      </node>
+      <node id="18">
+        <label>../airline/airline.h</label>
+        <link refid="airline_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>climits</label>
+      </node>
+      <node id="10">
+        <label>set</label>
+      </node>
+      <node id="2">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>graph/graph.h</label>
+        <link refid="graph_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>airports/airports.h</label>
+        <link refid="airports_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classGraph" prot="public">Graph</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="graph_8h_1a661c247e26de1658684842b8c7bc8f61" prot="public" static="no">
+        <type><ref refid="classAirport" kindref="compound">Airport</ref></type>
+        <definition>typedef Airport Vertex</definition>
+        <argsstring></argsstring>
+        <name>Vertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="51" column="17" bodyfile="graph/graph.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="classGraph" kindref="compound">Graph</ref> Library Declarations</para>
+<para>Written for CS 225 Spring 2011 <simplesect kind="author"><para>Sean Massung</para>
+</simplesect>
+Updated Spring 2012 by Sean Massung<itemizedlist>
+<listitem><para>Added doxygen comments</para>
+</listitem><listitem><para>Created better error handling</para>
+</listitem><listitem><para>More encapsulated and object-oriented</para>
+</listitem></itemizedlist>
+</para>
+<para>Updated Spring 2018 by Jordi<itemizedlist>
+<listitem><para>Added doxygen comments</para>
+</listitem><listitem><para>Created better error handling</para>
+</listitem><listitem><para>More encapsulated and object-oriented</para>
+</listitem></itemizedlist>
+</para>
+<para>Update Spring 18 by Simeng<itemizedlist>
+<listitem><para>Finishing adding all required features </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="21"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;climits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdlib&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;fstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;list&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../airport/airport.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="edge_8h" kindref="compound">edge.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::cerr;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::cout;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::endl;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::make_pair;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::map;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::pair;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::set;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::string;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::to_string;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>std::vector;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="classAirport" kindref="compound">Airport</ref><sp/><ref refid="classAirport" kindref="compound">Vertex</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classGraph" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGraph" kindref="compound">Graph</ref><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="classGraph_1ae4c72b8ac4d693c49800a4c7e273654f" kindref="member">Graph</ref>();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="classGraph_1ae4c72b8ac4d693c49800a4c7e273654f" kindref="member">Graph</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>weighted);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="classGraph_1ae4c72b8ac4d693c49800a4c7e273654f" kindref="member">Graph</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>weighted,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>directed);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><ref refid="classGraph_1ae4c72b8ac4d693c49800a4c7e273654f" kindref="member">Graph</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>weighted,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numVertices,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>seed);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>vector&lt;Vertex&gt;<sp/><ref refid="classGraph_1a17a74ca643a8bd9d3bb3e9fc5d8a81d5" kindref="member">getAdjacent</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/><ref refid="classGraph_1a6a719a980479a4f280d56b0d3e86fc18" kindref="member">getStartingVertex</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>vector&lt;Vertex&gt;<sp/><ref refid="classGraph_1ada82948700b5839ceae81531c9ea824e" kindref="member">getVertices</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="classEdge" kindref="compound">Edge</ref><sp/><ref refid="classGraph_1a9b1b8a9ef2d1782becb5ce635743148c" kindref="member">getEdge</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>vector&lt;Edge&gt;<sp/><ref refid="classGraph_1a25e79a5ed1c774b3125bd5fa2dd22c05" kindref="member">getEdges</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraph_1a05a5031308ed33f8c4c5d7783ea34f29" kindref="member">vertexExists</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>v)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraph_1a5b74dfabe5cf651e9afc629ae1cd91ce" kindref="member">edgeExists</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><ref refid="classEdge" kindref="compound">Edge</ref><sp/><ref refid="classGraph_1ac660a1ab375eee3ca5a8818116908070" kindref="member">setEdgeLabel</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>label);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="classGraph_1a96722d70b16b0ec75a6839a36d30bbfa" kindref="member">getEdgeLabel</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classGraph_1aa9f6f3f1ebd2852d83b9ec37e84bd286" kindref="member">getEdgeWeight</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraph_1acbad3e118939a8324e4b95a093b5a3ed" kindref="member">insertVertex</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>v);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/><ref refid="classGraph_1a08ea88e388e6468ca359521aa3542c03" kindref="member">removeVertex</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>v);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>bool<sp/>insertEdge(Vertex<sp/>source,<sp/>Vertex<sp/>destination);<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraph_1ac81b23f4a2a1bffe765765a623b22ade" kindref="member">insertEdge</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination,<sp/><ref refid="classAirline" kindref="compound">Airline</ref><sp/>airline);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><ref refid="classEdge" kindref="compound">Edge</ref><sp/><ref refid="classGraph_1adac871ac0cafe8753d6b3b348b448c8f" kindref="member">removeEdge</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><ref refid="classEdge" kindref="compound">Edge</ref><sp/><ref refid="classGraph_1a115b9d4bcb87fb93949819d4be350acd" kindref="member">setEdgeWeight</ref>(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weight);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>initSnapshot(string<sp/>title);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>snapshot();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>print()<sp/>const;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>savePNG(string<sp/>title)<sp/>const;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraph_1a08b970ecb424505f85c4f9d632b5ab01" kindref="member">isDirected</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraph_1ac6192a41101102ca8aa6acca607c84f3" kindref="member">clear</ref>();</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraph_1a5ac05db53839e72af76cdb2bafe88b77" kindref="member">printGraph</ref>();</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>InvalidVertex;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classEdge" kindref="compound">Edge</ref><sp/>InvalidEdge;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>InvalidWeight;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>InvalidLabel;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/>map&lt;Vertex,<sp/>map&lt;Vertex,<sp/>Edge&gt;&gt;<sp/>getList();</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>map&lt;Vertex,<sp/>map&lt;Vertex,<sp/>Edge&gt;&gt;<sp/>adjacency_list;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>weighted;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>directed;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>picNum;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>picName;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>assertVertexExists(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>v,<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>functionName)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>assertEdgeExists(<ref refid="classAirport" kindref="compound">Vertex</ref><sp/>source,<sp/><ref refid="classAirport" kindref="compound">Vertex</ref><sp/>destination,</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>functionName)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>error(</highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>message)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="287"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="graph/graph.h"/>
+  </compounddef>
+</doxygen>

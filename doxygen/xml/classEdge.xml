@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classEdge" kind="class" language="C++" prot="public">
+    <compoundname>Edge</compoundname>
+    <includes refid="edge_8h" local="no">edge.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classEdge_1a7d414269470d1b77d53d2cfef70056ca" prot="public" static="no" mutable="no">
+        <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+        <definition>Vertex Edge::source</definition>
+        <argsstring></argsstring>
+        <name>source</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The source of the edge </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="26" column="10" bodyfile="graph/edge.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" prot="public" static="no" mutable="no">
+        <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+        <definition>Vertex Edge::dest</definition>
+        <argsstring></argsstring>
+        <name>dest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The destination of the edge </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="27" column="10" bodyfile="graph/edge.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classEdge_1a7ae8c6e96e43781badd6f6d3def6d6f7" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Edge::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The edge label </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="94" column="10" bodyfile="graph/edge.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classEdge_1a6d0148402e635354c03a151c77fcbdd8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Edge::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The edge weight (if in a weighed graph) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="95" column="10" bodyfile="graph/edge.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEdge_1aa14f406ba9fce62efb9eed7e89d1d9d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Edge::Edge</definition>
+        <argsstring>(Vertex u, Vertex v)</argsstring>
+        <name>Edge</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter constructor for unweighted graphs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex it is connected to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="34" column="3" bodyfile="graph/edge.h" bodystart="34" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classEdge_1a94686ecfbf52d3c38976e5f5ead3e006" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Edge::Edge</definition>
+        <argsstring>(Vertex u, Vertex v, string lbl)</argsstring>
+        <name>Edge</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>lbl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter constructor for unweighted graphs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex it is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lbl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the edge label </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="44" column="3" bodyfile="graph/edge.h" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classEdge_1abe8c647873a2b98378a7edaf5d23ea26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Edge::Edge</definition>
+        <argsstring>(Vertex u, Vertex v, double w, string lbl)</argsstring>
+        <name>Edge</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>lbl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parameter constructor for weighted graphs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>u</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex it is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the weight of the edge </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lbl</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the edge label </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="55" column="3" bodyfile="graph/edge.h" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classEdge_1a3106b11d60125009dbf7a738ce540fdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Edge::Edge</definition>
+        <argsstring>()</argsstring>
+        <name>Edge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Default constructor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="62" column="3" bodyfile="graph/edge.h" bodystart="62" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classEdge_1ab6a06c5da57efed1991960f61e870c8b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Edge::operator&lt;</definition>
+        <argsstring>(const Edge &amp;other) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classEdge" kindref="compound">Edge</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two Edges. operator&lt; is defined so Edges can be sorted with std::sort. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the edge to compare with </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>whether the current edge is less than the parameter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="71" column="3" bodyfile="graph/edge.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classEdge_1a7aaf5a50c5768e06015e60e3f0bbbec3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Edge::getLabel</definition>
+        <argsstring>() const</argsstring>
+        <name>getLabel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets edge label. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="76" column="10" bodyfile="graph/edge.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classEdge_1a1caaffca117bab3ff5b7387623a356f8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Edge::getWeight</definition>
+        <argsstring>() const</argsstring>
+        <name>getWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets edge weight. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="81" column="10" bodyfile="graph/edge.h" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classEdge_1a8aac4dd9e059b08f912a55e4088fa997" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Edge::operator==</definition>
+        <argsstring>(Edge &amp;other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type><ref refid="classEdge" kindref="compound">Edge</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares two edges&apos; source and dest. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the edge to compare with </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/edge.h" line="87" column="8" bodyfile="graph/edge.h" bodystart="87" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Represents an edge in a graph; used by the <ref refid="classGraph" kindref="compound">Graph</ref> class.</para>
+<para><simplesect kind="author"><para>Sean Massung </para>
+</simplesect>
+<simplesect kind="date"><para>Spring 2012 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Edge</label>
+        <link refid="classEdge"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>dest</edgelabel>
+          <edgelabel>source</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Airport</label>
+        <link refid="classAirport"/>
+      </node>
+    </collaborationgraph>
+    <location file="graph/edge.h" line="24" column="11" bodyfile="graph/edge.h" bodystart="24" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classEdge_1ae8dbce3b105457b6b394e4d7e3d60a44" prot="public" virt="non-virtual"><scope>Edge</scope><name>dest</name></member>
+      <member refid="classEdge_1aa14f406ba9fce62efb9eed7e89d1d9d5" prot="public" virt="non-virtual"><scope>Edge</scope><name>Edge</name></member>
+      <member refid="classEdge_1a94686ecfbf52d3c38976e5f5ead3e006" prot="public" virt="non-virtual"><scope>Edge</scope><name>Edge</name></member>
+      <member refid="classEdge_1abe8c647873a2b98378a7edaf5d23ea26" prot="public" virt="non-virtual"><scope>Edge</scope><name>Edge</name></member>
+      <member refid="classEdge_1a3106b11d60125009dbf7a738ce540fdf" prot="public" virt="non-virtual"><scope>Edge</scope><name>Edge</name></member>
+      <member refid="classEdge_1a7aaf5a50c5768e06015e60e3f0bbbec3" prot="public" virt="non-virtual"><scope>Edge</scope><name>getLabel</name></member>
+      <member refid="classEdge_1a1caaffca117bab3ff5b7387623a356f8" prot="public" virt="non-virtual"><scope>Edge</scope><name>getWeight</name></member>
+      <member refid="classEdge_1a7ae8c6e96e43781badd6f6d3def6d6f7" prot="private" virt="non-virtual"><scope>Edge</scope><name>label</name></member>
+      <member refid="classEdge_1ab6a06c5da57efed1991960f61e870c8b" prot="public" virt="non-virtual"><scope>Edge</scope><name>operator&lt;</name></member>
+      <member refid="classEdge_1a8aac4dd9e059b08f912a55e4088fa997" prot="public" virt="non-virtual"><scope>Edge</scope><name>operator==</name></member>
+      <member refid="classEdge_1a7d414269470d1b77d53d2cfef70056ca" prot="public" virt="non-virtual"><scope>Edge</scope><name>source</name></member>
+      <member refid="classEdge_1a6d0148402e635354c03a151c77fcbdd8" prot="private" virt="non-virtual"><scope>Edge</scope><name>weight</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

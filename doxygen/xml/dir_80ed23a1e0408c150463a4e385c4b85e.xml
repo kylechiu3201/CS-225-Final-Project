@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_80ed23a1e0408c150463a4e385c4b85e" kind="dir">
+    <compoundname>airline</compoundname>
+    <innerfile refid="airline_8h">airline.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="airline/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1039 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classGraph" kind="class" language="C++" prot="public">
+    <compoundname>Graph</compoundname>
+    <includes refid="graph_8h" local="no">graph.h</includes>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classGraph_1a5191047813ed06006918d95b1148323f" prot="public" static="yes" mutable="no">
+        <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+        <definition>Vertex Graph::InvalidVertex</definition>
+        <argsstring></argsstring>
+        <name>InvalidVertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="249" column="17" bodyfile="graph/graph.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGraph_1ae6606350960faed09576caacfcdc3fd8" prot="public" static="yes" mutable="no">
+        <type>const static <ref refid="classEdge" kindref="compound">Edge</ref></type>
+        <definition>const static Edge Graph::InvalidEdge</definition>
+        <argsstring></argsstring>
+        <name>InvalidEdge</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="250" column="21" bodyfile="graph/graph.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGraph_1a38f7faf4d1958b7eb3f9e48c32c9a732" prot="public" static="yes" mutable="no">
+        <type>const static double</type>
+        <definition>const static double Graph::InvalidWeight</definition>
+        <argsstring></argsstring>
+        <name>InvalidWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="251" column="23" bodyfile="graph/graph.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGraph_1a8ae63feff50fd45686a687047c5e4836" prot="public" static="yes" mutable="no">
+        <type>const static string</type>
+        <definition>const static string Graph::InvalidLabel</definition>
+        <argsstring></argsstring>
+        <name>InvalidLabel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="252" column="23" bodyfile="graph/graph.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGraph_1a92c68865be12b226cf981cbab47af3a7" prot="private" static="no" mutable="yes">
+        <type>map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, <ref refid="classEdge" kindref="compound">Edge</ref> &gt; &gt;</type>
+        <definition>map&lt;Vertex, map&lt;Vertex, Edge&gt; &gt; Graph::adjacency_list</definition>
+        <argsstring></argsstring>
+        <name>adjacency_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="256" column="15" bodyfile="graph/graph.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGraph_1a01a817d9d4f066f29aaaa6e3a60a03e4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Graph::weighted</definition>
+        <argsstring></argsstring>
+        <name>weighted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="258" column="8" bodyfile="graph/graph.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGraph_1a3111bb6cc59aedbc4290ed1b37668336" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Graph::directed</definition>
+        <argsstring></argsstring>
+        <name>directed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="259" column="8" bodyfile="graph/graph.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGraph_1acfc09f63d8e99002236111954e2efacd" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Graph::picNum</definition>
+        <argsstring></argsstring>
+        <name>picNum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="260" column="7" bodyfile="graph/graph.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classGraph_1aaf1c4bb534aa14287ddb50e776d5020a" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Graph::picName</definition>
+        <argsstring></argsstring>
+        <name>picName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="261" column="10" bodyfile="graph/graph.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGraph_1ae4c72b8ac4d693c49800a4c7e273654f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Graph::Graph</definition>
+        <argsstring>()</argsstring>
+        <name>Graph</name>
+        <briefdescription>
+<para>Constructor to create an empty directed and weighted graph. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="62" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a62fa04782e9a454208a4c69bc2bdaca1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Graph::Graph</definition>
+        <argsstring>(bool weighted)</argsstring>
+        <name>Graph</name>
+        <param>
+          <type>bool</type>
+          <declname>weighted</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor to create an empty graph. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>weighted</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- specifies whether the graph is a weighted graph or not </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="69" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a136bab2fe6248f5ac581938c22f2ad17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Graph::Graph</definition>
+        <argsstring>(bool weighted, bool directed)</argsstring>
+        <name>Graph</name>
+        <param>
+          <type>bool</type>
+          <declname>weighted</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>directed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor to create an empty graph. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>weighted</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- specifies whether the graph is a weighted graph or not </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>directed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- specifies whether the graph is directed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="77" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1aeee217470dc6c4ce91f71cd017770f29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Graph::Graph</definition>
+        <argsstring>(bool weighted, int numVertices, unsigned long seed)</argsstring>
+        <name>Graph</name>
+        <param>
+          <type>bool</type>
+          <declname>weighted</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>numVertices</declname>
+        </param>
+        <param>
+          <type>unsigned long</type>
+          <declname>seed</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor to create a random, connected graph. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>weighted</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- specifies whether the graph is a weighted graph or not </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numVertices</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the number of vertices the graph will have </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>seed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- a random seed to create the graph with </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="86" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a17a74ca643a8bd9d3bb3e9fc5d8a81d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>vector&lt;Vertex&gt; Graph::getAdjacent</definition>
+        <argsstring>(Vertex source) const</argsstring>
+        <name>getAdjacent</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all adjacent vertices to the parameter vertex. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- vertex to get neighbors from </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a vector of vertices </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="93" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a6a719a980479a4f280d56b0d3e86fc18" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+        <definition>Vertex Graph::getStartingVertex</definition>
+        <argsstring>() const</argsstring>
+        <name>getStartingVertex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns one vertex in the graph. This function can be used to find a random vertex with which to start a traversal. <simplesect kind="return"><para>a vertex from the graph </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="100" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1ada82948700b5839ceae81531c9ea824e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classAirport" kindref="compound">Vertex</ref> &gt;</type>
+        <definition>vector&lt;Vertex&gt; Graph::getVertices</definition>
+        <argsstring>() const</argsstring>
+        <name>getVertices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all vertices in the graph. <simplesect kind="return"><para>a vector of all vertices in the graph </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="106" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a9b1b8a9ef2d1782becb5ce635743148c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classEdge" kindref="compound">Edge</ref></type>
+        <definition>Edge Graph::getEdge</definition>
+        <argsstring>(Vertex source, Vertex destination) const</argsstring>
+        <name>getEdge</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets an edge between two vertices. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>- if exist, return the corresponding edge<itemizedlist>
+<listitem><para>if edge doesn&apos;t exist, return <ref refid="classEdge" kindref="compound">Edge()</ref> </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="115" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a25e79a5ed1c774b3125bd5fa2dd22c05" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>vector&lt; <ref refid="classEdge" kindref="compound">Edge</ref> &gt;</type>
+        <definition>vector&lt;Edge&gt; Graph::getEdges</definition>
+        <argsstring>() const</argsstring>
+        <name>getEdges</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets all the edges in the graph. <simplesect kind="return"><para>a vector of all the edges in the graph </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="121" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a05a5031308ed33f8c4c5d7783ea34f29" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Graph::vertexExists</definition>
+        <argsstring>(Vertex v) const</argsstring>
+        <name>vertexExists</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if the given vertex exists. <simplesect kind="return"><para>- if Vertex exists, true<itemizedlist>
+<listitem><para>if Vertex doesn&apos;t exist, return false </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="128" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a5b74dfabe5cf651e9afc629ae1cd91ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Graph::edgeExists</definition>
+        <argsstring>(Vertex source, Vertex destination) const</argsstring>
+        <name>edgeExists</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Checks if edge exists between two vertices exists. <simplesect kind="return"><para>- if <ref refid="classEdge" kindref="compound">Edge</ref> exists, true<itemizedlist>
+<listitem><para>if <ref refid="classEdge" kindref="compound">Edge</ref> doesn&apos;t exist, return false </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="135" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1ac660a1ab375eee3ca5a8818116908070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classEdge" kindref="compound">Edge</ref></type>
+        <definition>Edge Graph::setEdgeLabel</definition>
+        <argsstring>(Vertex source, Vertex destination, string label)</argsstring>
+        <name>setEdgeLabel</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>label</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the edge label of the edge between vertices u and v. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>- if edge exists, set the label to the corresponding edge(if not directed, set the reverse one too), return edge with new label<itemizedlist>
+<listitem><para>if edge doesn&apos;t exist, return InvalidEdge </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="145" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a96722d70b16b0ec75a6839a36d30bbfa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Graph::getEdgeLabel</definition>
+        <argsstring>(Vertex source, Vertex destination) const</argsstring>
+        <name>getEdgeLabel</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the edge label of the edge between vertices u and v. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>- if edge exists, return edge label<itemizedlist>
+<listitem><para>if edge doesn&apos;t exist, return InvalidLabel </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="154" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1aa9f6f3f1ebd2852d83b9ec37e84bd286" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Graph::getEdgeWeight</definition>
+        <argsstring>(Vertex source, Vertex destination) const</argsstring>
+        <name>getEdgeWeight</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the weight of the edge between two vertices. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>- if edge exists, return edge wright<itemizedlist>
+<listitem><para>if doesn&apos;t, return InvalidWeight </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="163" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1acbad3e118939a8324e4b95a093b5a3ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Graph::insertVertex</definition>
+        <argsstring>(Vertex v)</argsstring>
+        <name>insertVertex</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts a new vertex into the graph and initializes its label as &quot;&quot;. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the name for the vertex </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="169" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a08ea88e388e6468ca359521aa3542c03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+        <definition>Vertex Graph::removeVertex</definition>
+        <argsstring>(Vertex v)</argsstring>
+        <name>removeVertex</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes a given vertex from the graph. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the vertex to remove </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>- if v exists, return v<itemizedlist>
+<listitem><para>if not, return InvalidVertex; </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="177" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1ac81b23f4a2a1bffe765765a623b22ade" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Graph::insertEdge</definition>
+        <argsstring>(Vertex source, Vertex destination, Airline airline)</argsstring>
+        <name>insertEdge</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirline" kindref="compound">Airline</ref></type>
+          <declname>airline</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Inserts an edge between two vertices. A boolean is returned for use with the random graph generation. Hence, an error is not thrown when it fails to insert an edge. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>whether inserting the edge was successful </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="188" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1adac871ac0cafe8753d6b3b348b448c8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classEdge" kindref="compound">Edge</ref></type>
+        <definition>Edge Graph::removeEdge</definition>
+        <argsstring>(Vertex source, Vertex destination)</argsstring>
+        <name>removeEdge</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the edge between two vertices. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>- if edge exists, remove it and return removed edge<itemizedlist>
+<listitem><para>if not, return InvalidEdge </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="197" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a115b9d4bcb87fb93949819d4be350acd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classEdge" kindref="compound">Edge</ref></type>
+        <definition>Edge Graph::setEdgeWeight</definition>
+        <argsstring>(Vertex source, Vertex destination, double weight)</argsstring>
+        <name>setEdgeWeight</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the weight of the edge between two vertices. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the other vertex the edge is connected to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>weight</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the weight to set to the edge </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>- if edge exists, set edge weight and return edge with new weight<itemizedlist>
+<listitem><para>if not, return InvalidEdge </para>
+</listitem></itemizedlist>
+</para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="207" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a08b970ecb424505f85c4f9d632b5ab01" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Graph::isDirected</definition>
+        <argsstring>() const</argsstring>
+        <name>isDirected</name>
+        <briefdescription>
+<para>Checks if the graph is directed or not. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a name for snapshots of the graph. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the name to save the snapshots as Saves a snapshot of the graph to file. initSnapshot() must be run first. Prints the graph to stdout. Saves the graph as a PNG image. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the filename of the PNG image </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the graph is directed, false if the graph is not directed </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="237" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1ac6192a41101102ca8aa6acca607c84f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Graph::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Clears the graph data. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="242" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a5ac05db53839e72af76cdb2bafe88b77" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Graph::printGraph</definition>
+        <argsstring>()</argsstring>
+        <name>printGraph</name>
+        <briefdescription>
+<para>Prints the graph to std::cout. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="247" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a65b4ec8b396ad94e2269d49482d97516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, map&lt; <ref refid="classAirport" kindref="compound">Vertex</ref>, <ref refid="classEdge" kindref="compound">Edge</ref> &gt; &gt;</type>
+        <definition>map&lt;Vertex, map&lt;Vertex, Edge&gt; &gt; Graph::getList</definition>
+        <argsstring>()</argsstring>
+        <name>getList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="253" column="7"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classGraph_1a47f7bb800037dabbe65c7a6cb1d23b7a" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Graph::assertVertexExists</definition>
+        <argsstring>(Vertex v, string functionName) const</argsstring>
+        <name>assertVertexExists</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>functionName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether a given vertex exists in the graph. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>v</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the vertex to check </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>functionName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the name of the calling function to return in the event of an error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="269" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a6bf62164dc8ef56069f2ccafc8cf89b0" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Graph::assertEdgeExists</definition>
+        <argsstring>(Vertex source, Vertex destination, string functionName) const</argsstring>
+        <name>assertEdgeExists</name>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type><ref refid="classAirport" kindref="compound">Vertex</ref></type>
+          <declname>destination</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>functionName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns whether thee edge exists in the graph. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- one vertex </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destination</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- another vertex </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>functionName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the name of the calling function to return in the event of an error </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="278" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraph_1a4895e8b825960e18a9229576107230c7" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Graph::error</definition>
+        <argsstring>(string message) const</argsstring>
+        <name>error</name>
+        <param>
+          <type>string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Prints a graph error and quits the program. The program is exited with a segfault to provide a stack trace. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- the error message that is printed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graph/graph.h" line="286" column="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Represents a graph; used by the GraphTools class. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>Edge</label>
+        <link refid="classEdge"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>dest</edgelabel>
+          <edgelabel>source</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Airport</label>
+        <link refid="classAirport"/>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>Graph</label>
+        <link refid="classGraph"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>InvalidVertex</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>InvalidLabel</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>InvalidEdge</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="graph/graph.h" line="57" column="12" bodyfile="graph/graph.h" bodystart="57" bodyend="287"/>
+    <listofallmembers>
+      <member refid="classGraph_1a92c68865be12b226cf981cbab47af3a7" prot="private" virt="non-virtual"><scope>Graph</scope><name>adjacency_list</name></member>
+      <member refid="classGraph_1a6bf62164dc8ef56069f2ccafc8cf89b0" prot="private" virt="non-virtual"><scope>Graph</scope><name>assertEdgeExists</name></member>
+      <member refid="classGraph_1a47f7bb800037dabbe65c7a6cb1d23b7a" prot="private" virt="non-virtual"><scope>Graph</scope><name>assertVertexExists</name></member>
+      <member refid="classGraph_1ac6192a41101102ca8aa6acca607c84f3" prot="public" virt="non-virtual"><scope>Graph</scope><name>clear</name></member>
+      <member refid="classGraph_1a3111bb6cc59aedbc4290ed1b37668336" prot="private" virt="non-virtual"><scope>Graph</scope><name>directed</name></member>
+      <member refid="classGraph_1a5b74dfabe5cf651e9afc629ae1cd91ce" prot="public" virt="non-virtual"><scope>Graph</scope><name>edgeExists</name></member>
+      <member refid="classGraph_1a4895e8b825960e18a9229576107230c7" prot="private" virt="non-virtual"><scope>Graph</scope><name>error</name></member>
+      <member refid="classGraph_1a17a74ca643a8bd9d3bb3e9fc5d8a81d5" prot="public" virt="non-virtual"><scope>Graph</scope><name>getAdjacent</name></member>
+      <member refid="classGraph_1a9b1b8a9ef2d1782becb5ce635743148c" prot="public" virt="non-virtual"><scope>Graph</scope><name>getEdge</name></member>
+      <member refid="classGraph_1a96722d70b16b0ec75a6839a36d30bbfa" prot="public" virt="non-virtual"><scope>Graph</scope><name>getEdgeLabel</name></member>
+      <member refid="classGraph_1a25e79a5ed1c774b3125bd5fa2dd22c05" prot="public" virt="non-virtual"><scope>Graph</scope><name>getEdges</name></member>
+      <member refid="classGraph_1aa9f6f3f1ebd2852d83b9ec37e84bd286" prot="public" virt="non-virtual"><scope>Graph</scope><name>getEdgeWeight</name></member>
+      <member refid="classGraph_1a65b4ec8b396ad94e2269d49482d97516" prot="public" virt="non-virtual"><scope>Graph</scope><name>getList</name></member>
+      <member refid="classGraph_1a6a719a980479a4f280d56b0d3e86fc18" prot="public" virt="non-virtual"><scope>Graph</scope><name>getStartingVertex</name></member>
+      <member refid="classGraph_1ada82948700b5839ceae81531c9ea824e" prot="public" virt="non-virtual"><scope>Graph</scope><name>getVertices</name></member>
+      <member refid="classGraph_1ae4c72b8ac4d693c49800a4c7e273654f" prot="public" virt="non-virtual"><scope>Graph</scope><name>Graph</name></member>
+      <member refid="classGraph_1a62fa04782e9a454208a4c69bc2bdaca1" prot="public" virt="non-virtual"><scope>Graph</scope><name>Graph</name></member>
+      <member refid="classGraph_1a136bab2fe6248f5ac581938c22f2ad17" prot="public" virt="non-virtual"><scope>Graph</scope><name>Graph</name></member>
+      <member refid="classGraph_1aeee217470dc6c4ce91f71cd017770f29" prot="public" virt="non-virtual"><scope>Graph</scope><name>Graph</name></member>
+      <member refid="classGraph_1ac81b23f4a2a1bffe765765a623b22ade" prot="public" virt="non-virtual"><scope>Graph</scope><name>insertEdge</name></member>
+      <member refid="classGraph_1acbad3e118939a8324e4b95a093b5a3ed" prot="public" virt="non-virtual"><scope>Graph</scope><name>insertVertex</name></member>
+      <member refid="classGraph_1ae6606350960faed09576caacfcdc3fd8" prot="public" virt="non-virtual"><scope>Graph</scope><name>InvalidEdge</name></member>
+      <member refid="classGraph_1a8ae63feff50fd45686a687047c5e4836" prot="public" virt="non-virtual"><scope>Graph</scope><name>InvalidLabel</name></member>
+      <member refid="classGraph_1a5191047813ed06006918d95b1148323f" prot="public" virt="non-virtual"><scope>Graph</scope><name>InvalidVertex</name></member>
+      <member refid="classGraph_1a38f7faf4d1958b7eb3f9e48c32c9a732" prot="public" virt="non-virtual"><scope>Graph</scope><name>InvalidWeight</name></member>
+      <member refid="classGraph_1a08b970ecb424505f85c4f9d632b5ab01" prot="public" virt="non-virtual"><scope>Graph</scope><name>isDirected</name></member>
+      <member refid="classGraph_1aaf1c4bb534aa14287ddb50e776d5020a" prot="private" virt="non-virtual"><scope>Graph</scope><name>picName</name></member>
+      <member refid="classGraph_1acfc09f63d8e99002236111954e2efacd" prot="private" virt="non-virtual"><scope>Graph</scope><name>picNum</name></member>
+      <member refid="classGraph_1a5ac05db53839e72af76cdb2bafe88b77" prot="public" virt="non-virtual"><scope>Graph</scope><name>printGraph</name></member>
+      <member refid="classGraph_1adac871ac0cafe8753d6b3b348b448c8f" prot="public" virt="non-virtual"><scope>Graph</scope><name>removeEdge</name></member>
+      <member refid="classGraph_1a08ea88e388e6468ca359521aa3542c03" prot="public" virt="non-virtual"><scope>Graph</scope><name>removeVertex</name></member>
+      <member refid="classGraph_1ac660a1ab375eee3ca5a8818116908070" prot="public" virt="non-virtual"><scope>Graph</scope><name>setEdgeLabel</name></member>
+      <member refid="classGraph_1a115b9d4bcb87fb93949819d4be350acd" prot="public" virt="non-virtual"><scope>Graph</scope><name>setEdgeWeight</name></member>
+      <member refid="classGraph_1a05a5031308ed33f8c4c5d7783ea34f29" prot="public" virt="non-virtual"><scope>Graph</scope><name>vertexExists</name></member>
+      <member refid="classGraph_1a01a817d9d4f066f29aaaa6e3a60a03e4" prot="private" virt="non-virtual"><scope>Graph</scope><name>weighted</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

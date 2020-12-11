@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classAirline" kind="class" language="C++" prot="public">
+    <compoundname>Airline</compoundname>
+    <includes refid="airline_8h" local="no">airline.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classAirline_1a1d8f61363a0499529da1f7e4d2dc9bac" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Airline::ID_</definition>
+        <argsstring></argsstring>
+        <name>ID_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="93" column="7" bodyfile="airline/airline.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirline_1a74508e804a8a8635ccb573e3617a9ff4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Airline::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="94" column="15" bodyfile="airline/airline.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirline_1a42c6ecaae7c65321a14916f546fd60ef" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Airline::IATA_</definition>
+        <argsstring></argsstring>
+        <name>IATA_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="95" column="15" bodyfile="airline/airline.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirline_1a9f5e0cd2a9d4e9dbd078d87230a646b3" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Airline::ICAO_</definition>
+        <argsstring></argsstring>
+        <name>ICAO_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="96" column="15" bodyfile="airline/airline.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classAirline_1a2f616d7fa454f9f8c56d26f08fcc5f98" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Airline::country_</definition>
+        <argsstring></argsstring>
+        <name>country_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="97" column="15" bodyfile="airline/airline.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classAirline_1a2e6766b5e3a4e3106062c710740a2a32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Airline::Airline</definition>
+        <argsstring>()</argsstring>
+        <name>Airline</name>
+        <briefdescription>
+<para>Constructor for default <ref refid="classAirline" kindref="compound">Airline</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="16" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1a1da96883543850e32dcc33448a780fc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Airline::Airline</definition>
+        <argsstring>(int ID, std::string name, std::string IATA, std::string ICAO, std::string country)</argsstring>
+        <name>Airline</name>
+        <param>
+          <type>int</type>
+          <declname>ID</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>IATA</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>ICAO</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>country</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classAirline" kindref="compound">Airline</ref> object with the given parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ID</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ID of the airline </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the airline </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IATA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The IATA code of the airline </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ICAO</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The ICAO code of the airline </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>country</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The country of the airline </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="27" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1a30886eeae1e57b8644a767df166fdca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Airline::get_ID</definition>
+        <argsstring>()</argsstring>
+        <name>get_ID</name>
+        <briefdescription>
+<para>Gets the ID of the airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The ID of the airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="35" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1aea0fccfd6050bcce23ae36034ab5de9d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Airline::get_name</definition>
+        <argsstring>() const</argsstring>
+        <name>get_name</name>
+        <briefdescription>
+<para>Gets the name of the airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The name of the airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="42" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1a25a2e59a6f91694b09b4d0bd330da8d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Airline::get_IATA</definition>
+        <argsstring>() const</argsstring>
+        <name>get_IATA</name>
+        <briefdescription>
+<para>Gets the IATA code of the airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The IATA code of the airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="49" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1a74b819156a01f55fe9d49c86cf2f37ab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Airline::get_ICAO</definition>
+        <argsstring>() const</argsstring>
+        <name>get_ICAO</name>
+        <briefdescription>
+<para>Gets the ICAO code of the airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The ICAO code of the airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="56" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1abb870fe3dedfd9b98dda5c8785411d4d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string Airline::get_country</definition>
+        <argsstring>() const</argsstring>
+        <name>get_country</name>
+        <briefdescription>
+<para>Gets the country of the airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The country of the airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="63" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1acd8da01493f52feb651b6368eced7e43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Airline::operator&gt;</definition>
+        <argsstring>(const Airline &amp;a) const</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const <ref refid="classAirline" kindref="compound">Airline</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Compares if the current airline &gt; the chosen airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The chosen airline</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the current airline &gt; the chosen airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="72" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1accd359188347ebdd03b1f8366e772e66" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Airline::operator&lt;</definition>
+        <argsstring>(const Airline &amp;a) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classAirline" kindref="compound">Airline</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Compares if the current airline &lt; the chosen airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The chosen airline</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the current airline &lt; the chosen airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="81" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classAirline_1a83d780dc61f34056b2854c988aeb6ae9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Airline::operator==</definition>
+        <argsstring>(const Airline &amp;a) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classAirline" kindref="compound">Airline</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+<para>Compares if the current airline == the chosen airline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The chosen airline</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If the current airline == the chosen airline </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="90" column="8"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classAirline_1a628c6d9a2b51bfcd12c07224b53a83c5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend ostream &amp;</type>
+        <definition>ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(ostream &amp;out, const Airline &amp;obj)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classAirline" kindref="compound">Airline</ref> &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Formats <ref refid="classAirline" kindref="compound">Airline</ref> data for easier output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream to output to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classAirline" kindref="compound">Airline</ref> object to output</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The outputted stream </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airline/airline.h" line="107" column="10"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classAirline" kindref="compound">Airline</ref> class for the airline data. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="airline/airline.h" line="11" column="14" bodyfile="airline/airline.h" bodystart="11" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classAirline_1a2e6766b5e3a4e3106062c710740a2a32" prot="public" virt="non-virtual"><scope>Airline</scope><name>Airline</name></member>
+      <member refid="classAirline_1a1da96883543850e32dcc33448a780fc2" prot="public" virt="non-virtual"><scope>Airline</scope><name>Airline</name></member>
+      <member refid="classAirline_1a2f616d7fa454f9f8c56d26f08fcc5f98" prot="private" virt="non-virtual"><scope>Airline</scope><name>country_</name></member>
+      <member refid="classAirline_1abb870fe3dedfd9b98dda5c8785411d4d" prot="public" virt="non-virtual"><scope>Airline</scope><name>get_country</name></member>
+      <member refid="classAirline_1a25a2e59a6f91694b09b4d0bd330da8d6" prot="public" virt="non-virtual"><scope>Airline</scope><name>get_IATA</name></member>
+      <member refid="classAirline_1a74b819156a01f55fe9d49c86cf2f37ab" prot="public" virt="non-virtual"><scope>Airline</scope><name>get_ICAO</name></member>
+      <member refid="classAirline_1a30886eeae1e57b8644a767df166fdca3" prot="public" virt="non-virtual"><scope>Airline</scope><name>get_ID</name></member>
+      <member refid="classAirline_1aea0fccfd6050bcce23ae36034ab5de9d" prot="public" virt="non-virtual"><scope>Airline</scope><name>get_name</name></member>
+      <member refid="classAirline_1a42c6ecaae7c65321a14916f546fd60ef" prot="private" virt="non-virtual"><scope>Airline</scope><name>IATA_</name></member>
+      <member refid="classAirline_1a9f5e0cd2a9d4e9dbd078d87230a646b3" prot="private" virt="non-virtual"><scope>Airline</scope><name>ICAO_</name></member>
+      <member refid="classAirline_1a1d8f61363a0499529da1f7e4d2dc9bac" prot="private" virt="non-virtual"><scope>Airline</scope><name>ID_</name></member>
+      <member refid="classAirline_1a74508e804a8a8635ccb573e3617a9ff4" prot="private" virt="non-virtual"><scope>Airline</scope><name>name_</name></member>
+      <member refid="classAirline_1accd359188347ebdd03b1f8366e772e66" prot="public" virt="non-virtual"><scope>Airline</scope><name>operator&lt;</name></member>
+      <member refid="classAirline_1a628c6d9a2b51bfcd12c07224b53a83c5" prot="private" virt="non-virtual"><scope>Airline</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classAirline_1a83d780dc61f34056b2854c988aeb6ae9" prot="public" virt="non-virtual"><scope>Airline</scope><name>operator==</name></member>
+      <member refid="classAirline_1acd8da01493f52feb651b6368eced7e43" prot="public" virt="non-virtual"><scope>Airline</scope><name>operator&gt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

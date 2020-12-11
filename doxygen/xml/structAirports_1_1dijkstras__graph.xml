@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structAirports_1_1dijkstras__graph" kind="struct" language="C++" prot="public">
+    <compoundname>Airports::dijkstras_graph</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structAirports_1_1dijkstras__graph_1a5e890b6209208f88f53c048358c86ec7" prot="public" static="no" mutable="no">
+        <type>unordered_map&lt; int, long double &gt;</type>
+        <definition>unordered_map&lt;int, long double&gt; Airports::dijkstras_graph::distances</definition>
+        <argsstring></argsstring>
+        <name>distances</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="159" column="19" bodyfile="airports/airports.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAirports_1_1dijkstras__graph_1a128cd8339a3aeb378207250de91c55f0" prot="public" static="no" mutable="no">
+        <type>unordered_map&lt; int, int &gt;</type>
+        <definition>unordered_map&lt;int, int&gt; Airports::dijkstras_graph::parents</definition>
+        <argsstring></argsstring>
+        <name>parents</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="160" column="19" bodyfile="airports/airports.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structAirports_1_1dijkstras__graph_1a9ba5a3d6e3204d92977f05e86f2f9f3c" prot="public" static="no" mutable="no">
+        <type><ref refid="classGraph" kindref="compound">Graph</ref></type>
+        <definition>Graph Airports::dijkstras_graph::graph</definition>
+        <argsstring></argsstring>
+        <name>graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="161" column="11" bodyfile="airports/airports.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structAirports_1_1dijkstras__graph_1a66c58e1d358a00add893fc81472960b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Airports::dijkstras_graph::dijkstras_graph</definition>
+        <argsstring>()</argsstring>
+        <name>dijkstras_graph</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="airports/airports.h" line="158" column="5" bodyfile="airports/airports.h" bodystart="158" bodyend="158"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Airports::dijkstras_graph</label>
+        <link refid="structAirports_1_1dijkstras__graph"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>parents</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>distances</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>graph</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>unordered_map&lt; int, long double &gt;</label>
+      </node>
+      <node id="7">
+        <label>Edge</label>
+        <link refid="classEdge"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>dest</edgelabel>
+          <edgelabel>source</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>unordered_map&lt; int, int &gt;</label>
+      </node>
+      <node id="5">
+        <label>Airport</label>
+        <link refid="classAirport"/>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>Graph</label>
+        <link refid="classGraph"/>
+        <childnode refid="5" relation="usage">
+          <edgelabel>InvalidVertex</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>InvalidLabel</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>InvalidEdge</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="airports/airports.h" line="157" column="24" bodyfile="airports/airports.h" bodystart="157" bodyend="162"/>
+    <listofallmembers>
+      <member refid="structAirports_1_1dijkstras__graph_1a66c58e1d358a00add893fc81472960b6" prot="public" virt="non-virtual"><scope>Airports::dijkstras_graph</scope><name>dijkstras_graph</name></member>
+      <member refid="structAirports_1_1dijkstras__graph_1a5e890b6209208f88f53c048358c86ec7" prot="public" virt="non-virtual"><scope>Airports::dijkstras_graph</scope><name>distances</name></member>
+      <member refid="structAirports_1_1dijkstras__graph_1a9ba5a3d6e3204d92977f05e86f2f9f3c" prot="public" virt="non-virtual"><scope>Airports::dijkstras_graph</scope><name>graph</name></member>
+      <member refid="structAirports_1_1dijkstras__graph_1a128cd8339a3aeb378207250de91c55f0" prot="public" virt="non-virtual"><scope>Airports::dijkstras_graph</scope><name>parents</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
