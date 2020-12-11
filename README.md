@@ -1,6 +1,5 @@
 # kchiu6-bjwong3-ayxu2
-Final Project
-nice
+This is the final project for Kyle Chiu, Brandon Wong, and Anthony Xu. This program uses the openflights data to be used for needed airports for airlines, shortest distance from one airport to another, and a breadth first search of the entire airport graph. 
 
 ## Build Instructions
 Make sure you are in the same folder as the `Makefile`. Run `make`. Once it finishes, it should produce an executable named `final_project`. Run this program by running `./final_project` in the terminal. 
