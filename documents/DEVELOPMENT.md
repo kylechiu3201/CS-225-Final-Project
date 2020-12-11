@@ -19,4 +19,4 @@ what's wrong with the implementation of Tarjan's algorithm inspired by
 GeeksForGeeks, he did not figure out why it wasn't working but it's okay since
 he made a very good effort. Brandon finished testing the BFS traversal alongside implementing functions to export the traversal in to a text file.
 ## 12/11/2020: 
-We finished the final versions of all the code and formatted each file. Kyle created doxygen documentation for the files.
+We finished the final versions of all the code and formatted each file, and also edited the README.md to meet the requirements. Kyle created doxygen documentation for the files.
