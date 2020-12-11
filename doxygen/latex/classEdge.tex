@@ -1,0 +1,167 @@
+\hypertarget{classEdge}{}\doxysection{Edge Class Reference}
+\label{classEdge}\index{Edge@{Edge}}
+
+
+{\ttfamily \#include $<$edge.\+h$>$}
+
+
+
+Collaboration diagram for Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=138pt]{classEdge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEdge_aa14f406ba9fce62efb9eed7e89d1d9d5}{Edge}} (\mbox{\hyperlink{classAirport}{Vertex}} u, \mbox{\hyperlink{classAirport}{Vertex}} v)
+\item 
+\mbox{\hyperlink{classEdge_a94686ecfbf52d3c38976e5f5ead3e006}{Edge}} (\mbox{\hyperlink{classAirport}{Vertex}} u, \mbox{\hyperlink{classAirport}{Vertex}} v, string lbl)
+\item 
+\mbox{\hyperlink{classEdge_abe8c647873a2b98378a7edaf5d23ea26}{Edge}} (\mbox{\hyperlink{classAirport}{Vertex}} u, \mbox{\hyperlink{classAirport}{Vertex}} v, double w, string lbl)
+\item 
+\mbox{\hyperlink{classEdge_a3106b11d60125009dbf7a738ce540fdf}{Edge}} ()
+\item 
+bool \mbox{\hyperlink{classEdge_ab6a06c5da57efed1991960f61e870c8b}{operator$<$}} (const \mbox{\hyperlink{classEdge}{Edge}} \&other) const
+\item 
+string \mbox{\hyperlink{classEdge_a7aaf5a50c5768e06015e60e3f0bbbec3}{get\+Label}} () const
+\item 
+double \mbox{\hyperlink{classEdge_a1caaffca117bab3ff5b7387623a356f8}{get\+Weight}} () const
+\item 
+bool \mbox{\hyperlink{classEdge_a8aac4dd9e059b08f912a55e4088fa997}{operator==}} (\mbox{\hyperlink{classEdge}{Edge}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAirport}{Vertex}} \mbox{\hyperlink{classEdge_a7d414269470d1b77d53d2cfef70056ca}{source}}
+\item 
+\mbox{\hyperlink{classAirport}{Vertex}} \mbox{\hyperlink{classEdge_ae8dbce3b105457b6b394e4d7e3d60a44}{dest}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an edge in a graph; used by the \mbox{\hyperlink{classGraph}{Graph}} class.
+
+\begin{DoxyAuthor}{Author}
+Sean Massung 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Spring 2012 
+\end{DoxyDate}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEdge_aa14f406ba9fce62efb9eed7e89d1d9d5}\label{classEdge_aa14f406ba9fce62efb9eed7e89d1d9d5}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Vertex}}}]{u,  }\item[{\mbox{\hyperlink{classAirport}{Vertex}}}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Parameter constructor for unweighted graphs. 
+\begin{DoxyParams}{Parameters}
+{\em u} & -\/ one vertex the edge is connected to \\
+\hline
+{\em v} & -\/ the other vertex it is connected to \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEdge_a94686ecfbf52d3c38976e5f5ead3e006}\label{classEdge_a94686ecfbf52d3c38976e5f5ead3e006}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Vertex}}}]{u,  }\item[{\mbox{\hyperlink{classAirport}{Vertex}}}]{v,  }\item[{string}]{lbl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Parameter constructor for unweighted graphs. 
+\begin{DoxyParams}{Parameters}
+{\em u} & -\/ one vertex the edge is connected to \\
+\hline
+{\em v} & -\/ the other vertex it is connected to \\
+\hline
+{\em lbl} & -\/ the edge label \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEdge_abe8c647873a2b98378a7edaf5d23ea26}\label{classEdge_abe8c647873a2b98378a7edaf5d23ea26}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Vertex}}}]{u,  }\item[{\mbox{\hyperlink{classAirport}{Vertex}}}]{v,  }\item[{double}]{w,  }\item[{string}]{lbl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Parameter constructor for weighted graphs. 
+\begin{DoxyParams}{Parameters}
+{\em u} & -\/ one vertex the edge is connected to \\
+\hline
+{\em v} & -\/ the other vertex it is connected to \\
+\hline
+{\em w} & -\/ the weight of the edge \\
+\hline
+{\em lbl} & -\/ the edge label \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEdge_a3106b11d60125009dbf7a738ce540fdf}\label{classEdge_a3106b11d60125009dbf7a738ce540fdf}} 
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Edge\+::\+Edge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default constructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEdge_a7aaf5a50c5768e06015e60e3f0bbbec3}\label{classEdge_a7aaf5a50c5768e06015e60e3f0bbbec3}} 
+\index{Edge@{Edge}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getLabel()}{getLabel()}}
+{\footnotesize\ttfamily string Edge\+::get\+Label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets edge label. \mbox{\Hypertarget{classEdge_a1caaffca117bab3ff5b7387623a356f8}\label{classEdge_a1caaffca117bab3ff5b7387623a356f8}} 
+\index{Edge@{Edge}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily double Edge\+::get\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets edge weight. \mbox{\Hypertarget{classEdge_ab6a06c5da57efed1991960f61e870c8b}\label{classEdge_ab6a06c5da57efed1991960f61e870c8b}} 
+\index{Edge@{Edge}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Edge\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classEdge}{Edge}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compares two Edges. operator$<$ is defined so Edges can be sorted with std\+::sort. 
+\begin{DoxyParams}{Parameters}
+{\em other} & -\/ the edge to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the current edge is less than the parameter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEdge_a8aac4dd9e059b08f912a55e4088fa997}\label{classEdge_a8aac4dd9e059b08f912a55e4088fa997}} 
+\index{Edge@{Edge}!operator==@{operator==}}
+\index{operator==@{operator==}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Edge\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEdge}{Edge}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compares two edges\textquotesingle{} source and dest. 
+\begin{DoxyParams}{Parameters}
+{\em other} & -\/ the edge to compare with \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEdge_ae8dbce3b105457b6b394e4d7e3d60a44}\label{classEdge_ae8dbce3b105457b6b394e4d7e3d60a44}} 
+\index{Edge@{Edge}!dest@{dest}}
+\index{dest@{dest}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{dest}{dest}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirport}{Vertex}} Edge\+::dest}
+
+The destination of the edge \mbox{\Hypertarget{classEdge_a7d414269470d1b77d53d2cfef70056ca}\label{classEdge_a7d414269470d1b77d53d2cfef70056ca}} 
+\index{Edge@{Edge}!source@{source}}
+\index{source@{source}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{source}{source}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAirport}{Vertex}} Edge\+::source}
+
+The source of the edge 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+graph/\mbox{\hyperlink{edge_8h}{edge.\+h}}\end{DoxyCompactItemize}

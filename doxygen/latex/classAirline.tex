@@ -1,0 +1,219 @@
+\hypertarget{classAirline}{}\doxysection{Airline Class Reference}
+\label{classAirline}\index{Airline@{Airline}}
+
+
+\mbox{\hyperlink{classAirline}{Airline}} class for the airline data.  
+
+
+
+
+{\ttfamily \#include $<$airline.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAirline_a2e6766b5e3a4e3106062c710740a2a32}\label{classAirline_a2e6766b5e3a4e3106062c710740a2a32}} 
+\mbox{\hyperlink{classAirline_a2e6766b5e3a4e3106062c710740a2a32}{Airline}} ()
+\begin{DoxyCompactList}\small\item\em Constructor for default \mbox{\hyperlink{classAirline}{Airline}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAirline_a1da96883543850e32dcc33448a780fc2}{Airline}} (int ID, std\+::string name, std\+::string I\+A\+TA, std\+::string I\+C\+AO, std\+::string country)
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classAirline}{Airline}} object with the given parameters. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classAirline_a30886eeae1e57b8644a767df166fdca3}{get\+\_\+\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Gets the ID of the airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_aea0fccfd6050bcce23ae36034ab5de9d}{get\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the name of the airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_a25a2e59a6f91694b09b4d0bd330da8d6}{get\+\_\+\+I\+A\+TA}} () const
+\begin{DoxyCompactList}\small\item\em Gets the I\+A\+TA code of the airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_a74b819156a01f55fe9d49c86cf2f37ab}{get\+\_\+\+I\+C\+AO}} () const
+\begin{DoxyCompactList}\small\item\em Gets the I\+C\+AO code of the airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirline_abb870fe3dedfd9b98dda5c8785411d4d}{get\+\_\+country}} () const
+\begin{DoxyCompactList}\small\item\em Gets the country of the airline. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAirline_acd8da01493f52feb651b6368eced7e43}{operator$>$}} (const \mbox{\hyperlink{classAirline}{Airline}} \&a) const
+\begin{DoxyCompactList}\small\item\em Compares if the current airline $>$ the chosen airline. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAirline_accd359188347ebdd03b1f8366e772e66}{operator$<$}} (const \mbox{\hyperlink{classAirline}{Airline}} \&a) const
+\begin{DoxyCompactList}\small\item\em Compares if the current airline $<$ the chosen airline. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAirline_a83d780dc61f34056b2854c988aeb6ae9}{operator==}} (const \mbox{\hyperlink{classAirline}{Airline}} \&a) const
+\begin{DoxyCompactList}\small\item\em Compares if the current airline == the chosen airline. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \mbox{\hyperlink{classAirline_a628c6d9a2b51bfcd12c07224b53a83c5}{operator$<$$<$}} (ostream \&out, const \mbox{\hyperlink{classAirline}{Airline}} \&obj)
+\begin{DoxyCompactList}\small\item\em Formats \mbox{\hyperlink{classAirline}{Airline}} data for easier output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classAirline}{Airline}} class for the airline data. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAirline_a1da96883543850e32dcc33448a780fc2}\label{classAirline_a1da96883543850e32dcc33448a780fc2}} 
+\index{Airline@{Airline}!Airline@{Airline}}
+\index{Airline@{Airline}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{Airline()}{Airline()}}
+{\footnotesize\ttfamily Airline\+::\+Airline (\begin{DoxyParamCaption}\item[{int}]{ID,  }\item[{std\+::string}]{name,  }\item[{std\+::string}]{I\+A\+TA,  }\item[{std\+::string}]{I\+C\+AO,  }\item[{std\+::string}]{country }\end{DoxyParamCaption})}
+
+
+
+Constructor for \mbox{\hyperlink{classAirline}{Airline}} object with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ID} & The ID of the airline \\
+\hline
+{\em name} & The name of the airline \\
+\hline
+{\em I\+A\+TA} & The I\+A\+TA code of the airline \\
+\hline
+{\em I\+C\+AO} & The I\+C\+AO code of the airline \\
+\hline
+{\em country} & The country of the airline \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAirline_abb870fe3dedfd9b98dda5c8785411d4d}\label{classAirline_abb870fe3dedfd9b98dda5c8785411d4d}} 
+\index{Airline@{Airline}!get\_country@{get\_country}}
+\index{get\_country@{get\_country}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{get\_country()}{get\_country()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+\_\+country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the country of the airline. 
+
+\begin{DoxyReturn}{Returns}
+The country of the airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_a25a2e59a6f91694b09b4d0bd330da8d6}\label{classAirline_a25a2e59a6f91694b09b4d0bd330da8d6}} 
+\index{Airline@{Airline}!get\_IATA@{get\_IATA}}
+\index{get\_IATA@{get\_IATA}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{get\_IATA()}{get\_IATA()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+\_\+\+I\+A\+TA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the I\+A\+TA code of the airline. 
+
+\begin{DoxyReturn}{Returns}
+The I\+A\+TA code of the airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_a74b819156a01f55fe9d49c86cf2f37ab}\label{classAirline_a74b819156a01f55fe9d49c86cf2f37ab}} 
+\index{Airline@{Airline}!get\_ICAO@{get\_ICAO}}
+\index{get\_ICAO@{get\_ICAO}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{get\_ICAO()}{get\_ICAO()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+\_\+\+I\+C\+AO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the I\+C\+AO code of the airline. 
+
+\begin{DoxyReturn}{Returns}
+The I\+C\+AO code of the airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_a30886eeae1e57b8644a767df166fdca3}\label{classAirline_a30886eeae1e57b8644a767df166fdca3}} 
+\index{Airline@{Airline}!get\_ID@{get\_ID}}
+\index{get\_ID@{get\_ID}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{get\_ID()}{get\_ID()}}
+{\footnotesize\ttfamily int Airline\+::get\+\_\+\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the ID of the airline. 
+
+\begin{DoxyReturn}{Returns}
+The ID of the airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_aea0fccfd6050bcce23ae36034ab5de9d}\label{classAirline_aea0fccfd6050bcce23ae36034ab5de9d}} 
+\index{Airline@{Airline}!get\_name@{get\_name}}
+\index{get\_name@{get\_name}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
+{\footnotesize\ttfamily std\+::string Airline\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the name of the airline. 
+
+\begin{DoxyReturn}{Returns}
+The name of the airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_accd359188347ebdd03b1f8366e772e66}\label{classAirline_accd359188347ebdd03b1f8366e772e66}} 
+\index{Airline@{Airline}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Airline\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAirline}{Airline}} \&}]{a }\end{DoxyParamCaption}) const}
+
+
+
+Compares if the current airline $<$ the chosen airline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The chosen airline\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the current airline $<$ the chosen airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_a83d780dc61f34056b2854c988aeb6ae9}\label{classAirline_a83d780dc61f34056b2854c988aeb6ae9}} 
+\index{Airline@{Airline}!operator==@{operator==}}
+\index{operator==@{operator==}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Airline\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAirline}{Airline}} \&}]{a }\end{DoxyParamCaption}) const}
+
+
+
+Compares if the current airline == the chosen airline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The chosen airline\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the current airline == the chosen airline 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirline_acd8da01493f52feb651b6368eced7e43}\label{classAirline_acd8da01493f52feb651b6368eced7e43}} 
+\index{Airline@{Airline}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Airline\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classAirline}{Airline}} \&}]{a }\end{DoxyParamCaption}) const}
+
+
+
+Compares if the current airline $>$ the chosen airline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The chosen airline\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If the current airline $>$ the chosen airline 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classAirline_a628c6d9a2b51bfcd12c07224b53a83c5}\label{classAirline_a628c6d9a2b51bfcd12c07224b53a83c5}} 
+\index{Airline@{Airline}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Airline@{Airline}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{ostream \&}]{out,  }\item[{const \mbox{\hyperlink{classAirline}{Airline}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Formats \mbox{\hyperlink{classAirline}{Airline}} data for easier output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & The stream to output to \\
+\hline
+{\em obj} & The \mbox{\hyperlink{classAirline}{Airline}} object to output\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The outputted stream 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+airline/airline.\+h\end{DoxyCompactItemize}

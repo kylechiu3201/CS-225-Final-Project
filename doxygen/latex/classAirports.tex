@@ -1,0 +1,317 @@
+\hypertarget{classAirports}{}\doxysection{Airports Class Reference}
+\label{classAirports}\index{Airports@{Airports}}
+
+
+\mbox{\hyperlink{classAirports}{Airports}} class with graph algorithms for the graph of the airport and route data.  
+
+
+
+
+{\ttfamily \#include $<$airports.\+h$>$}
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structAirports_1_1dijkstras__graph}{dijkstras\+\_\+graph}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAirports_acddd4e0844de9718621bcb65c2bbd923}{Airports}} (std\+::string filename, std\+::string fileair, std\+::string fileroute)
+\begin{DoxyCompactList}\small\item\em Creates an \mbox{\hyperlink{classAirports}{Airports}} object with the given parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAirports_ad9aeeb8a73d5c121e66aeec55211e44c}{bfs}} (\mbox{\hyperlink{classAirport}{Vertex}} v, vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$ \&path)
+\begin{DoxyCompactList}\small\item\em Helper function for \mbox{\hyperlink{classAirports_a4c7801db9d9d030694896b7ace7e4d62}{bfs()}} \end{DoxyCompactList}\item 
+vector$<$ vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$ $>$ \mbox{\hyperlink{classAirports_a4c7801db9d9d030694896b7ace7e4d62}{bfs}} ()
+\begin{DoxyCompactList}\small\item\em Performs a breadth first search on the \mbox{\hyperlink{classAirport}{Airport}} graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAirports_ab64e235519e96fbfd58ae6045f088b0f}{bfs\+\_\+to\+\_\+text}} (vector$<$ vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$$>$ v)
+\begin{DoxyCompactList}\small\item\em Exports the breadth first search to a text file. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classAirport}{Airport}} $>$ \mbox{\hyperlink{classAirports_a6ab5d68cc26c5b201000fc20d8f08679}{shortest\+\_\+path}} (std\+::string B)
+\begin{DoxyCompactList}\small\item\em Gets the shortest path from one airport to another. \end{DoxyCompactList}\item 
+long double \mbox{\hyperlink{classAirports_a65496328754ac42865e74d3ae5e75e57}{shortest\+\_\+dist}} (std\+::string B)
+\begin{DoxyCompactList}\small\item\em Gets the shortest distance from one airport to another. \end{DoxyCompactList}\item 
+vector$<$ int $>$ \mbox{\hyperlink{classAirports_a598a4a8033e662d576043e0fa1b461ea}{create\+\_\+dijkstras}} (std\+::string A)
+\begin{DoxyCompactList}\small\item\em Sets up Dijkstra\textquotesingle{}s algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAirports_aa2e942d705f14dd5d43161977de8a17f}{shortest\+\_\+to\+\_\+text}} (std\+::string B)
+\begin{DoxyCompactList}\small\item\em Exports the shortest path data to a text file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGraph}{Graph}} \& \mbox{\hyperlink{classAirports_a09e694ebcac791327c5969d744359bb0}{get\+\_\+graph}} ()
+\begin{DoxyCompactList}\small\item\em Gets the current airport graph. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$ \mbox{\hyperlink{classAirports_a2a336ca779e3c392aab21a9837d5223b}{get\+Vertices}} ()
+\begin{DoxyCompactList}\small\item\em Gets all vertices in the airport graph. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{classEdge}{Edge}} $>$ \mbox{\hyperlink{classAirports_a03f8769b03be0ad9e3d86b7e2e363904}{get\+Edges}} ()
+\begin{DoxyCompactList}\small\item\em Gets all edges in the airport graph. \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ int, \mbox{\hyperlink{classAirport}{Airport}} $>$ \mbox{\hyperlink{classAirports_a048b54cb44483f4829f67d236d0509e6}{get\+\_\+id\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em Gets the map from I\+Ds to \mbox{\hyperlink{classAirport}{Airport}} objects. \end{DoxyCompactList}\item 
+unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classAirport}{Airport}} $>$ \mbox{\hyperlink{classAirports_a7129e22c60acf8b8e79da7eef9959886}{get\+\_\+port\+\_\+map}} ()
+\begin{DoxyCompactList}\small\item\em Gets the map from I\+A\+T\+A/\+I\+C\+AO to \mbox{\hyperlink{classAirport}{Airport}} objects. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirports_a3aad12a8519830591aaf6cb6311ca4bc}{airlines\+Added}} (std\+::string airline)
+\begin{DoxyCompactList}\small\item\em Gets a chosen/all airlines for strongly connected components with an in-\/degree of zero. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$ $>$ \mbox{\hyperlink{classAirports_a1e6394edcd3de2004e3b4b60cbebb434}{get\+Strongly\+Connected}} (std\+::string airline)
+\begin{DoxyCompactList}\small\item\em Gets the strongly connected components with an in-\/degree of zero of the given airline. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAirports_aa51338d2d41bc643c2e1a6c7dfd34b0d}{export\+Strongly\+Connected}} (map$<$ \mbox{\hyperlink{classAirline}{Airline}}, vector$<$ vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$$>$$>$ scc)
+\begin{DoxyCompactList}\small\item\em Exports the strongly connected data to a text file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classAirports}{Airports}} class with graph algorithms for the graph of the airport and route data. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAirports_acddd4e0844de9718621bcb65c2bbd923}\label{classAirports_acddd4e0844de9718621bcb65c2bbd923}} 
+\index{Airports@{Airports}!Airports@{Airports}}
+\index{Airports@{Airports}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{Airports()}{Airports()}}
+{\footnotesize\ttfamily Airports\+::\+Airports (\begin{DoxyParamCaption}\item[{std\+::string}]{filename,  }\item[{std\+::string}]{fileair,  }\item[{std\+::string}]{fileroute }\end{DoxyParamCaption})}
+
+
+
+Creates an \mbox{\hyperlink{classAirports}{Airports}} object with the given parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The path of the file for airport data \\
+\hline
+{\em fileair} & The path of the file for airline data \\
+\hline
+{\em fileroute} & The path of the file for route data \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAirports_a3aad12a8519830591aaf6cb6311ca4bc}\label{classAirports_a3aad12a8519830591aaf6cb6311ca4bc}} 
+\index{Airports@{Airports}!airlinesAdded@{airlinesAdded}}
+\index{airlinesAdded@{airlinesAdded}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{airlinesAdded()}{airlinesAdded()}}
+{\footnotesize\ttfamily std\+::string Airports\+::airlines\+Added (\begin{DoxyParamCaption}\item[{std\+::string}]{airline }\end{DoxyParamCaption})}
+
+
+
+Gets a chosen/all airlines for strongly connected components with an in-\/degree of zero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airline} & Either the I\+A\+T\+A/\+I\+C\+AO of the chosen airline or an string that indicates that the user wants all airlines\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the file with the exported data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a4c7801db9d9d030694896b7ace7e4d62}\label{classAirports_a4c7801db9d9d030694896b7ace7e4d62}} 
+\index{Airports@{Airports}!bfs@{bfs}}
+\index{bfs@{bfs}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily vector$<$vector$<$\mbox{\hyperlink{classAirport}{Vertex}}$>$ $>$ Airports\+::bfs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Performs a breadth first search on the \mbox{\hyperlink{classAirport}{Airport}} graph. 
+
+\begin{DoxyReturn}{Returns}
+The vector of the breadth first search 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_ad9aeeb8a73d5c121e66aeec55211e44c}\label{classAirports_ad9aeeb8a73d5c121e66aeec55211e44c}} 
+\index{Airports@{Airports}!bfs@{bfs}}
+\index{bfs@{bfs}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Airports\+::bfs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAirport}{Vertex}}}]{v,  }\item[{vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$ \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Helper function for \mbox{\hyperlink{classAirports_a4c7801db9d9d030694896b7ace7e4d62}{bfs()}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The current Vertex \\
+\hline
+{\em path} & The path of the search \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirports_ab64e235519e96fbfd58ae6045f088b0f}\label{classAirports_ab64e235519e96fbfd58ae6045f088b0f}} 
+\index{Airports@{Airports}!bfs\_to\_text@{bfs\_to\_text}}
+\index{bfs\_to\_text@{bfs\_to\_text}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{bfs\_to\_text()}{bfs\_to\_text()}}
+{\footnotesize\ttfamily void Airports\+::bfs\+\_\+to\+\_\+text (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$$>$}]{v }\end{DoxyParamCaption})}
+
+
+
+Exports the breadth first search to a text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & The breadth first search vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAirports_a598a4a8033e662d576043e0fa1b461ea}\label{classAirports_a598a4a8033e662d576043e0fa1b461ea}} 
+\index{Airports@{Airports}!create\_dijkstras@{create\_dijkstras}}
+\index{create\_dijkstras@{create\_dijkstras}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{create\_dijkstras()}{create\_dijkstras()}}
+{\footnotesize\ttfamily vector$<$int$>$ Airports\+::create\+\_\+dijkstras (\begin{DoxyParamCaption}\item[{std\+::string}]{A }\end{DoxyParamCaption})}
+
+
+
+Sets up Dijkstra\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The name of the starting airport\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of the airport I\+Ds 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_aa51338d2d41bc643c2e1a6c7dfd34b0d}\label{classAirports_aa51338d2d41bc643c2e1a6c7dfd34b0d}} 
+\index{Airports@{Airports}!exportStronglyConnected@{exportStronglyConnected}}
+\index{exportStronglyConnected@{exportStronglyConnected}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{exportStronglyConnected()}{exportStronglyConnected()}}
+{\footnotesize\ttfamily std\+::string Airports\+::export\+Strongly\+Connected (\begin{DoxyParamCaption}\item[{map$<$ \mbox{\hyperlink{classAirline}{Airline}}, vector$<$ vector$<$ \mbox{\hyperlink{classAirport}{Vertex}} $>$$>$$>$}]{scc }\end{DoxyParamCaption})}
+
+
+
+Exports the strongly connected data to a text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scc} & A map of Airlines to its respective vector of strongly connected components\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The name of the file with the exported data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a09e694ebcac791327c5969d744359bb0}\label{classAirports_a09e694ebcac791327c5969d744359bb0}} 
+\index{Airports@{Airports}!get\_graph@{get\_graph}}
+\index{get\_graph@{get\_graph}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{get\_graph()}{get\_graph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classGraph}{Graph}}\& Airports\+::get\+\_\+graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the current airport graph. 
+
+\begin{DoxyReturn}{Returns}
+The current airport graph 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a048b54cb44483f4829f67d236d0509e6}\label{classAirports_a048b54cb44483f4829f67d236d0509e6}} 
+\index{Airports@{Airports}!get\_id\_map@{get\_id\_map}}
+\index{get\_id\_map@{get\_id\_map}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{get\_id\_map()}{get\_id\_map()}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$int, \mbox{\hyperlink{classAirport}{Airport}}$>$ Airports\+::get\+\_\+id\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the map from I\+Ds to \mbox{\hyperlink{classAirport}{Airport}} objects. 
+
+\begin{DoxyReturn}{Returns}
+The map from I\+Ds to \mbox{\hyperlink{classAirport}{Airport}} objects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a7129e22c60acf8b8e79da7eef9959886}\label{classAirports_a7129e22c60acf8b8e79da7eef9959886}} 
+\index{Airports@{Airports}!get\_port\_map@{get\_port\_map}}
+\index{get\_port\_map@{get\_port\_map}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{get\_port\_map()}{get\_port\_map()}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$std\+::string, \mbox{\hyperlink{classAirport}{Airport}}$>$ Airports\+::get\+\_\+port\+\_\+map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the map from I\+A\+T\+A/\+I\+C\+AO to \mbox{\hyperlink{classAirport}{Airport}} objects. 
+
+\begin{DoxyReturn}{Returns}
+The map from I\+A\+T\+A/\+I\+C\+AO to \mbox{\hyperlink{classAirport}{Airport}} objects 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a03f8769b03be0ad9e3d86b7e2e363904}\label{classAirports_a03f8769b03be0ad9e3d86b7e2e363904}} 
+\index{Airports@{Airports}!getEdges@{getEdges}}
+\index{getEdges@{getEdges}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{getEdges()}{getEdges()}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classEdge}{Edge}}$>$ Airports\+::get\+Edges (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets all edges in the airport graph. 
+
+\begin{DoxyReturn}{Returns}
+The vector of all edges in the airport graph 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a1e6394edcd3de2004e3b4b60cbebb434}\label{classAirports_a1e6394edcd3de2004e3b4b60cbebb434}} 
+\index{Airports@{Airports}!getStronglyConnected@{getStronglyConnected}}
+\index{getStronglyConnected@{getStronglyConnected}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{getStronglyConnected()}{getStronglyConnected()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{classAirport}{Vertex}}$>$ $>$ Airports\+::get\+Strongly\+Connected (\begin{DoxyParamCaption}\item[{std\+::string}]{airline }\end{DoxyParamCaption})}
+
+
+
+Gets the strongly connected components with an in-\/degree of zero of the given airline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airline} & The I\+A\+T\+A/\+I\+C\+AO of the chosen airline\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of the strongly connected components with an in-\/degree of zero 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a2a336ca779e3c392aab21a9837d5223b}\label{classAirports_a2a336ca779e3c392aab21a9837d5223b}} 
+\index{Airports@{Airports}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{getVertices()}{getVertices()}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classAirport}{Vertex}}$>$ Airports\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets all vertices in the airport graph. 
+
+\begin{DoxyReturn}{Returns}
+The vector of all vertices in the airport graph 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a65496328754ac42865e74d3ae5e75e57}\label{classAirports_a65496328754ac42865e74d3ae5e75e57}} 
+\index{Airports@{Airports}!shortest\_dist@{shortest\_dist}}
+\index{shortest\_dist@{shortest\_dist}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{shortest\_dist()}{shortest\_dist()}}
+{\footnotesize\ttfamily long double Airports\+::shortest\+\_\+dist (\begin{DoxyParamCaption}\item[{std\+::string}]{B }\end{DoxyParamCaption})}
+
+
+
+Gets the shortest distance from one airport to another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em B} & The name of the airport\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance from one airport to another 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_a6ab5d68cc26c5b201000fc20d8f08679}\label{classAirports_a6ab5d68cc26c5b201000fc20d8f08679}} 
+\index{Airports@{Airports}!shortest\_path@{shortest\_path}}
+\index{shortest\_path@{shortest\_path}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{shortest\_path()}{shortest\_path()}}
+{\footnotesize\ttfamily vector$<$\mbox{\hyperlink{classAirport}{Airport}}$>$ Airports\+::shortest\+\_\+path (\begin{DoxyParamCaption}\item[{std\+::string}]{B }\end{DoxyParamCaption})}
+
+
+
+Gets the shortest path from one airport to another. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em B} & The name of the airport\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The vector of the vertices in the path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classAirports_aa2e942d705f14dd5d43161977de8a17f}\label{classAirports_aa2e942d705f14dd5d43161977de8a17f}} 
+\index{Airports@{Airports}!shortest\_to\_text@{shortest\_to\_text}}
+\index{shortest\_to\_text@{shortest\_to\_text}!Airports@{Airports}}
+\doxysubsubsection{\texorpdfstring{shortest\_to\_text()}{shortest\_to\_text()}}
+{\footnotesize\ttfamily void Airports\+::shortest\+\_\+to\+\_\+text (\begin{DoxyParamCaption}\item[{std\+::string}]{B }\end{DoxyParamCaption})}
+
+
+
+Exports the shortest path data to a text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em B} & The name of the airport \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+airports/airports.\+h\end{DoxyCompactItemize}
