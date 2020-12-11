@@ -80,7 +80,7 @@ TEST_CASE("test lat/long distance calculation") {
   REQUIRE(2.004 == Airport::get_distance(port1, port2, 'K'));
 }
 
-TEST_CASE("Correct fields for all vertices", "[weight=1][part=1]") {
+TEST_CASE("Correct fields for vertices", "[weight=1][part=1]") {
   Airports airports("data/testairports.dat", "data/testairlines.dat",
                     "data/testroutes.dat");
   vector<Vertex> vec = airports.getVertices();
@@ -100,8 +100,7 @@ TEST_CASE("Correct fields for all vertices", "[weight=1][part=1]") {
   double tol = 0.01;
   // REQUIRE((airports.get_graph().getEdgeWeight(vec[0],vec[1]) >= ans-tol) &&
   // (airports.get_graph().getEdgeWeight(vec[0],vec[1])<=ans+tol));
-  REQUIRE(
-      check_tol(ans, tol, airports.get_graph().getEdgeWeight(vec[0], vec[1])));
+  REQUIRE(check_tol(ans, tol, airports.get_graph().getEdgeWeight(vec[0], vec[1])));
 }
 
 TEST_CASE("dijkstras- no path available"){
@@ -152,6 +151,17 @@ TEST_CASE("dijkstras - takes shorter path"){
   REQUIRE(path[0].get_name()=="name 1");
   REQUIRE(path[1].get_name()=="name 4");
   REQUIRE(path[2].get_name()=="name 5");
+
+  Graph g = airports.get_graph();
+  double short_dist = g.getEdgeWeight(airports.get_port_map()["\"ONE\""],airports.get_port_map()["\"FOUR\""]) + 
+    g.getEdgeWeight(airports.get_port_map()["\"FOUR\""],airports.get_port_map()["\"FIVE\""]);
+  REQUIRE( short_dist==airports.shortest_dist("\"FIVE\""));
+
+  double long_dist = g.getEdgeWeight(airports.get_port_map()["\"ONEE\""],airports.get_port_map()["\"TWO\""]) + 
+    g.getEdgeWeight(airports.get_port_map()["\"TWO\""],airports.get_port_map()["\"THR\""]) + 
+    g.getEdgeWeight(airports.get_port_map()["\"THRE\""],airports.get_port_map()["\"FOU\""]) + 
+    g.getEdgeWeight(airports.get_port_map()["\"FOU\""],airports.get_port_map()["\"FIVE\""]);
+  REQUIRE(long_dist > short_dist);
 }
 
 TEST_CASE("dijkstras - checks node only if necessary (efficiency)"){
@@ -166,9 +176,9 @@ TEST_CASE("dijkstras - checks node only if necessary (efficiency)"){
   file << "UAL,1,ONEE,1,TEN,2,123,,0,jun" << std::endl;
   Airports airports("data/testairports.dat", "data/testairlines.dat", "data/dtest.dat");
   vector<int> check = airports.create_dijkstras("\"ONEE\"");
-  for(int x =0 ; x<(int)check.size();x++){
-    std::cout << check[x] << " ";
-  }
+  // for(int x =0 ; x<(int)check.size();x++){
+  //   std::cout << check[x] << " ";
+  // }
   REQUIRE(check.size()==6);
 }
 
