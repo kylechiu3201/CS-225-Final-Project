@@ -236,9 +236,9 @@ void Airports::shortest_to_text(std::string B){
   std::ofstream file("dijkstras.txt", std::ofstream::out | std::ofstream::trunc);
   vector<Airport> path_vector = shortest_path(B);
   int dist = shortest_dist(B);
-  if(path_vector.size()==1){
-    file << "Start: " << startingPort_ <<std::endl;
-    file << "End: " << path_vector[0] << std::endl;
+  if(path_vector.size()==1){ 
+    file << "Start: " << startingPort_.get_name() << "\",\"" << startingPort_.get_city() << "\",\"" << startingPort_.get_country() << "\""<<std::endl;
+    file << "End: " << path_vector[0].get_name() << "\",\"" << path_vector[0].get_city() << "\",\"" << path_vector[0].get_country() << "\""<<std::endl;
     dist = -1;
     file << "No Path Available";
     return;
@@ -246,10 +246,10 @@ void Airports::shortest_to_text(std::string B){
   file << "Start: ";
   for(unsigned x =0; x<path_vector.size();x++){
     if(x==path_vector.size()-1){
-      file << "End: " << path_vector[x] << std::endl;
+      file << "End: " << path_vector[x].get_name() << "\",\"" << path_vector[x].get_city() << "\",\"" << path_vector[x].get_country() << "\""<<std::endl;
     }
     else{
-      file << path_vector[x]  << std::endl;
+      file << path_vector[x].get_name() << "\",\"" << path_vector[x].get_city() << "\",\"" << path_vector[x].get_country() << "\""<<std::endl;
     }
   }
   file << "Total distance: ";
