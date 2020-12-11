@@ -13,18 +13,18 @@
 
 using std::vector;
 
-bool check_strong(vector<vector<std::string>> sol,
-                  vector<vector<std::string>> check) {
-  for (auto i : sol) std::sort(i.begin(), i.end());
-  for (auto i : check) std::sort(i.begin(), i.end());
-  std::sort(sol.begin(), sol.end());
-  std::sort(check.begin(), check.end());
-  for (unsigned i = 0; i < sol.size(); ++i) {
-    auto pos = find(sol[i].begin(), sol[i].end(), check[i]);
-    if (pos == sol[i].end()) return false;
-  }
-  return true;
-}
+// bool check_strong(vector<vector<std::string>> sol,
+//                   vector<vector<std::string>> check) {
+//   for (auto i : sol) std::sort(i.begin(), i.end());
+//   for (auto i : check) std::sort(i.begin(), i.end());
+//   std::sort(sol.begin(), sol.end());
+//   std::sort(check.begin(), check.end());
+//   for (unsigned i = 0; i < sol.size(); ++i) {
+//     auto pos = find(sol[i].begin(), sol[i].end(), check[i]);
+//     if (pos == sol[i].end()) return false;
+//   }
+//   return true;
+// }
 
 void printGraph(Airports airports) {
   // Vertices are fine
@@ -39,9 +39,15 @@ void printGraph(Airports airports) {
               << std::endl;
 }
 
-void to_text(Airports airports) {
-  std::ofstream file("small_file.txt", std::ofstream::out);
-  file << airports.get_id_map().size() << "\n";
+bool check_dup(vector<int> vec){
+  unordered_map<int, int> m;
+  for(auto ele :vec){
+    m[ele]++;
+    if(m[ele]==2){
+      return true;
+    }
+  }
+  return false;
 }
 
 bool check_tol(double ans, double tol, double calc) {
@@ -148,26 +154,54 @@ TEST_CASE("dijkstras - takes shorter path"){
   REQUIRE(path[2].get_name()=="name 5");
 }
 
-TEST_CASE("Correct vertices for vertices of strongly connected graph of an airline with no inbound edges", "[weight=1][part=1]") {
-  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/teststronglyroutes.dat");
-  /* Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat"); */
-  vector<vector<Vertex>> vec = airports.getStronglyConnected("\"EA\"");
-  /* for(auto i : airports.getEdges()) */
-  /*   std::cout << i.source.get_IATA() << " to " << i.dest.get_IATA() <<
-   * std::endl; */
-  /* for(auto i : vec) */
-  /*   std::cout << i.get_IATA() << std::endl; */
-
-  REQUIRE(vec.size() == 4);
-
-  vector<vector<std::string>> check;
-  for (auto i : vec) {
-    vector<std::string> temp;
-    for (auto j : i) temp.push_back(j.get_IATA());
-    check.push_back(temp);
+TEST_CASE("dijkstras - checks node only if necessary (efficiency)"){
+  std::ofstream file("data/dtest.dat", std::ofstream::out | std::ofstream::trunc);
+  file << "UAL,1,ONEE,1,TWO,2,123,,0,jun" << std::endl;
+  file << "UAL,1,TWO,1,ONEE,2,123,,0,jun" << std::endl;
+  file << "SW,2,TWO,2,THR,3,123,,0,jun"<< std::endl; 
+  file << "SW,2,THR,2,TWO,3,123,,0,jun"<< std::endl; 
+  file << "EVA,4,THRE,3,FOU,4,123,,0,jun" << std::endl;
+  file << "EVA,4,FOU,3,FIVE,4,123,,0,jun" << std::endl;
+  file << "UAL,1,ONEE,1,FOU,2,123,,0,jun" << std::endl;
+  file << "UAL,1,ONEE,1,TEN,2,123,,0,jun" << std::endl;
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/dtest.dat");
+  vector<int> check = airports.create_dijkstras("\"ONEE\"");
+  for(int x =0 ; x<(int)check.size();x++){
+    std::cout << check[x] << " ";
   }
-  vector<vector<std::string>> sol = {
-      {"ONE"}, {"THR", "FOU"}, {"FIV", "SIX"}, {"EIG", "NIN", "TEN"}, {"ELE"}};
-
-  REQUIRE(check_strong(sol, check));
+  REQUIRE(check.size()==6);
 }
+
+TEST_CASE("dijkstras - checks node each node once (efficiency)"){
+  Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat");
+  vector<int> check = airports.create_dijkstras("\"ONEE\"");
+  // for(int x =0 ; x<(int)check.size();x++){
+  //   std::cout << check[x] << " ";
+  // }
+  REQUIRE(check.size()==11);
+  REQUIRE(check_dup(check)==false);
+}
+
+// TEST_CASE("Correct vertices for vertices of strongly connected graph of an airline with no inbound edges", "[weight=1][part=1]") {
+//   Airports airports("data/testairports.dat", "data/testairlines.dat", "data/teststronglyroutes.dat");
+//   /* Airports airports("data/testairports.dat", "data/testairlines.dat", "data/testroutes.dat"); */
+//   vector<vector<Vertex>> vec = airports.getStronglyConnected("\"EA\"");
+//   /* for(auto i : airports.getEdges()) */
+//   /*   std::cout << i.source.get_IATA() << " to " << i.dest.get_IATA() <<
+//    * std::endl; */
+//   /* for(auto i : vec) */
+//   /*   std::cout << i.get_IATA() << std::endl; */
+
+//   REQUIRE(vec.size() == 4);
+
+//   vector<vector<std::string>> check;
+//   for (auto i : vec) {
+//     vector<std::string> temp;
+//     for (auto j : i) temp.push_back(j.get_IATA());
+//     check.push_back(temp);
+//   }
+//   vector<vector<std::string>> sol = {
+//       {"ONE"}, {"THR", "FOU"}, {"FIV", "SIX"}, {"EIG", "NIN", "TEN"}, {"ELE"}};
+
+//   REQUIRE(check_strong(sol, check));
+// }

@@ -257,10 +257,12 @@ void Airports::shortest_to_text(std::string B){
   file << " km";
 }
 
-void Airports::create_dijkstras(std::string A) {
+vector<int> Airports::create_dijkstras(std::string A) {
   // cin somewhere and set starting airport
   // also figure out what to return::: shortest distance between two airports +
   // path to get there?
+  //int pop_count = 0;
+  vector<int> pop_vec;
   startingPort_ = port_map[A];
   Airport a = port_map[A];
   int start_id = a.get_port_ID();
@@ -284,7 +286,8 @@ void Airports::create_dijkstras(std::string A) {
     int u = pq.top().second;  // current airport id
     pq.pop();
     visited.insert(u);
-
+    //pop_count++;
+    pop_vec.push_back(u);
     //d_graph.graph.insertVertex(id_map[u]);
     vector<Vertex> vert = g_.getAdjacent(id_map[u]);
     for (int x = 0; x < (int)vert.size(); x++) {
@@ -300,8 +303,10 @@ void Airports::create_dijkstras(std::string A) {
       }
     }
   }
+  //pop_vec.push_back(pop_count);
   d_graph.distances = distance;
   d_graph.parents = parent;
+  return pop_vec;
 }
 
 // Gets all strongly connected components with an in-degree of zero

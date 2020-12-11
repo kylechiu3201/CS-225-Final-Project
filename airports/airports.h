@@ -33,7 +33,7 @@ class Airports {
 
   vector<Airport> shortest_path(std::string B);
   long double shortest_dist(std::string B);
-  void create_dijkstras(std::string A);
+  vector<int> create_dijkstras(std::string A);
   void shortest_to_text(std::string B);
 
   Graph& get_graph();
