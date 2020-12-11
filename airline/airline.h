@@ -1,59 +1,108 @@
 #pragma once
+
 #include <iostream>
 #include <string>
 
 using std::ostream;
 
+/**
+ * @brief Airline class for the airline data
+ */
 class Airline {
  public:
-  // Creates an empty Airline object with all default values
+  /**
+   * @brief Constructor for default Airline object
+   */
   Airline();
 
-  // Creates an Airline object with the given parameter values
+  /**
+   * @brief Constructor for Airline object with the given parameters
+   *
+   * @param ID The ID of the airline
+   * @param name The name of the airline
+   * @param IATA The IATA code of the airline
+   * @param ICAO The ICAO code of the airline
+   * @param country The country of the airline
+   */
   Airline(int ID, std::string name, std::string IATA, std::string ICAO,
           std::string country);
 
-  // Returns the Airline ID
+  /**
+   * @brief Gets the ID of the airline
+   *
+   * @return  The ID of the airline
+   */
   int get_ID();
 
-  // Returns the Airline name
+  /**
+   * @brief Gets the name of the airline
+   *
+   * @return The name of the airline
+   */
   std::string get_name() const;
 
-  // Returns the Airline IATA
+  /**
+   * @brief Gets the IATA code of the airline
+   *
+   * @return The IATA code of the airline
+   */
   std::string get_IATA() const;
 
-  // Returns the Airline ICAO
+  /**
+   * @brief Gets the ICAO code of the airline
+   *
+   * @return The ICAO code of the airline
+   */
   std::string get_ICAO() const;
 
-  // Returns the Airline country
+  /**
+   * @brief Gets the country of the airline
+   *
+   * @return The country of the airline
+   */
   std::string get_country() const;
 
-  // Compares the IATA/ICAO of the Airline for operator>
+  /**
+   * @brief Compares if the current airline > the chosen airline
+   *
+   * @param a The chosen airline
+   *
+   * @return If the current airline > the chosen airline
+   */
   bool operator>(const Airline& a) const;
 
-  // Compares the IATA/ICAO of the Airline for operator<
+  /**
+   * @brief Compares if the current airline < the chosen airline
+   *
+   * @param a The chosen airline
+   *
+   * @return If the current airline < the chosen airline
+   */
   bool operator<(const Airline& a) const;
 
-  // Compares the IATA/ICAO of the Airline for operator==
+  /**
+   * @brief Compares if the current airline == the chosen airline
+   *
+   * @param a The chosen airline
+   *
+   * @return If the current airline == the chosen airline
+   */
   bool operator==(const Airline& a) const;
 
  private:
-  // Instance variables
-  // The ID of the airline
   int ID_;
-
-  // The name of the airline
   std::string name_;
-
-  // The IATA code of the airline
   std::string IATA_;
-
-  // The ICAO code of the airline
   std::string ICAO_;
-
-  // The country of the airline
   std::string country_;
 
-  // Overloads << for easier output of the data
+  /**
+   * @brief Formats Airline data for easier output
+   *
+   * @param out The stream to output to
+   * @param obj The Airline object to output
+   *
+   * @return The outputted stream
+   */
   friend ostream& operator<<(ostream& out, const Airline& obj);
 };

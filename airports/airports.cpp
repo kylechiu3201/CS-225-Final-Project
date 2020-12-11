@@ -1,7 +1,6 @@
 #include "airports.h"
 
 #include <stdlib.h>
-
 #include <algorithm>
 #include <fstream>
 #include <functional>
