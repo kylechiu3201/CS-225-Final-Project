@@ -2,7 +2,8 @@
 This is the final project for Kyle Chiu, Brandon Wong, and Anthony Xu. <br/>This program uses the openflights data to be used for getting needed airports for airlines, shortest distance from one airport to another, and a breadth first search of the entire airport graph. 
 
 ## Build Instructions
-Make sure you are in the same folder as the `Makefile`. Run `make`. Once it finishes, it should produce an executable named `final_project`. Run this program by running `./final_project` in the terminal. 
+Make sure you are in the same folder as the `Makefile`. Run `make clean` to ensure that no junk files are left over. After, run `make` to compile the program. Once it finishes, it should produce an executable named `final_project`. Run this program by running `./final_project` in the terminal. <br/>
+Alternatively, if you want to build and run our tests, run `make clean` to get rid of any junk files (this will also delete any executables, including the "final_project" executable). Then run `make test` to create the test executable, which you can run with `./test` in the terminal.
 
 ## How To Use
 ### Loading Data
