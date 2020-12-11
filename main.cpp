@@ -111,15 +111,15 @@ int main() {
 
     }
 
-    else if (command == "bfs"){
+    else if (command == "bfs") {
       vector<vector<Vertex>> b = airports.bfs();
-      for(unsigned x = 0; x < b.size(); x++){
-    std::cout << "BFS " << x+1 << ":" << std::endl;
-    for(unsigned y = 0; y < b[x].size(); y++){
-      std::cout << b[x][y] << std::endl;
-    }
-    std::cout << std::endl;
-  }
+      for (unsigned x = 0; x < b.size(); x++) {
+        std::cout << "BFS " << x + 1 << ":" << std::endl;
+        for (unsigned y = 0; y < b[x].size(); y++) {
+          std::cout << b[x][y] << std::endl;
+        }
+        std::cout << std::endl;
+      }
       airports.bfs_to_text(b);
     }
 
