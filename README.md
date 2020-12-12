@@ -17,7 +17,9 @@ These two commands basically do the exact same thing, except `airlineNeeded` get
 
 #### shortestDist
 This function finds the shortest path and distance between two airports using dijkstras algorithm. First, the user inputs a starting airport based on its IACO/IATA code, which will build the dijkstras graph. Then the user will input the destination airport which will output the shortest path of airports and shortest distance in kilometers into "dijkstra.txt". The user can choose to continue inputting destination airports or input "back" to go back to the function menu.
+
 #### bfs
+This function prints out a list of airports that makes up the full path traversal following the BFS algorithm on to the terminal starting from the first airport defined in the data set, distinguishing which airports are connected and which ones aren't. It will then export the path into "BFS.txt" and return to the function menu.
 
 #### exit
 Simply exits the program. 
