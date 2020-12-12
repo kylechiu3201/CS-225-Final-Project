@@ -1,6 +1,6 @@
 # Results
 ## The Data
-The breadth first search data is available in `REPLACE WITH FILE NAME OF BFS DATA`. The shortest path data is available in `REPLACE WITH FILE NAME OF SHORTEST PATH DATA`. The strongly connected components data is available in `allAirlinesNeeded.txt`. 
+The breadth first search data is available in `REPLACE WITH FILE NAME OF BFS DATA`. The shortest path data is available in `dijkstras.txt`. The strongly connected components data is available in `allAirlinesNeeded.txt`. 
 ## Outcome Of Project
 SOMEONE SUMMARIZE OUTCOME HERE (results were fine besides the Tarjan's hiccup, my in-degree of zero thing worked fine though)
 ## Discoveries Made
