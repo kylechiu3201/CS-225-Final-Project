@@ -266,6 +266,7 @@ TEST_CASE("BFS - Traverses the whole graph with the correct path") {
   file << "SW,2,EIG,8,NINE,9,123,,0,jun" << std::endl;
   file << "SW,2,NINE,9,TEN,10,123,,0,jun" << std::endl;
   file << "SW,2,TEN,10,ELE,11,123,,0,jun" << std::endl;
+  file << "SW,2,ELE,11,TWO,2,123,,0,jun" << std::endl;
 
   Airports airports("data/testairports.dat", "data/testairlines.dat",
                     "data/bfstest.dat");
