@@ -16,7 +16,7 @@ What does "needed airport" mean? Every airline is available at different airport
 These two commands basically do the exact same thing, except `airlineNeeded` gets all the needed airports for a user-chosen airline, and `allNeeded` gets all the needed airports for every single airline given in the data file. The results of the data will be exported to a text file (file name will be printed in terminal). 
 
 #### shortestDist
-
+This function finds the shortest path and distance between two airports using dijkstras algorithm. First, the user inputs a starting airport based on its IACO/IATA code, which will build the dijkstras graph. Then the user will input the destination airport which will output the shortest path of airports and shortest distance in kilometers into "dijkstra.txt".
 #### bfs
 
 #### exit
